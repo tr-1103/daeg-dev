@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="daeg.dev">
+  <rect width="32" height="32" rx="7" fill="#111418"/>
+  <text x="6" y="22.5" font-family="Geist, Inter, -apple-system, system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="-1" fill="#ffffff">d</text>
+  <circle cx="22" cy="20" r="3" fill="#0a8f5c"/>
+</svg>
