@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>法人向けAI設計業務 — 業務をAIで再設計する | DAEG.DEV</title>
+  <meta name="description" content="中小企業・士業向けに、業務AI化コンサル／社員AI研修／自動化ツール開発／HP・LP制作を提供。教育力×実装力で、業務の反復をAIに移植します。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://daeg.dev/business/" />
+
+  <meta property="og:title" content="法人向けAI設計業務 — 業務をAIで再設計する" />
+  <meta property="og:description" content="中小企業・士業向けに、業務AI化コンサル／社員AI研修／自動化ツール開発を提供。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daeg.dev/business/" />
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    /* ========== Business LP local styles ========== */
+    .lp-section { padding: 96px 0; border-top: 1px solid var(--border); }
+    .lp-section:first-of-type { border-top: 0; }
+    .lp-label { font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.35; letter-spacing: -.01em; margin-bottom: 24px; color: var(--text); }
+    .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.5; margin-bottom: 16px; color: var(--text); }
+    .lp-lead { font-family: var(--font-jp); font-size: 17px; line-height: 1.9; color: var(--text-sub); max-width: 720px; }
+    .lp-prose { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 760px; }
+    .lp-prose p + p { margin-top: 1.4em; }
+    .lp-divider { width: 56px; height: 2px; background: var(--border-strong); margin: 40px 0; border: 0; }
+
+    /* Hero */
+    .lp-hero { padding: 140px 0 96px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); }
+    .lp-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 24px; }
+    .lp-hero-tag .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(36px, 6vw, 60px); line-height: 1.25; letter-spacing: -.015em; color: var(--text); margin-bottom: 32px; }
+    .lp-hero-h1 span { display: block; }
+    .lp-hero-h1 span:last-child { color: var(--green); }
+    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 500; color: var(--text-sub); margin-bottom: 24px; }
+    .lp-hero-lead { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 640px; margin-bottom: 40px; }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 16px; transition: background .2s var(--ease), transform .2s var(--ease); }
+    .lp-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .lp-cta.is-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+    .lp-cta.is-ghost:hover { background: var(--bg-tint); }
+
+    /* Service cards */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+    .svc { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+    .svc:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .svc-tag { display: inline-block; font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--green); font-weight: 600; padding: 4px 10px; background: var(--bg-tint); border-radius: 999px; margin-bottom: 16px; }
+    .svc-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 22px; margin-bottom: 12px; color: var(--text); }
+    .svc-desc { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text-sub); margin-bottom: 20px; }
+    .svc-points { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
+    .svc-points li { padding-left: 20px; position: relative; }
+    .svc-points li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .svc-price { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); padding-top: 16px; border-top: 1px solid var(--border); }
+    .svc-price strong { font-family: var(--font-en); font-size: 18px; color: var(--text); font-weight: 600; }
+
+    /* Process steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 720px) { .steps { grid-template-columns: 1fr 1fr; } }
+    .step { padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    .step-num { font-family: var(--font-en); font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text); }
+    .step-desc { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+
+    /* Case studies */
+    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
+    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .case-industry { font-family: var(--font-en); font-size: 11px; letter-spacing: .12em; color: var(--green); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
+    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; margin-bottom: 12px; color: var(--text); }
+    .case-result { font-family: var(--font-jp); font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+    .case-result strong { color: var(--green); font-family: var(--font-en); font-size: 16px; }
+
+    /* Reasons */
+    .reasons { display: grid; gap: 32px; margin-top: 32px; max-width: 800px; }
+    .reason { padding-left: 56px; position: relative; }
+    .reason-num { position: absolute; left: 0; top: 0; font-family: var(--font-en); font-weight: 700; font-size: 32px; color: var(--green); line-height: 1; }
+    .reason h4 { font-family: "Noto Serif JP", serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 15px; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 12px; padding-left: 28px; position: relative; }
+    .faq-q::before { content: "Q."; position: absolute; left: 0; color: var(--green); font-family: var(--font-en); font-weight: 700; }
+    .faq-a { font-family: var(--font-jp); color: var(--text-sub); font-size: 15px; line-height: 1.9; padding-left: 28px; position: relative; }
+    .faq-a::before { content: "A."; position: absolute; left: 0; color: var(--text-mute); font-family: var(--font-en); font-weight: 700; }
+
+    /* Final CTA */
+    .lp-final { background: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 120px 0; }
+    .lp-final .lp-h2 { color: #fff; }
+    .lp-final p { font-family: var(--font-jp); color: var(--footer-text); font-size: 17px; line-height: 2; max-width: 620px; margin: 0 auto 32px; }
+    .lp-final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; margin-top: 32px; }
+    .lp-final ul { display: inline-block; text-align: left; font-family: var(--font-jp); color: var(--footer-text); margin: 24px 0; line-height: 2; }
+  </style>
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo" aria-label="DAEG.DEV ホームへ">
+        <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
+      </a>
+      <nav class="header-nav" aria-label="法人サービス内ナビ">
+        <a href="#services">サービス</a>
+        <a href="#process">進め方</a>
+        <a href="#cases">事例</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">無料相談</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="lp-hero">
+      <div class="container">
+        <p class="lp-hero-tag"><span class="dot"></span>FOR BUSINESS — 法人向けAI設計業務</p>
+        <h1 class="lp-hero-h1">
+          <span>反復業務を、</span>
+          <span>AIに移植する。</span>
+        </h1>
+        <p class="lp-hero-sub">中小企業・士業のためのAI設計業務。</p>
+        <p class="lp-hero-lead">
+          見積書、請求書、メール、報告書、議事録、契約書 ──<br />
+          毎日の "売上にならない反復業務" を、AIで再設計します。<br />
+          教員10年の伝える力と、AI開発の実装力で、<br />
+          ヒアリングから実装・社員定着までを一気通貫で。
+        </p>
+        <div class="lp-hero-ctas">
+          <a href="#contact" class="lp-cta">30分の無料相談を予約 →</a>
+          <a href="#services" class="lp-cta is-ghost">サービス一覧を見る ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ サービス一覧 ============ -->
+    <section class="lp-section" id="services">
+      <div class="container">
+        <p class="lp-label">SERVICES — 提供サービス</p>
+        <h2 class="lp-h2">4つの領域で、業務を再設計します。</h2>
+        <p class="lp-lead">単発のスポットから、月額顧問契約まで。組織規模・課題感に合わせて柔軟に組み合わせます。</p>
+
+        <div class="services-grid">
+          <article class="svc">
+            <span class="svc-tag">CONSULT</span>
+            <h3 class="svc-name">AI業務効率化コンサル</h3>
+            <p class="svc-desc">業務棚卸し → AI化候補の特定 → 優先順位設計 → 実装・定着まで伴走。月20時間以上の業務削減を狙います。</p>
+            <ul class="svc-points">
+              <li>業務フロー分析・AI化マップ作成</li>
+              <li>プロンプト・運用ルールの社内標準化</li>
+              <li>月次レビュー＋改善サイクル運営</li>
+            </ul>
+            <p class="svc-price">月額顧問 <strong>¥200,000〜</strong>／月（3ヶ月〜）</p>
+          </article>
+
+          <article class="svc">
+            <span class="svc-tag">DEVELOPMENT</span>
+            <h3 class="svc-name">自動化ツール開発</h3>
+            <p class="svc-desc">チャットボット、業務自動化スクリプト、社内専用GPTツールなどを設計・実装。"使われない自動化" にならないよう、現場ヒアリング込みで作ります。</p>
+            <ul class="svc-points">
+              <li>顧客対応チャットボット（LINE／Web）</li>
+              <li>経理・受発注・問い合わせの自動化</li>
+              <li>社内ナレッジAIアシスタント</li>
+            </ul>
+            <p class="svc-price">プロジェクト <strong>¥300,000〜¥1,000,000</strong>（要件次第）</p>
+          </article>
+
+          <article class="svc">
+            <span class="svc-tag">TRAINING</span>
+            <h3 class="svc-name">社員向けAI研修</h3>
+            <p class="svc-desc">1day〜3dayの集合研修。教員10年の現場経験を活かし、ITが苦手な社員でも "翌日から使える" 状態に持っていきます。</p>
+            <ul class="svc-points">
+              <li>業種別カスタマイズの研修プログラム</li>
+              <li>役職別（経営層／管理職／実務）レイヤー設計</li>
+              <li>研修後30日の質問対応フォロー込み</li>
+            </ul>
+            <p class="svc-price">1day <strong>¥500,000〜</strong>／3day <strong>¥1,500,000〜</strong></p>
+          </article>
+
+          <article class="svc">
+            <span class="svc-tag">WEB</span>
+            <h3 class="svc-name">HP・LP制作</h3>
+            <p class="svc-desc">採用ページ、サービスLP、コーポレートサイトをAI活用で短納期・低コストで実装。デザインから運用ルールまでセットでお渡しします。</p>
+            <ul class="svc-points">
+              <li>採用LP／サービスLP／コーポレートサイト</li>
+              <li>原稿AI生成 + 人間ライティングの併用</li>
+              <li>納品後の更新運用ガイドライン込み</li>
+            </ul>
+            <p class="svc-price">1サイト <strong>¥400,000〜</strong>（規模次第）</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 進め方 ============ -->
+    <section class="lp-section" id="process" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">PROCESS — 進め方</p>
+        <h2 class="lp-h2">4ステップで、進めます。</h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-name">無料相談（30分）</div>
+            <div class="step-desc">課題感ヒアリング／AI化余地の即時診断／適切なサービス提案</div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-name">業務棚卸し</div>
+            <div class="step-desc">現状業務の見える化／AI化候補の特定／優先順位とROI試算</div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-name">設計・実装</div>
+            <div class="step-desc">プロンプト・運用ルール作成／ツール開発／研修実施</div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-name">定着・改善</div>
+            <div class="step-desc">月次レビュー／効果測定／改善サイクル運営</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 選ばれる理由 ============ -->
+    <section class="lp-section">
+      <div class="container">
+        <p class="lp-label">WHY US — 選ばれる理由</p>
+        <h2 class="lp-h2">なぜ、私たちが選ばれるのか。</h2>
+
+        <div class="reasons">
+          <div class="reason">
+            <div class="reason-num">01</div>
+            <h4>"現場で使われる" AIだけを設計します</h4>
+            <p>導入したのに誰も使わない、というSI型コンサル的な失敗は、私たちが最も嫌うところです。業務棚卸しを必ず最初に挟み、現場の手触りに合わせて設計します。</p>
+          </div>
+          <div class="reason">
+            <div class="reason-num">02</div>
+            <h4>教員10年の "伝える力" で、ITが苦手な社員も置き去りにしません</h4>
+            <p>マニュアルを読まない・専門用語に拒絶反応のある現場でも、教えるプロが介在することで定着率が大きく変わります。</p>
+          </div>
+          <div class="reason">
+            <div class="reason-num">03</div>
+            <h4>開発と運用が、同じ人の手で完結します</h4>
+            <p>外注のレイヤーが積み重なる大手ベンダーではなく、設計から実装・運用まで同じ顔の人間が責任を持ちます。意思決定が早く、修正が柔軟です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 事例 ============ -->
+    <section class="lp-section" id="cases" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">CASES — 実装事例</p>
+        <h2 class="lp-h2">こんな業務を、AIに移植してきました。</h2>
+
+        <div class="cases">
+          <article class="case">
+            <p class="case-industry">建材販売・中小企業</p>
+            <p class="case-title">請求書フローの自動化</p>
+            <p class="case-result">手作業の見積→請求→入金管理を一気通貫で自動化。<br /><strong>月20時間削減</strong>／請求漏れゼロを実現。</p>
+          </article>
+          <article class="case">
+            <p class="case-industry">士業事務所</p>
+            <p class="case-title">顧客対応チャットボット</p>
+            <p class="case-result">よくある質問のLINE一次対応をAI化。<br /><strong>問い合わせ初動 平均48h→3h</strong>に短縮。</p>
+          </article>
+          <article class="case">
+            <p class="case-industry">教育系企業</p>
+            <p class="case-title">社員向けAI研修（1day×3部）</p>
+            <p class="case-result">全社員30名にChatGPT実務活用を指導。<br /><strong>研修後30日で社内利用率92%</strong>を達成。</p>
+          </article>
+        </div>
+
+        <p class="lp-prose" style="margin-top: 32px;">
+          ※ 守秘義務の関係で社名は伏せています。詳細は無料相談時にお見せできる範囲でご案内します。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="lp-section" id="faq">
+      <div class="container">
+        <p class="lp-label">FAQ</p>
+        <h2 class="lp-h2">よくいただく質問。</h2>
+
+        <div style="max-width: 760px; margin-top: 32px;">
+          <div class="faq-item">
+            <p class="faq-q">うちの会社にAIを導入する余地があるか、まず相談だけでも可能ですか？</p>
+            <p class="faq-a">はい、30分の無料相談で「AI化余地マップ」を即時にお見せします。導入が時期尚早と判断した場合は、その旨を率直にお伝えします。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">社員にITリテラシーがバラついているのですが、研修は対応できますか？</p>
+            <p class="faq-a">教員10年で多様な学習者に対応してきた経験を活かし、役職別・スキル別にレイヤー分けして設計します。研修後30日の質問対応も込みです。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">既存システム（freee／Slack／kintone等）との連携は可能ですか？</p>
+            <p class="faq-a">主要SaaSとの連携は対応可能です。具体的な連携要件は、無料相談時にヒアリングさせてください。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">IT導入補助金などを使えますか？</p>
+            <p class="faq-a">2026年度のデジタル化・AI導入補助金（最大450万円・小規模事業者は補助率4/5）が活用できる可能性があります。IT導入支援事業者との連携でサポート可能です。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">対応エリアはどこまでですか？</p>
+            <p class="faq-a">オンライン（Zoom）対応で全国対応しています。研修等は、関東圏中心に出張対応も可能です。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">契約期間の縛りはありますか？</p>
+            <p class="faq-a">月額顧問は3ヶ月から、開発プロジェクトは個別見積です。スポット研修や単発開発も承ります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 申込 ============ -->
+    <section class="lp-section lp-final" id="contact">
+      <div class="container">
+        <p class="lp-label" style="color: var(--green); display: block;">GET IN TOUCH</p>
+        <h2 class="lp-h2">まずは、30分の無料相談から。</h2>
+        <p>
+          御社のAI化余地を可視化する初回診断は、無料です。<br />
+          オンライン（Zoom）・営業電話なし。
+        </p>
+
+        <ul>
+          <li>✓ 業務フローのヒアリング</li>
+          <li>✓ AI化余地マップの即時提示</li>
+          <li>✓ 最適なサービス・補助金活用のご案内</li>
+          <li>✓ "今、導入すべきかどうか" を率直にお伝えします</li>
+        </ul>
+
+        <div style="margin-top: 40px;">
+          <a href="https://forms.gle/jE252ufo3rpbmPwk8" target="_blank" rel="noopener" class="lp-cta">30分の無料相談を予約する →</a>
+        </div>
+
+        <p class="lp-final-note">
+          ※ 守秘義務契約（NDA）の事前締結も可能です。<br />
+          ※ 不向きと判断した場合は丁寧にお断りします。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="../" class="logo logo-footer">
+          <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
+        </a>
+        <p class="footer-jp">業務をAIで設計し、時間と仕組みを返す。それが、AI設計業務です。</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 DAEG.DEV — AI設計業務</p>
+        <ul class="footer-links">
+          <li><a href="../">トップへ戻る</a></li>
+          <li><a href="../program/">個人向けプログラム</a></li>
+          <li><a href="../legal/tokushoho.html">特定商取引法</a></li>
+          <li><a href="../legal/privacy.html">プライバシー</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

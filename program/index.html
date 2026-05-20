@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>業務AI化伴走プログラム — 売上にならない50時間を、売上行動の50時間に。 | DAEG.DEV</title>
+  <meta name="description" content="コーチ・講師業のひとり社長の月50時間を、売上にならない時間から売上行動の時間に振り替える業務AI化伴走。SNS投稿・LINE公式・LP・経理事務を月2回マンツーマンで設計します。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://daeg.dev/program/" />
+
+  <!-- OG -->
+  <meta property="og:title" content="業務AI化伴走プログラム — 売上にならない50時間を、売上行動の50時間に。" />
+  <meta property="og:description" content="コーチ・講師業のひとり社長の月50時間を、売上行動の時間に振り替える業務AI化伴走。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daeg.dev/program/" />
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    /* ========== Program LP local styles ========== */
+    .lp-section { padding: 96px 0; border-top: 1px solid var(--border); }
+    .lp-section:first-of-type { border-top: 0; }
+    .lp-label { font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.35; letter-spacing: -.01em; margin-bottom: 24px; color: var(--text); }
+    .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.5; margin-bottom: 16px; color: var(--text); }
+    .lp-lead { font-family: var(--font-jp); font-size: 17px; line-height: 1.9; color: var(--text-sub); max-width: 720px; }
+    .lp-prose { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 760px; }
+    .lp-prose p + p { margin-top: 1.4em; }
+    .lp-quote { font-family: var(--font-jp); font-size: 18px; font-weight: 500; color: var(--green); border-left: 3px solid var(--green); padding: 4px 0 4px 16px; margin: 24px 0; line-height: 1.7; }
+    .lp-divider { width: 56px; height: 2px; background: var(--border-strong); margin: 40px 0; border: 0; }
+
+    /* Hero */
+    .lp-hero { padding: 140px 0 96px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); }
+    .lp-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 24px; }
+    .lp-hero-tag .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(36px, 6vw, 64px); line-height: 1.25; letter-spacing: -.015em; color: var(--text); margin-bottom: 32px; }
+    .lp-hero-h1 span { display: block; }
+    .lp-hero-h1 span:last-child { color: var(--green); }
+    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 500; color: var(--text-sub); margin-bottom: 24px; }
+    .lp-hero-lead { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 640px; margin-bottom: 16px; }
+    .lp-hero-note { font-family: var(--font-jp); font-size: 14px; color: var(--text-mute); margin-bottom: 40px; }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 16px; transition: background .2s var(--ease), transform .2s var(--ease); }
+    .lp-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .lp-cta.is-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+    .lp-cta.is-ghost:hover { background: var(--bg-tint); }
+
+    /* Pain section */
+    .lp-pain { background: var(--bg-soft); }
+    .lp-pain-block { max-width: 680px; }
+    .lp-pain-block + .lp-pain-block { margin-top: 56px; padding-top: 56px; border-top: 1px dashed var(--border); }
+    .lp-pain-time { font-family: var(--font-en); font-size: 13px; color: var(--green); letter-spacing: .1em; font-weight: 600; margin-bottom: 12px; }
+
+    /* Funnel diagram */
+    .funnel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
+    @media (max-width: 720px) { .funnel { grid-template-columns: repeat(2, 1fr); } }
+    .funnel-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .funnel-icon { font-size: 28px; margin-bottom: 8px; }
+    .funnel-role { font-family: var(--font-en); font-size: 11px; color: var(--green); letter-spacing: .15em; font-weight: 600; margin-bottom: 6px; }
+    .funnel-name { font-family: var(--font-jp); font-weight: 700; font-size: 16px; color: var(--text); }
+    .curriculum { display: grid; grid-template-columns: 80px 1fr; gap: 16px 24px; margin-top: 32px; }
+    .curriculum dt { font-family: var(--font-en); font-weight: 600; color: var(--green); padding-top: 4px; }
+    .curriculum dd { font-family: var(--font-jp); margin: 0; line-height: 1.8; }
+    .curriculum dd strong { color: var(--text); }
+    .curriculum dd small { color: var(--text-sub); font-size: 14px; display: block; margin-top: 4px; }
+
+    /* Tables */
+    .lp-table-wrap { overflow-x: auto; margin: 24px 0; }
+    .lp-table { width: 100%; border-collapse: collapse; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .lp-table th, .lp-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); font-family: var(--font-jp); font-size: 15px; vertical-align: top; }
+    .lp-table thead th { background: var(--bg-tint); font-weight: 700; color: var(--text); font-size: 14px; }
+    .lp-table tr:last-child td { border-bottom: 0; }
+    .lp-table .num { font-family: var(--font-en); font-weight: 600; color: var(--green); }
+    .lp-table .total-row { background: var(--bg-tint); font-weight: 700; }
+
+    /* Compare table — highlight us */
+    .compare-table th:last-child, .compare-table td:last-child { background: rgba(10, 143, 92, 0.06); font-weight: 600; }
+
+    /* Plan cards */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; }
+    @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } }
+    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; position: relative; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+    .plan:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .plan.is-featured { border: 2px solid var(--green); transform: scale(1.02); }
+    .plan.is-featured:hover { transform: scale(1.02) translateY(-2px); }
+    .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-family: var(--font-jp); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px; letter-spacing: .05em; }
+    .plan-tier { font-family: var(--font-en); font-size: 12px; letter-spacing: .15em; color: var(--text-sub); font-weight: 600; margin-bottom: 8px; }
+    .plan-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 22px; margin-bottom: 16px; }
+    .plan-price { font-family: var(--font-en); font-size: 32px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .plan-price small { font-size: 14px; color: var(--text-sub); font-weight: 400; }
+    .plan-total { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-bottom: 24px; }
+    .plan-points { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-bottom: 24px; }
+    .plan-points li { padding-left: 20px; position: relative; }
+    .plan-points li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .plan-note { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); padding: 12px; background: var(--bg-tint); border-radius: var(--radius-sm); }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 12px; padding-left: 28px; position: relative; }
+    .faq-q::before { content: "Q."; position: absolute; left: 0; color: var(--green); font-family: var(--font-en); font-weight: 700; }
+    .faq-a { font-family: var(--font-jp); color: var(--text-sub); font-size: 15px; line-height: 1.9; padding-left: 28px; position: relative; }
+    .faq-a::before { content: "A."; position: absolute; left: 0; color: var(--text-mute); font-family: var(--font-en); font-weight: 700; }
+
+    /* Stance section */
+    .stance { background: var(--bg-tint); }
+    .stance-reasons { display: grid; gap: 32px; margin-top: 32px; max-width: 760px; }
+    .stance-reason { padding-left: 56px; position: relative; }
+    .stance-reason-num { position: absolute; left: 0; top: 0; font-family: var(--font-en); font-weight: 700; font-size: 32px; color: var(--green); line-height: 1; }
+    .stance-reason h4 { font-family: "Noto Serif JP", serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .stance-reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 15px; }
+
+    /* Final CTA */
+    .lp-final { background: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 120px 0; }
+    .lp-final .lp-h2 { color: #fff; }
+    .lp-final p { font-family: var(--font-jp); color: var(--footer-text); font-size: 17px; line-height: 2; max-width: 620px; margin: 0 auto 32px; }
+    .lp-final .lp-cta { background: var(--green); }
+    .lp-final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; margin-top: 32px; }
+    .lp-final ul { display: inline-block; text-align: left; font-family: var(--font-jp); color: var(--footer-text); margin: 24px 0; line-height: 2; }
+
+    /* Recruiting placeholder */
+    .recruit-placeholder { padding: 60px 24px; text-align: center; background: var(--bg-tint); border-radius: var(--radius); border: 1px dashed var(--border-strong); }
+    .recruit-placeholder p { font-family: var(--font-jp); color: var(--text-sub); margin-bottom: 16px; font-size: 15px; line-height: 1.9; }
+
+    .lp-note { font-family: var(--font-jp); font-size: 13px; color: var(--text-mute); margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo" aria-label="DAEG.DEV ホームへ">
+        <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
+      </a>
+      <nav class="header-nav" aria-label="プログラム内ナビ">
+        <a href="#program">プログラム</a>
+        <a href="#beforeafter">数字</a>
+        <a href="#plans">プラン</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">面談予約</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 01. HERO ============ -->
+    <section class="lp-hero">
+      <div class="container">
+        <p class="lp-hero-tag"><span class="dot"></span>FOR COACHES &amp; INSTRUCTORS — ひとり社長の業務AI化伴走</p>
+        <h1 class="lp-hero-h1">
+          <span>売上にならない50時間を、</span>
+          <span>売上行動の50時間に。</span>
+        </h1>
+        <p class="lp-hero-sub">月50時間創出の、AI設計プロ。</p>
+        <p class="lp-hero-lead">
+          コーチ・講師業のひとり社長の月50時間を、<br />
+          売上にならない時間から売上行動の時間に振り替える、<br />
+          6ヶ月の業務AI化伴走です。
+        </p>
+        <p class="lp-hero-note">
+          SNS投稿・LINE公式・LP・経理事務を、月2回マンツーマンで設計します。動画教材は配りません。
+        </p>
+        <div class="lp-hero-ctas">
+          <a href="#contact" class="lp-cta">30分だけ、話してみる →</a>
+          <a href="#program" class="lp-cta is-ghost">このプログラムを5分で知る ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02. 痛み代弁 ============ -->
+    <section class="lp-section lp-pain">
+      <div class="container">
+        <p class="lp-label">02 — 痛み代弁</p>
+        <h2 class="lp-h2">こんな夜、ありませんか。</h2>
+
+        <div class="lp-pain-block lp-prose">
+          <p class="lp-pain-time">— 金曜 23:00</p>
+          <p>やっと子供を寝かしつけて、"今日中にメルマガを書こう" と思った。</p>
+          <p>ChatGPTに5回プロンプトを打ち直して、出てきた60点の文章を、結局自分で書き直して。</p>
+          <p>寝るのは、1時15分。</p>
+          <p class="lp-quote">"私、ChatGPTでなんなの？"</p>
+          <p>そんな夜が、月に何回ありますか？</p>
+        </div>
+
+        <div class="lp-pain-block lp-prose">
+          <p class="lp-pain-time">— 朝 06:00</p>
+          <p>Instagramを開く。同業の◯◯さんが "年商1500万を達成しました" のリール。</p>
+          <p>胃の奥が、冷たくなる。</p>
+          <p class="lp-quote">"私の業務にハマってないのは、私のセンスがないのかな"</p>
+        </div>
+
+        <div class="lp-pain-block lp-prose">
+          <p class="lp-pain-time">— ある日の昼</p>
+          <p>AIスクールの広告が、また流れてくる。"副業初心者でも月100万"。</p>
+          <p>申込フォームを開いて、情報を入力して、送信ボタンの直前で、閉じた。</p>
+          <p>これで、4回目。</p>
+          <p class="lp-quote">"今度こそ騙されたら、もう終わる"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03. 解決の提示 ============ -->
+    <section class="lp-section">
+      <div class="container">
+        <p class="lp-label">03 — 解決の提示</p>
+        <h2 class="lp-h2">そのセンス、たぶん、関係ありません。</h2>
+
+        <div class="lp-prose">
+          <p>問題は、あなたではなく <strong>"設計"</strong> です。</p>
+          <p>ChatGPTは、思考の加速装置。触っただけでは、業務に落ちません。<br />"あなたの業務に合わせた使い方" を、誰かが横で一緒に組み立てる必要があります。</p>
+        </div>
+
+        <hr class="lp-divider" />
+
+        <h3 class="lp-h3">業務AI化伴走プログラム</h3>
+        <p class="lp-prose">
+          コーチ・講師業のひとり社長の月50時間を、<br />
+          売上にならない時間から、売上行動の時間に振り替える、<br />
+          6ヶ月のマンツーマン伴走です。
+        </p>
+        <p class="lp-prose" style="margin-top: 24px;">
+          月2回のマンツーマンで、あなたの SNS投稿・LINE公式・LP・経理事務を、AIで一つずつ仕込み直します。<br />
+          動画は配りません。横で一緒に手を動かします。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 04. 仕組み図解 ============ -->
+    <section class="lp-section" id="program" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">04 — メカニズム</p>
+        <h2 class="lp-h2">売上の流れは、4つの業務でつくる。</h2>
+
+        <div class="funnel">
+          <div class="funnel-item">
+            <div class="funnel-icon">🌊</div>
+            <div class="funnel-role">流入</div>
+            <div class="funnel-name">SNS投稿</div>
+          </div>
+          <div class="funnel-item">
+            <div class="funnel-icon">🤝</div>
+            <div class="funnel-role">信頼</div>
+            <div class="funnel-name">LINE公式</div>
+          </div>
+          <div class="funnel-item">
+            <div class="funnel-icon">💰</div>
+            <div class="funnel-role">販売</div>
+            <div class="funnel-name">LP・告知文</div>
+          </div>
+          <div class="funnel-item">
+            <div class="funnel-icon">⚙️</div>
+            <div class="funnel-role">基盤</div>
+            <div class="funnel-name">経理・事務</div>
+          </div>
+        </div>
+
+        <h3 class="lp-h3" style="margin-top: 56px;">6ヶ月で、4業務すべてを再設計します。</h3>
+        <dl class="curriculum">
+          <dt>月1</dt>
+          <dd>
+            <strong>SNS投稿の設計</strong>
+            <small>キャラに馴染む投稿の量産／月次運用カレンダー／あなた専用のプロンプト集</small>
+          </dd>
+          <dt>月2</dt>
+          <dd>
+            <strong>LINE公式の設計</strong>
+            <small>ステップ配信の構築／セグメント設計／リッチメッセージのAI化</small>
+          </dd>
+          <dt>月3</dt>
+          <dd>
+            <strong>中間レビュー</strong>
+            <small>業務AI化率の測定／後半計画調整</small>
+          </dd>
+          <dt>月4</dt>
+          <dd>
+            <strong>LP・告知文の設計</strong>
+            <small>コピー再設計／A/Bテスト案／CTAの最適化</small>
+          </dd>
+          <dt>月5</dt>
+          <dd>
+            <strong>経理・事務の自動化</strong>
+            <small>freee／Notion連携／請求書・領収書・契約書のテンプレ化</small>
+          </dd>
+          <dt>月6</dt>
+          <dd>
+            <strong>卒業・Before/After 測定</strong>
+            <small>成果ケーススタディ化／卒業生コミュニティ招待</small>
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ 05. Before/After ============ -->
+    <section class="lp-section" id="beforeafter">
+      <div class="container">
+        <p class="lp-label">05 — 約束する数字</p>
+        <h2 class="lp-h2">6ヶ月後、あなたの数字はこう変わります。</h2>
+
+        <div class="lp-table-wrap">
+          <table class="lp-table">
+            <thead>
+              <tr>
+                <th>業務</th>
+                <th>Before（現状）</th>
+                <th>After（6ヶ月後）</th>
+                <th>改善率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SNS投稿</td>
+                <td>投稿準備 週6h</td>
+                <td>週1.5h</td>
+                <td class="num">▲75%</td>
+              </tr>
+              <tr>
+                <td>LINE公式</td>
+                <td>開封率 30%／配信は手動</td>
+                <td>開封率 60%／ステップ自動化</td>
+                <td class="num">2倍／工数▲80%</td>
+              </tr>
+              <tr>
+                <td>LP・告知文</td>
+                <td>制作1本 40h／CV率 1.2%</td>
+                <td>制作1本 12h／CV率 2.5%</td>
+                <td class="num">工数▲70%／CV率2倍</td>
+              </tr>
+              <tr>
+                <td>経理・事務</td>
+                <td>月8h</td>
+                <td>月1h</td>
+                <td class="num">▲87%</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>合計効果</strong></td>
+                <td>月稼働 160h</td>
+                <td>月稼働 110h</td>
+                <td class="num"><strong>▲50h／月（約束する数値）</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="lp-divider" />
+
+        <h3 class="lp-h3">浮いた50時間を、売上行動の時間に。</h3>
+
+        <div class="lp-table-wrap">
+          <table class="lp-table">
+            <thead>
+              <tr>
+                <th>業務</th>
+                <th>削減時間</th>
+                <th>振り替え先（売上行動）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SNS投稿</td>
+                <td class="num">月18h</td>
+                <td>コンテンツ企画・既存メディア磨き込み</td>
+              </tr>
+              <tr>
+                <td>LINE公式</td>
+                <td class="num">月12h</td>
+                <td>既存クライアントケア・紹介依頼</td>
+              </tr>
+              <tr>
+                <td>LP・告知文</td>
+                <td class="num">月13h</td>
+                <td>新規面談・無料相談</td>
+              </tr>
+              <tr>
+                <td>経理・事務</td>
+                <td class="num">月7h</td>
+                <td>戦略時間・経営判断</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>合計</strong></td>
+                <td class="num"><strong>月50h</strong></td>
+                <td><strong>"売上をつくる活動" に集中投下</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="lp-prose" style="margin-top: 24px;">
+          "ただの時短" ではなく、<strong>"売上を生む活動の時間が4倍" に増えます。</strong>
+        </p>
+        <p class="lp-note">
+          その結果として、月商が60万→90万に伸びた事例もあります。<br />
+          ただし売上は副産物。本プログラムが約束するのは "時間の振り替え" です。<br />
+          ※数値はサービス立上げ前の暫定値。卒業生実績で随時更新します。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 06. 比較表 ============ -->
+    <section class="lp-section" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">06 — 違い</p>
+        <h2 class="lp-h2">私たちは、3つの選択肢から選ばれます。</h2>
+
+        <div class="lp-table-wrap">
+          <table class="lp-table compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>AIスクール</th>
+                <th>AIコンサル</th>
+                <th>業務AI化伴走</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>主な提供物</td>
+                <td>動画教材＋コミュニティ</td>
+                <td>戦略アドバイス</td>
+                <td>あなたの業務にAIを移植</td>
+              </tr>
+              <tr>
+                <td>形態</td>
+                <td>集団・録画</td>
+                <td>1on1（外側）</td>
+                <td>1on1（並走）</td>
+              </tr>
+              <tr>
+                <td>プロンプト</td>
+                <td>共通版を配布</td>
+                <td>ヒアリング中心</td>
+                <td>あなた専用を一緒に作る</td>
+              </tr>
+              <tr>
+                <td>価格（総額）</td>
+                <td>30〜80万円（買い切り）</td>
+                <td>60〜180万円（月10〜30万）</td>
+                <td>4.5〜48万円（6ヶ月）</td>
+              </tr>
+              <tr>
+                <td>成果保証</td>
+                <td>なし</td>
+                <td>なし</td>
+                <td>業務別KPI</td>
+              </tr>
+              <tr>
+                <td>業界の闇への<br />スタンス</td>
+                <td>沈黙</td>
+                <td>沈黙</td>
+                <td>構造で批判</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="lp-prose" style="margin-top: 24px;">
+          → "学ぶ" でも、"任せる" でもなく、<br />
+          　 <strong>"一緒に組み立てる"</strong> を選んでください。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 07. 卒業生の声 ============ -->
+    <section class="lp-section">
+      <div class="container">
+        <p class="lp-label">07 — 卒業生の声</p>
+        <h2 class="lp-h2">6ヶ月で、こう変わりました。</h2>
+
+        <div class="recruit-placeholder">
+          <p>
+            <strong>現在、第1期生を募集中です。</strong><br />
+            最初の3名は、事例公開合意付きでオファー価格（30%引き）でご案内します。<br />
+            6ヶ月後、あなたの数字が、ここに掲載されます。
+          </p>
+          <a href="#contact" class="lp-cta">第1期生として相談する →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08. 動画を売らない ============ -->
+    <section class="lp-section stance">
+      <div class="container">
+        <p class="lp-label">08 — スタンス</p>
+        <h2 class="lp-h2">一つだけ、約束していることがあります。</h2>
+        <h3 class="lp-h3">動画教材は、売りません。</h3>
+
+        <div class="stance-reasons">
+          <div class="stance-reason">
+            <div class="stance-reason-num">01</div>
+            <h4>動画では、あなたの業務に落ちないから。</h4>
+            <p>"ChatGPTの使い方" を学ぶことと、"あなたのメルマガを書ける状態になる" ことは、別の話です。動画はあくまで一般論で止まります。</p>
+          </div>
+          <div class="stance-reason">
+            <div class="stance-reason-num">02</div>
+            <h4>ひとりだと、続かないから。</h4>
+            <p>業務分解も、習慣化も、設計も、ひとりでは挫折します。必要なのは "教材" ではなく "横にいる人" です。</p>
+          </div>
+          <div class="stance-reason">
+            <div class="stance-reason-num">03</div>
+            <h4>50万のスクールに4回踏み止まったあなたを、また同じ場所に連れ戻したくないから。</h4>
+            <p>動画教材＋コミュニティ放置の構造は、業界の闇です。そこに加担するサービスは、作りません。</p>
+          </div>
+        </div>
+
+        <hr class="lp-divider" />
+
+        <p class="lp-prose">
+          代わりに、<br />
+          あなた専用の業務棚卸しシート、<br />
+          あなた専用のプロンプト集（30〜50本）、<br />
+          あなた専用の月次振り返りテンプレ<br />
+          を、一緒に作ります。
+        </p>
+        <p class="lp-prose" style="margin-top: 16px;">これだけです。</p>
+      </div>
+    </section>
+
+    <!-- ============ 09. プラン ============ -->
+    <section class="lp-section" id="plans">
+      <div class="container">
+        <p class="lp-label">09 — プラン</p>
+        <h2 class="lp-h2">あなたのステージに合わせて、3つから選べます。</h2>
+
+        <div class="plans">
+          <!-- Light -->
+          <article class="plan">
+            <p class="plan-tier">🥉 LIGHT</p>
+            <h3 class="plan-name">踏み出す</h3>
+            <p class="plan-price">¥15,000<small>／月</small></p>
+            <p class="plan-total">3ヶ月（総額¥45,000）</p>
+            <ul class="plan-points">
+              <li>1on1 月1回 × 60分</li>
+              <li>Slack質問無制限（週1返信）</li>
+              <li>業務棚卸し＋優先1業務に着手</li>
+              <li>共通版プロンプト集30本</li>
+            </ul>
+            <div class="plan-note">単月で試したい方へ。卒業時にスタンダードへの優待あり。</div>
+          </article>
+
+          <!-- Standard -->
+          <article class="plan is-featured">
+            <span class="plan-badge">一番選ばれているプラン</span>
+            <p class="plan-tier">🥈 STANDARD</p>
+            <h3 class="plan-name">再設計する</h3>
+            <p class="plan-price">¥40,000<small>／月</small></p>
+            <p class="plan-total">6ヶ月（総額¥240,000）</p>
+            <ul class="plan-points">
+              <li>1on1 月2回 × 60分</li>
+              <li>Slack無制限／緊急即応相談可</li>
+              <li>4業務すべてを6ヶ月で設計</li>
+              <li>専用カスタムプロンプト集 30〜50本</li>
+              <li>業務移植マップ／月次振り返りテンプレ</li>
+            </ul>
+            <div class="plan-note"><strong>成果保証：</strong>業務別KPIの2業務以上未達なら3ヶ月延長無料。</div>
+          </article>
+
+          <!-- Premium -->
+          <article class="plan">
+            <p class="plan-tier">🥇 PREMIUM</p>
+            <h3 class="plan-name">常駐主任</h3>
+            <p class="plan-price">¥80,000<small>／月</small></p>
+            <p class="plan-total">6ヶ月（総額¥480,000）</p>
+            <ul class="plan-points">
+              <li>1on1 月3回 × 60分</li>
+              <li>Slack 平日24時間以内レス保証</li>
+              <li>スタンダードの全部</li>
+              <li>自動化ツール開発1本実装（¥20万相当）</li>
+              <li>LP・LINE構築の一部代行</li>
+              <li>補助金活用相談／実名インタビュー記事化</li>
+            </ul>
+            <div class="plan-note">月商100万超／本気で売上倍にしたい上位層向け。</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. FAQ ============ -->
+    <section class="lp-section" id="faq" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">10 — FAQ</p>
+        <h2 class="lp-h2">よくいただく質問。</h2>
+
+        <div style="max-width: 760px; margin-top: 32px;">
+          <div class="faq-item">
+            <p class="faq-q">ChatGPTを使ったことがなくても大丈夫ですか？</p>
+            <p class="faq-a">月額プラン（ChatGPT Plus）の契約はお願いしますが、"使い方が分からない" 状態から入って大丈夫です。業務に落とすための設計から、一緒にやります。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">6ヶ月続けられる自信がありません。</p>
+            <p class="faq-a">だから "ひとりにしません"。月2回の1on1とSlackで、迷ったタイミングで横にいるのが私たちの仕事です。なお、業務別KPI未達なら3ヶ月延長無料です。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">高額AIスクールに何度か騙された経験があります。</p>
+            <p class="faq-a">何度も "申込ボタンを閉じた" 経験を持つ方が、私たちのお客様の8割です。まずは30分の個別面談で、"本当に違うのか" を直接ご確認ください。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">子育てや本業で、夜しか時間が取れません。</p>
+            <p class="faq-a">1on1の時間は、平日夜・週末で柔軟に組めます。ペルソナの多くが、夜の22時以降で動いている方です。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">私の業種（コーチ／講師業以外）でも対応できますか？</p>
+            <p class="faq-a">現在は、コーチ・講師業のひとり社長に集中しています。士業／個人EC等は、別途ご相談ください（タイミングによって対応可能です）。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">1on1はオンラインのみですか？</p>
+            <p class="faq-a">はい、Zoomでのオンラインのみです。全国対応・海外在住の方も受講できます。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">動画教材は本当にないんですか？</p>
+            <p class="faq-a">ありません。その代わり、あなた専用のプロンプト集と月次の振り返りテンプレを一緒に作ります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. 申込 ============ -->
+    <section class="lp-section lp-final" id="contact">
+      <div class="container">
+        <p class="lp-label" style="color: var(--green); display: block;">11 — GET IN TOUCH</p>
+        <h2 class="lp-h2">まずは、30分だけ。</h2>
+        <p>
+          申込ではなく、面談です。<br />
+          オンライン（Zoom）・無料・営業電話なし。
+        </p>
+
+        <ul>
+          <li>✓ 現在の業務／月商／使っているツールをヒアリング</li>
+          <li>✓ あなたの業務にAIをどう設計できるかご提案</li>
+          <li>✓ どのプランが合いそうかを相互確認</li>
+          <li>✓ "続けられそうか" を率直に話します</li>
+        </ul>
+
+        <p style="font-weight: 600; color: #fff;">
+          "踏み止まったら、踏み止まっていい面談" です。
+        </p>
+
+        <div style="margin-top: 40px;">
+          <a href="https://forms.gle/jE252ufo3rpbmPwk8" target="_blank" rel="noopener" class="lp-cta">30分の面談を予約する →</a>
+        </div>
+
+        <p class="lp-final-note">
+          ※ 営業電話・しつこい連絡は一切ありません。<br />
+          ※ 不向きと判断した場合は丁寧にお断りします。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="../" class="logo logo-footer">
+          <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
+        </a>
+        <p class="footer-jp">売上にならない時間を、売上行動の時間に。それは、ひとりで戦わない、という選択。</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 DAEG.DEV — 月50時間創出のAI設計プロ</p>
+        <ul class="footer-links">
+          <li><a href="../">トップへ戻る</a></li>
+          <li><a href="../legal/tokushoho.html">特定商取引法</a></li>
+          <li><a href="../legal/privacy.html">プライバシー</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
