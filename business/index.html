@@ -3,118 +3,211 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>法人向けAI設計業務 — 業務をAIで再設計する | DAEG.DEV</title>
-  <meta name="description" content="中小企業・士業向けに、業務AI化コンサル／社員AI研修／自動化ツール開発／HP・LP制作を提供。教育力×実装力で、業務の反復をAIに移植します。" />
+  <title>Excelと手作業の業務を、御社専用のシステムに｜ライフ（阿部）</title>
+  <meta name="description" content="台帳・顧客管理・日報・予約・請求・公式LINE。Excelと手作業で回している業務を、御社専用のシステムにして、月額で育てます。初期30万円〜＋月額2万円〜。ご相談から6〜8週間で稼働。設計から運用まで同じ人が担当します。" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://daeg.dev/business/" />
 
-  <meta property="og:title" content="法人向けAI設計業務 — 業務をAIで再設計する" />
-  <meta property="og:description" content="中小企業・士業向けに、業務AI化コンサル／社員AI研修／自動化ツール開発を提供。" />
+  <meta property="og:title" content="Excelと手作業の業務を、御社専用のシステムに｜ライフ（阿部）" />
+  <meta property="og:description" content="作って、月額で育てます。初期30万円〜＋月額2万円〜。ご相談から6〜8週間で稼働。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://daeg.dev/business/" />
+  <meta property="og:url" content="https://tr-1103.github.io/daeg-dev/business/" />
 
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../assets/style.css" />
 
   <style>
-    /* ========== Business LP local styles ========== */
-    .lp-section { padding: 96px 0; border-top: 1px solid var(--border); }
-    .lp-section:first-of-type { border-top: 0; }
+    /* ========== 法人向けLP（信用確認用）の固有スタイル ==========
+       構成はコンクルー（一言と料金を先に／御社に合う形の切り替え／事例／01〜03／作れるもの／料金／FAQ／下に貼り付く相談）、
+       見せ方はAddness（白地・中央寄せ・静か）。色と書体は assets/style.css の変数をそのまま使う */
+    .lp-section { padding: 88px 0; border-top: 1px solid var(--border); }
     .lp-label { font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
-    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.35; letter-spacing: -.01em; margin-bottom: 24px; color: var(--text); }
-    .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.5; margin-bottom: 16px; color: var(--text); }
+    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.4; letter-spacing: -.01em; margin-bottom: 18px; color: var(--text); text-wrap: balance; }
+    .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.5; margin-bottom: 12px; color: var(--text); }
     .lp-lead { font-family: var(--font-jp); font-size: 17px; line-height: 1.9; color: var(--text-sub); max-width: 720px; }
-    .lp-prose { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 760px; }
-    .lp-prose p + p { margin-top: 1.4em; }
-    .lp-divider { width: 56px; height: 2px; background: var(--border-strong); margin: 40px 0; border: 0; }
-
-    /* Hero */
-    .lp-hero { padding: 140px 0 96px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); }
-    .lp-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 24px; }
-    .lp-hero-tag .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(36px, 6vw, 60px); line-height: 1.25; letter-spacing: -.015em; color: var(--text); margin-bottom: 32px; }
-    .lp-hero-h1 span { display: block; }
-    .lp-hero-h1 span:last-child { color: var(--green); }
-    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 500; color: var(--text-sub); margin-bottom: 24px; }
-    .lp-hero-lead { font-family: var(--font-jp); font-size: 17px; line-height: 2; color: var(--text); max-width: 640px; margin-bottom: 40px; }
-    .lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 16px; transition: background .2s var(--ease), transform .2s var(--ease); }
+    .lp-prose { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 760px; }
+    .lp-note { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text-sub); }
+    .center { text-align: center; }
+    .center .lp-lead, .center .lp-note { margin-left: auto; margin-right: auto; }
+    .lp-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 15px; font-family: var(--font-jp); transition: background .2s var(--ease), transform .2s var(--ease); }
     .lp-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
     .lp-cta.is-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
     .lp-cta.is-ghost:hover { background: var(--bg-tint); }
 
-    /* Service cards */
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
-    @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
-    .svc { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
-    .svc:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .svc-tag { display: inline-block; font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--green); font-weight: 600; padding: 4px 10px; background: var(--bg-tint); border-radius: 999px; margin-bottom: 16px; }
-    .svc-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 22px; margin-bottom: 12px; color: var(--text); }
-    .svc-desc { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text-sub); margin-bottom: 20px; }
-    .svc-points { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
-    .svc-points li { padding-left: 20px; position: relative; }
-    .svc-points li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-    .svc-price { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); padding-top: 16px; border-top: 1px solid var(--border); }
-    .svc-price strong { font-family: var(--font-en); font-size: 18px; color: var(--text); font-weight: 600; }
+    /* Hero（中央寄せ） */
+    .lp-hero { padding: 88px 0 64px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); text-align: center; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; }
+    .chips span { font-family: var(--font-jp); font-size: 13px; padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text-sub); }
+    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(30px, 5vw, 54px); line-height: 1.3; letter-spacing: -.015em; color: var(--text); margin: 0 auto 20px; max-width: 900px; text-wrap: balance; }
+    .lp-hero-h1 em { font-style: normal; color: var(--green); }
+    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; color: var(--text-sub); margin-bottom: 18px; }
+    .lp-hero-lead { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 640px; margin: 0 auto 28px; }
+    .price-line { font-family: var(--font-jp); font-size: 15px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; padding: 10px 18px; margin-bottom: 28px; }
+    .price-line b { font-family: var(--font-en); font-size: 17px; }
+    @media (max-width: 600px) {
+      .lp-hero-h1 { font-size: clamp(26px, 8vw, 32px); }
+      .lp-hero-h1 br { display: none; }
+      .price-line { border-radius: var(--radius); flex-direction: column; gap: 4px; }
+      .price-line .sep { display: none; }
+    }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 980px; margin: 44px auto 0; text-align: left; }
+    @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
+    .fact { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; min-width: 0; }
+    .fact b { display: block; font-family: "Noto Serif JP", serif; font-size: 17px; color: var(--text); line-height: 1.5; }
+    .fact span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
 
-    /* Process steps */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
-    @media (max-width: 720px) { .steps { grid-template-columns: 1fr 1fr; } }
-    .step { padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); }
-    .step-num { font-family: var(--font-en); font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
-    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--text); }
-    .step-desc { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+    /* 御社に合う形（切り替え） */
+    .picker { max-width: 980px; margin: 0 auto; }
+    .picker-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
+    .picker-row .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); width: 64px; }
+    .pick { font: inherit; font-family: var(--font-jp); font-size: 14px; padding: 8px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
+    .pick:hover { background: var(--bg-tint); }
+    .pick:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .pick[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .result { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 24px; margin-top: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    @media (max-width: 800px) { .result { grid-template-columns: 1fr; } }
+    .result h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; margin-bottom: 10px; color: var(--text); }
+    .result p { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
+    .result dl { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 8px 12px; font-family: var(--font-jp); font-size: 14px; margin-top: 14px; }
+    .result dt { color: var(--text-sub); } .result dd { color: var(--text); margin: 0; }
+    .result-side { background: var(--bg-tint); border-radius: var(--radius); padding: 18px; min-width: 0; }
+    .result-side .t { font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--green); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+    .result-side ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); }
+    .result-side li { padding-left: 20px; position: relative; }
+    .result-side li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-    /* Case studies */
-    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-    @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
-    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
-    .case-industry { font-family: var(--font-en); font-size: 11px; letter-spacing: .12em; color: var(--green); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; margin-bottom: 12px; color: var(--text); }
-    .case-result { font-family: var(--font-jp); font-size: 14px; color: var(--text-sub); line-height: 1.8; }
-    .case-result strong { color: var(--green); font-family: var(--font-en); font-size: 16px; }
+    /* 事例 */
+    .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .cases { grid-template-columns: 1fr; } }
+    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .case-ind { font-family: var(--font-jp); font-size: 12px; color: var(--green); font-weight: 700; letter-spacing: .04em; }
+    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; color: var(--text); line-height: 1.5; }
+    .case-body { font-family: var(--font-jp); font-size: 14.5px; line-height: 1.9; color: var(--text); }
+    .case-meta { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+    .case-link { font-family: var(--font-jp); font-size: 14px; color: var(--green); font-weight: 600; }
+    .case-link:hover { text-decoration: underline; }
 
-    /* Reasons */
-    .reasons { display: grid; gap: 32px; margin-top: 32px; max-width: 800px; }
-    .reason { padding-left: 56px; position: relative; }
-    .reason-num { position: absolute; left: 0; top: 0; font-family: var(--font-en); font-weight: 700; font-size: 32px; color: var(--green); line-height: 1; }
-    .reason h4 { font-family: "Noto Serif JP", serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-    .reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 15px; }
+    /* 01〜03 価値 */
+    .value { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px 0; border-top: 1px solid var(--border); }
+    .value:first-of-type { border-top: 0; }
+    @media (max-width: 860px) { .value { grid-template-columns: 1fr; gap: 20px; } }
+    .value .num { font-family: var(--font-en); font-size: 13px; letter-spacing: .18em; color: var(--green); font-weight: 700; margin-bottom: 10px; }
+    .mock { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-sm); min-width: 0; font-family: var(--font-jp); }
+    .mock .bar { display: flex; gap: 6px; margin-bottom: 12px; }
+    .mock .bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .mock .ttl { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; }
+    .mock table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .mock th { text-align: left; color: var(--text-mute); font-weight: 600; font-size: 11px; padding: 4px 6px; border-bottom: 1px solid var(--border); }
+    .mock td { padding: 6px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .mock td.r, .mock th.r { text-align: right; }
+    .mock .sum { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 6px 0; }
+    .mock .sum b { font-family: var(--font-en); }
+    .mock .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .mock .flow span { font-size: 13px; padding: 7px 12px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--bg-soft); }
+    .mock .flow span.go { background: var(--bg-tint); border-color: var(--green-soft); color: var(--green); font-weight: 700; }
+    .mock .flow i { color: var(--text-mute); font-style: normal; }
+    .mock .outs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+    .mock .outs div { font-size: 12px; padding: 10px; border: 1px dashed var(--border-strong); border-radius: 8px; text-align: center; color: var(--text-sub); }
+    .mock .req { display: grid; gap: 8px; }
+    .mock .req div { display: grid; grid-template-columns: 54px minmax(0, 1fr) 70px; gap: 8px; align-items: center; font-size: 13px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; }
+    .mock .req .d { color: var(--text-mute); font-family: var(--font-en); font-size: 12px; }
+    .mock .req .s { text-align: right; font-size: 12px; color: var(--green); font-weight: 700; }
+
+    /* 理由・進め方・作れるもの */
+    .reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .reasons { grid-template-columns: 1fr; } }
+    .reason { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; min-width: 0; }
+    .reason h4 { font-family: "Noto Serif JP", serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--text); line-height: 1.5; }
+    .reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 14.5px; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 800px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+    .step { padding: 22px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 0; }
+    .step-num { font-family: var(--font-en); font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; color: var(--text); }
+    .step-desc { font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); line-height: 1.8; }
+    .grid12 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    @media (max-width: 900px) { .grid12 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; min-width: 0; }
+    .item b { display: block; font-family: var(--font-jp); font-size: 15px; color: var(--text); margin-bottom: 4px; }
+    .item span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+    /* 料金 */
+    .tbl { overflow-x: auto; margin-top: 24px; }
+    table.price { width: 100%; border-collapse: collapse; font-family: var(--font-jp); font-size: 15px; min-width: 520px; }
+    table.price th, table.price td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.price th { font-size: 12px; color: var(--text-sub); font-weight: 600; }
+    table.price td b { font-family: var(--font-en); font-size: 17px; }
+    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+    @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
+    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 24px; min-width: 0; }
+    .plan.is-mid { border-color: var(--green); box-shadow: var(--shadow-sm); }
+    .plan-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; color: var(--text); }
+    .plan-for { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-bottom: 16px; min-height: 2.6em; }
+    .plan-monthly { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
+    .plan-monthly strong { display: block; font-family: var(--font-en); font-size: 34px; font-weight: 700; color: var(--text); line-height: 1.2; font-variant-numeric: tabular-nums; }
+    .plan-monthly strong small { font-family: var(--font-jp); font-size: 14px; font-weight: 500; color: var(--text-sub); margin-left: 4px; }
+    .plan ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .plan li { padding-left: 20px; position: relative; }
+    .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
     /* FAQ */
-    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
-    .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 12px; padding-left: 28px; position: relative; }
+    .faq-wrap { max-width: 800px; margin: 24px auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 10px; padding-left: 28px; position: relative; }
     .faq-q::before { content: "Q."; position: absolute; left: 0; color: var(--green); font-family: var(--font-en); font-weight: 700; }
     .faq-a { font-family: var(--font-jp); color: var(--text-sub); font-size: 15px; line-height: 1.9; padding-left: 28px; position: relative; }
     .faq-a::before { content: "A."; position: absolute; left: 0; color: var(--text-mute); font-family: var(--font-en); font-weight: 700; }
 
-    /* Final CTA */
-    .lp-final { background: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 120px 0; }
+    /* 相談 */
+    .lp-final { background: var(--footer-bg); color: var(--footer-text); padding: 96px 0; }
     .lp-final .lp-h2 { color: #fff; }
-    .lp-final p { font-family: var(--font-jp); color: var(--footer-text); font-size: 17px; line-height: 2; max-width: 620px; margin: 0 auto 32px; }
-    .lp-final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; margin-top: 32px; }
-    .lp-final ul { display: inline-block; text-align: left; font-family: var(--font-jp); color: var(--footer-text); margin: 24px 0; line-height: 2; }
+    .lp-final .lp-label { color: var(--green); }
+    .final-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: start; }
+    @media (max-width: 860px) { .final-grid { grid-template-columns: 1fr; } }
+    .final-prose { font-family: var(--font-jp); color: var(--footer-text); font-size: 16px; line-height: 2; }
+    .final-prose p + p { margin-top: 1em; }
+    .final-box { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
+    .final-box h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 12px; }
+    .final-box ol { font-family: var(--font-jp); color: var(--footer-text); font-size: 15px; line-height: 1.9; list-style: decimal; padding-left: 1.4em; }
+    .final-mail { margin-top: 28px; }
+    .final-mail .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); }
+    .final-mail a { font-family: var(--font-en); font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; color: #fff; word-break: break-all; text-decoration: underline; text-underline-offset: 4px; }
+    .final-mail .zero { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); margin-top: 6px; }
+    .final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; line-height: 1.9; margin-top: 24px; }
+
+    /* スマホ：ヘッダーの文字リンクを隠し、下に相談ボタンを貼り付ける */
+    .stickybar { display: none; }
+    @media (max-width: 760px) {
+      .header-nav a:not(.btn) { display: none; }
+      .header-nav { gap: 0; }
+      .stickybar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-top: 1px solid var(--border); gap: 10px; }
+      .stickybar .lp-cta { flex: 1; }
+      body { padding-bottom: 72px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../" class="logo" aria-label="DAEG.DEV ホームへ">
+      <a href="./" class="logo" aria-label="ページの先頭へ">
         <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
       </a>
-      <nav class="header-nav" aria-label="法人サービス内ナビ">
-        <a href="#services">サービス</a>
-        <a href="#process">進め方</a>
+      <nav class="header-nav" aria-label="ページ内ナビ">
+        <a href="#fit">御社に合う形</a>
         <a href="#cases">事例</a>
+        <a href="#price">料金</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-primary">無料相談</a>
+        <a href="#contact" class="btn btn-primary">30分の相談</a>
       </nav>
     </div>
   </header>
@@ -123,80 +216,187 @@
     <!-- ============ HERO ============ -->
     <section class="lp-hero">
       <div class="container">
-        <p class="lp-hero-tag"><span class="dot"></span>FOR BUSINESS — 法人向けAI設計業務</p>
-        <h1 class="lp-hero-h1">
-          <span>反復業務を、</span>
-          <span>AIに移植する。</span>
-        </h1>
-        <p class="lp-hero-sub">中小企業・士業のためのAI設計業務。</p>
-        <p class="lp-hero-lead">
-          見積書、請求書、メール、報告書、議事録、契約書 ──<br />
-          毎日の "売上にならない反復業務" を、AIで再設計します。<br />
-          教員10年の伝える力と、AI開発の実装力で、<br />
-          ヒアリングから実装・社員定着までを一気通貫で。
-        </p>
-        <div class="lp-hero-ctas">
-          <a href="#contact" class="lp-cta">30分の無料相談を予約する →</a>
+        <div class="chips" aria-label="対象の業務">
+          <span>台帳・原価</span><span>顧客・商談管理</span><span>日報・予約</span><span>請求・入金</span><span>公式LINE・問い合わせ</span>
         </div>
-        <p class="lp-hero-note" style="font-family: var(--font-jp); font-size: 13px; color: var(--text-mute); margin-top: 24px;">▼ サービス一覧を5分で読む</p>
+        <h1 class="lp-hero-h1">Excelと手作業の業務を、<br /><em>御社専用のシステムに。</em></h1>
+        <p class="lp-hero-sub">作って、月額で育てます。</p>
+        <p class="lp-hero-lead">
+          いまの運用を見て、必要な部分だけをシステムにします。会計ソフトや公式LINEなど、いまの道具へ受け渡すところまで。作ったあとは、月額の中で直し続けます。
+        </p>
+        <div class="price-line"><span>初期 <b>30万円</b>〜</span><span class="sep">＋</span><span>月額 <b>2万円</b>〜（税別）</span><span class="sep">・</span><span>ご相談から <b>6〜8週間</b> で稼働</span></div>
+        <div class="lp-hero-ctas">
+          <a href="#contact" class="lp-cta">30分、いまの業務を見ながら相談する</a>
+          <a href="#price" class="lp-cta is-ghost">料金を見る</a>
+          <a href="#cases" class="lp-cta is-ghost">事例を見る</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>設計から運用まで、同じ人</b><span>外注の層を挟まず、阿部（ライフ）が責任を持ちます</span></div>
+          <div class="fact"><b>6〜8週間で稼働</b><span>ご相談→設計→制作→読込テスト→運用開始</span></div>
+          <div class="fact"><b>御社専用の環境</b><span>会社ごとに別の環境。他社のデータと混ぜません</span></div>
+          <div class="fact"><b>2026年から本番稼働中</b><span>建設業の経理・工事台帳システムほか、月額の運用が続いています</span></div>
+        </div>
       </div>
     </section>
 
-    <!-- ============ サービス一覧 ============ -->
-    <section class="lp-section" id="services">
+    <!-- ============ 御社に合う形 ============ -->
+    <section class="lp-section" id="fit" style="background: var(--bg-soft);">
+      <div class="container center">
+        <p class="lp-label">FIT — 30秒でわかる</p>
+        <h2 class="lp-h2">御社の業務なら、こんな形になります。</h2>
+        <p class="lp-lead">業務と人数を選ぶと、作るものと目安が変わります。</p>
+        <div class="picker" style="text-align: left;">
+          <div class="picker-row" id="pick-task" role="group" aria-label="業務">
+            <span class="lbl">業務</span>
+            <button type="button" class="pick" data-task="ledger" aria-pressed="true">台帳・原価</button>
+            <button type="button" class="pick" data-task="crm" aria-pressed="false">顧客・商談管理</button>
+            <button type="button" class="pick" data-task="daily" aria-pressed="false">日報・予約</button>
+            <button type="button" class="pick" data-task="invoice" aria-pressed="false">請求・入金</button>
+            <button type="button" class="pick" data-task="line" aria-pressed="false">公式LINE・問い合わせ</button>
+          </div>
+          <div class="picker-row" id="pick-size" role="group" aria-label="人数">
+            <span class="lbl">人数</span>
+            <button type="button" class="pick" data-size="s" aria-pressed="true">1〜5人</button>
+            <button type="button" class="pick" data-size="m" aria-pressed="false">6〜30人</button>
+          </div>
+          <div class="result" id="result" aria-live="polite">
+            <div>
+              <h3 id="r-title">経費を入れると、工事ごとの原価と会計用ファイルまで出ます。</h3>
+              <p id="r-body">日付・金額・取引先・工事を登録すると、工事別の集計・損益・原価率が画面に出ます。対象月の仕訳データを会計ソフト用のファイルで出力し、経理担当者か会計事務所が読み込みます。いまのExcelの項目は、そのまま引き継ぎます。</p>
+              <dl>
+                <dt>作り方</dt><dd id="r-how">御社専用のシステム（経費入力→台帳→会計用ファイル）</dd>
+                <dt>初期の目安</dt><dd id="r-init">30万円（税別）</dd>
+                <dt>月額の目安</dt><dd id="r-month">2万円（税別）〜</dd>
+                <dt>期間の目安</dt><dd id="r-term">6〜8週間</dd>
+              </dl>
+            </div>
+            <div class="result-side">
+              <p class="t">含まれるもの</p>
+              <ul id="r-incl">
+                <li>いまのExcel・台帳からのデータ移行</li>
+                <li>会計側の科目・取引先コードとの照合</li>
+                <li>読込テストへの立ち会い</li>
+                <li>操作説明と、運用開始後の見守り</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lp-note" style="margin-top: 12px;">目安です。業務の内容と人数で変わるので、30分の相談で具体的な金額と期間をお伝えします。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 事例 ============ -->
+    <section class="lp-section" id="cases">
       <div class="container">
-        <p class="lp-label">SERVICES — 提供サービス</p>
-        <h2 class="lp-h2">4つの領域で、業務を再設計します。</h2>
-        <p class="lp-lead">単発のスポットから、月額顧問契約まで。組織規模・課題感に合わせて柔軟に組み合わせます。</p>
-
-        <div class="services-grid">
-          <article class="svc">
-            <span class="svc-tag">CONSULT</span>
-            <h3 class="svc-name">AI業務効率化コンサル</h3>
-            <p class="svc-desc">業務棚卸し → AI化候補の特定 → 優先順位設計 → 実装・定着まで伴走。月20時間以上の業務削減を狙います。</p>
-            <ul class="svc-points">
-              <li>業務フロー分析・AI化マップ作成</li>
-              <li>プロンプト・運用ルールの社内標準化</li>
-              <li>月次レビュー＋改善サイクル運営</li>
-            </ul>
-            <p class="svc-price">月額顧問 <strong>¥200,000〜</strong>／月（3ヶ月〜）</p>
+        <p class="lp-label">CASES — 事例</p>
+        <h2 class="lp-h2">作って、月額で続いているもの。</h2>
+        <p class="lp-lead">業種と規模の近い会社の例を、面談でさらに詳しくご説明します。</p>
+        <div class="cases">
+          <article class="case">
+            <p class="case-ind">建設業（設備・内装・建築）／経理1〜2名</p>
+            <p class="case-title">経理・工事台帳システム</p>
+            <p class="case-body">経費を入力すると、工事別の原価・損益・原価率が画面に出て、会計ソフト（TKC FX2）用の取込ファイルまで出力。Excelの工事台帳と集計が一致し、税理士事務所との読込テストを通過。2026年10月に本番稼働し、現金出納帳や複数税率など、使いながら出た要望を反映して運用中。</p>
+            <p class="case-meta">専用システム／初期＋月額2万円（5名まで）／<a class="case-link" href="../construction/">この事例を詳しく読む →</a></p>
           </article>
-
-          <article class="svc">
-            <span class="svc-tag">DEVELOPMENT</span>
-            <h3 class="svc-name">自動化ツール開発</h3>
-            <p class="svc-desc">チャットボット、業務自動化スクリプト、社内専用GPTツールなどを設計・実装。"使われない自動化" にならないよう、現場ヒアリング込みで作ります。</p>
-            <ul class="svc-points">
-              <li>顧客対応チャットボット（LINE／Web）</li>
-              <li>経理・受発注・問い合わせの自動化</li>
-              <li>社内ナレッジAIアシスタント</li>
-            </ul>
-            <p class="svc-price">プロジェクト <strong>¥300,000〜¥1,000,000</strong>（要件次第）</p>
+          <article class="case">
+            <p class="case-ind">教育事業（学級経営メソッド）／代表1名</p>
+            <p class="case-title">HP＋公式LINEの構築</p>
+            <p class="case-body">事業の立ち上げに合わせて、HPと公式LINE（登録特典の自動配信・個別面談への導線）を構築し、2026年8月に公開。公開後は月額で保守を続け、次の仕組み（学習支援のシステム）を一緒に設計中。</p>
+            <p class="case-meta">既製の仕組みの構築／月額で保守を継続中（2026年9月〜）</p>
           </article>
-
-          <article class="svc">
-            <span class="svc-tag">TRAINING</span>
-            <h3 class="svc-name">社員向けAI研修</h3>
-            <p class="svc-desc">1day〜3dayの集合研修。教員10年の現場経験を活かし、ITが苦手な社員でも "翌日から使える" 状態に持っていきます。</p>
-            <ul class="svc-points">
-              <li>業種別カスタマイズの研修プログラム</li>
-              <li>役職別（経営層／管理職／実務）レイヤー設計</li>
-              <li>研修後30日の質問対応フォロー込み</li>
-            </ul>
-            <p class="svc-price">1day <strong>¥500,000〜</strong>／3day <strong>¥1,500,000〜</strong></p>
+          <article class="case">
+            <p class="case-ind">サービス業／代表1名</p>
+            <p class="case-title">チャットボットの構築・運用</p>
+            <p class="case-body">問い合わせに自動で答えるチャットボットを構築。2026年4月から月額で運用を続け、受け答えの調整を要望に応じて重ねています。</p>
+            <p class="case-meta">既製の仕組みの構築／月額＋利用量で運用中（2026年4月〜）</p>
           </article>
-
-          <article class="svc">
-            <span class="svc-tag">WEB</span>
-            <h3 class="svc-name">HP・LP制作</h3>
-            <p class="svc-desc">採用ページ、サービスLP、コーポレートサイトをAI活用で短納期・低コストで実装。デザインから運用ルールまでセットでお渡しします。</p>
-            <ul class="svc-points">
-              <li>採用LP／サービスLP／コーポレートサイト</li>
-              <li>原稿AI生成 + 人間ライティングの併用</li>
-              <li>納品後の更新運用ガイドライン込み</li>
-            </ul>
-            <p class="svc-price">1サイト <strong>¥400,000〜</strong>（規模次第）</p>
+          <article class="case">
+            <p class="case-ind">人材紹介業／代表1名</p>
+            <p class="case-title">週1回の伴走（AI活用と業務ツールの構築）</p>
+            <p class="case-body">3か月12回の伴走プログラムのあと、期限なしの継続へ。週1回の定例で、AIを使った業務の進め方と、顧客・案件管理の仕組みづくりを一緒に進めています。</p>
+            <p class="case-meta">伴走／月額で継続中（2026年6月〜）</p>
           </article>
+        </div>
+        <p class="lp-note" style="margin-top: 16px;">社名・画面は、面談でお見せできる範囲でご説明します。</p>
+      </div>
+    </section>
+
+    <!-- ============ 01〜03 ============ -->
+    <section class="lp-section" id="how" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">HOW — 作って、つないで、育てる</p>
+        <h2 class="lp-h2">やることは3つです。</h2>
+
+        <div class="value">
+          <div>
+            <p class="num">01 — 作る</p>
+            <h3 class="lp-h3">いまのExcelと運用を見て、必要な部分だけをシステムにします。</h3>
+            <p class="lp-prose">項目はいまのExcelのまま。入力する人が迷わない画面と、社長・担当者ごとの権限、誰がいつ何を変えたかの記録まで。御社専用の環境に作るので、他社の都合で画面が変わることはありません。</p>
+          </div>
+          <div class="mock" aria-label="画面のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">工事台帳（イメージ）</p>
+            <table>
+              <tr><th>工事</th><th>費目</th><th class="r">金額</th></tr>
+              <tr><td>A邸 改修</td><td>材料費</td><td class="r">128,400</td></tr>
+              <tr><td>A邸 改修</td><td>外注費</td><td class="r">260,000</td></tr>
+              <tr><td>B社 設備</td><td>材料費</td><td class="r">54,900</td></tr>
+            </table>
+            <div class="sum"><span>A邸 改修　原価率</span><b>71.2%</b></div>
+          </div>
+        </div>
+
+        <div class="value">
+          <div>
+            <p class="num">02 — つなぐ</p>
+            <h3 class="lp-h3">会計ソフト・公式LINE・いまの道具へ、受け渡します。</h3>
+            <p class="lp-prose">入力した数字を、会計ソフトの取込ファイルや、スプレッドシート、公式LINEの返信へ。同じ数字をもう一度入力する仕事をなくします。会計ソフトに合わせてファイルの形式を設計し、読込テストまで一緒に確認します。</p>
+          </div>
+          <div class="mock" aria-label="受け渡しのイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">受け渡し（イメージ）</p>
+            <div class="flow"><span class="go">会社で入力</span><i>→</i><span>自動で集計</span><i>→</i><span class="go">出力</span></div>
+            <div class="outs"><div>会計ソフト<br />取込ファイル</div><div>スプレッド<br />シート</div><div>公式LINE<br />の返信</div></div>
+          </div>
+        </div>
+
+        <div class="value">
+          <div>
+            <p class="num">03 — 育てる</p>
+            <h3 class="lp-h3">月額の中で、要望を聞いて直し続けます。</h3>
+            <p class="lp-prose">使い始めると、要望が出ます。「この帳票も欲しい」「この項目を足したい」。月額には、稼働の見守り・不具合の修正・問い合わせ対応・バックアップに加えて、改善の相談が含まれます。作って終わりにしません。</p>
+          </div>
+          <div class="mock" aria-label="要望と反映のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">要望と反映（イメージ）</p>
+            <div class="req">
+              <div><span class="d">10/02</span><span>現金出納帳も見たい</span><span class="s">反映済み</span></div>
+              <div><span class="d">10/08</span><span>一般経費は税込で入力したい</span><span class="s">反映済み</span></div>
+              <div><span class="d">10/09</span><span>支払方法の選択肢を増やしたい</span><span class="s">対応中</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 理由 ============ -->
+    <section class="lp-section" id="why">
+      <div class="container">
+        <p class="lp-label">WHY — なぜ、この価格と速さで</p>
+        <h2 class="lp-h2">ひとりで、設計から運用まで持てる理由。</h2>
+        <div class="reasons">
+          <div class="reason">
+            <h4>AIを使って作ります</h4>
+            <p>設計・実装・テストにAIを使い、人手で書いていた部分を短くします。だから、御社専用のシステムを、既製品を組み合わせるのに近い費用と期間で作れます。</p>
+          </div>
+          <div class="reason">
+            <h4>型があります</h4>
+            <p>御社専用の環境を用意する仕組み、契約書、導入の手順書（データの準備→環境の設定→読込テスト→運用開始）は、すでに1社目で通っています。2社目からは、その型に御社の業務を当てはめます。</p>
+          </div>
+          <div class="reason">
+            <h4>同じ人が最後まで担当します</h4>
+            <p>ヒアリングした人が設計し、作り、運用も見ます。言ったことが伝わっていない、担当が変わって話が戻る、ということが起きません。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -205,172 +405,244 @@
     <section class="lp-section" id="process" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">PROCESS — 進め方</p>
-        <h2 class="lp-h2">4ステップで、進めます。</h2>
-
+        <h2 class="lp-h2">ご相談から、6〜8週間で運用開始。</h2>
         <div class="steps">
-          <div class="step">
-            <div class="step-num">01</div>
-            <div class="step-name">無料相談（30分）</div>
-            <div class="step-desc">課題感ヒアリング／AI化余地の即時診断／適切なサービス提案</div>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <div class="step-name">業務棚卸し</div>
-            <div class="step-desc">現状業務の見える化／AI化候補の特定／優先順位とROI試算</div>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <div class="step-name">設計・実装</div>
-            <div class="step-desc">プロンプト・運用ルール作成／ツール開発／研修実施</div>
-          </div>
-          <div class="step">
-            <div class="step-num">04</div>
-            <div class="step-name">定着・改善</div>
-            <div class="step-desc">月次レビュー／効果測定／改善サイクル運営</div>
-          </div>
+          <div class="step"><div class="step-num">01</div><div class="step-name">30分の相談</div><div class="step-desc">いまの業務と道具を伺い、作るものと目安をその場でお伝えします。合わない場合も、その場で率直に。</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-name">設計（1〜2週間）</div><div class="step-desc">いまのExcel・帳票を見て、画面と項目、受け渡し先を決めます。お見積りと契約はここで。</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-name">作る（4〜8週間）</div><div class="step-desc">御社専用の環境に作り、データを移し、担当者と読込テスト。操作説明をして運用開始。</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-name">育てる（月額）</div><div class="step-desc">見守り・修正・問い合わせ対応に加えて、要望を聞いて直し続けます。</div></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 選ばれる理由 ============ -->
-    <section class="lp-section">
+    <!-- ============ 作れるもの ============ -->
+    <section class="lp-section" id="menu">
       <div class="container">
-        <p class="lp-label">WHY US — 選ばれる理由</p>
-        <h2 class="lp-h2">なぜ、私たちが選ばれるのか。</h2>
-
-        <div class="reasons">
-          <div class="reason">
-            <div class="reason-num">01</div>
-            <h4>"現場で使われる" AIだけを設計します</h4>
-            <p>導入したのに誰も使わない、というSI型コンサル的な失敗は、私たちが最も嫌うところです。業務棚卸しを必ず最初に挟み、現場の手触りに合わせて設計します。</p>
-          </div>
-          <div class="reason">
-            <div class="reason-num">02</div>
-            <h4>教員10年の "伝える力" で、ITが苦手な社員も置き去りにしません</h4>
-            <p>マニュアルを読まない・専門用語に拒絶反応のある現場でも、教えるプロが介在することで定着率が大きく変わります。</p>
-          </div>
-          <div class="reason">
-            <div class="reason-num">03</div>
-            <h4>開発と運用が、同じ人の手で完結します</h4>
-            <p>外注のレイヤーが積み重なる大手ベンダーではなく、設計から実装・運用まで同じ顔の人間が責任を持ちます。意思決定が早く、修正が柔軟です。</p>
-          </div>
+        <p class="lp-label">MENU — 作れるもの</p>
+        <h2 class="lp-h2">こんな業務を、システムにしてきました。</h2>
+        <p class="lp-lead">一覧に無い業務も、いまの運用を伺って「作る」か「既製の道具を組む」かをご提案します。</p>
+        <div class="grid12">
+          <div class="item"><b>経費入力</b><span>日付・金額・取引先・案件を登録。権限と操作記録つき</span></div>
+          <div class="item"><b>工事台帳・原価管理</b><span>案件別の原価・損益・原価率を自動集計</span></div>
+          <div class="item"><b>顧客・商談管理</b><span>顧客・商談・対応履歴を1か所に。次にやることが見える</span></div>
+          <div class="item"><b>日報</b><span>スマホから入力。集計は自動</span></div>
+          <div class="item"><b>予約・受付</b><span>予約の受付・確認・リマインド</span></div>
+          <div class="item"><b>請求書・入金管理</b><span>受注から請求書の発行、未入金の一覧まで</span></div>
+          <div class="item"><b>見積書の清書</b><span>手書きの見積を撮影して、清書と合計の照合</span></div>
+          <div class="item"><b>会計ソフトへの取込ファイル</b><span>TKC FX2は対応済み。ほかは形式に合わせて設計</span></div>
+          <div class="item"><b>公式LINE</b><span>登録特典の自動配信・ステップ配信・面談への導線</span></div>
+          <div class="item"><b>チャットボット</b><span>よくある質問に自動で答え、必要なものだけ人へ</span></div>
+          <div class="item"><b>HP・LP</b><span>事業の立ち上げに合わせた最小構成のサイト</span></div>
+          <div class="item"><b>スプレッドシート・Addnessの自動化</b><span>いまの道具のまま、転記と集計を自動に</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 事例 ============ -->
-    <section class="lp-section" id="cases" style="background: var(--bg-soft);">
+    <!-- ============ 料金 ============ -->
+    <section class="lp-section" id="price" style="background: var(--bg-soft);">
       <div class="container">
-        <p class="lp-label">CASES — 実装事例</p>
-        <h2 class="lp-h2">こんな業務を、AIに移植してきました。</h2>
+        <p class="lp-label">PRICE — 料金</p>
+        <h2 class="lp-h2">作る費用と、育てる費用。</h2>
+        <p class="lp-lead">初期費用で作り、月額で育てます。月額の中身は、守る・育てる・伴走の3段から選べます。</p>
 
-        <div class="cases">
-          <article class="case">
-            <p class="case-industry">建材販売・中小企業</p>
-            <p class="case-title">請求書フローの自動化</p>
-            <p class="case-result">手作業の見積→請求→入金管理を一気通貫で自動化。<br /><strong>月20時間削減</strong>／請求漏れゼロを実現。</p>
-          </article>
-          <article class="case">
-            <p class="case-industry">士業事務所</p>
-            <p class="case-title">顧客対応チャットボット</p>
-            <p class="case-result">よくある質問のLINE一次対応をAI化。<br /><strong>問い合わせ初動 平均48h→3h</strong>に短縮。</p>
-          </article>
-          <article class="case">
-            <p class="case-industry">教育系企業</p>
-            <p class="case-title">社員向けAI研修（1day×3部）</p>
-            <p class="case-result">全社員30名にChatGPT実務活用を指導。<br /><strong>研修後30日で社内利用率92%</strong>を達成。</p>
-          </article>
+        <h3 class="lp-h3" style="margin-top: 28px;">作る費用（初期・税別）</h3>
+        <div class="tbl"><table class="price">
+          <tr><th>作るもの</th><th>目安</th><th>含まれるもの</th></tr>
+          <tr><td>既製の仕組みの構築・カスタマイズ<br /><span class="lp-note">公式LINE・チャットボット・HP・Addness・スプレッドシート自動化</span></td><td><b>10〜30万円</b></td><td>設計、構築、初期データの登録、操作説明</td></tr>
+          <tr><td>御社専用のシステム（1つの業務）<br /><span class="lp-note">台帳・顧客管理・日報・予約・請求など</span></td><td><b>30〜60万円</b></td><td>設計、専用環境、データ移行、会計側との照合、読込テスト、操作説明</td></tr>
+          <tr><td>複数の業務・外部との連携</td><td><b>60万円〜</b></td><td>お見積り</td></tr>
+        </table></div>
+
+        <h3 class="lp-h3" style="margin-top: 36px;">育てる費用（月額・税別）</h3>
+        <div class="plans">
+          <div class="plan">
+            <p class="plan-name">守る</p>
+            <p class="plan-for">まず安定して動かしたい会社に</p>
+            <p class="plan-monthly">月額<strong>20,000<small>円</small></strong></p>
+            <ul>
+              <li>サーバー費用・稼働の見守り</li>
+              <li>不具合の修正・障害時の復旧</li>
+              <li>操作の問い合わせ対応</li>
+              <li>データのバックアップ</li>
+            </ul>
+          </div>
+          <div class="plan is-mid">
+            <p class="plan-name">育てる</p>
+            <p class="plan-for">使いながら、帳票や項目を足していきたい会社に</p>
+            <p class="plan-monthly">月額<strong>50,000<small>円</small></strong></p>
+            <ul>
+              <li>「守る」のすべて</li>
+              <li>月5時間までの改善・追加（項目・帳票・小さな機能）</li>
+              <li>月1回30分の定例（要望の整理と次の一手）</li>
+            </ul>
+          </div>
+          <div class="plan">
+            <p class="plan-name">伴走</p>
+            <p class="plan-for">業務の進め方ごと、AIと一緒に変えたい会社に</p>
+            <p class="plan-monthly">月額<strong>100,000<small>円</small></strong></p>
+            <ul>
+              <li>「育てる」のすべて</li>
+              <li>週1回60分の定例</li>
+              <li>月10時間までの改善・追加</li>
+              <li>AIを使った業務の進め方の相談</li>
+            </ul>
+          </div>
         </div>
-
-        <p class="lp-prose" style="margin-top: 32px;">
-          ※ 守秘義務の関係で社名は伏せています。詳細は無料相談時にお見せできる範囲でご案内します。
-        </p>
+        <p class="lp-note" style="margin-top: 18px; max-width: 800px;">既製の仕組みだけの保守は月額1万円から。追加ユーザーは1名あたり月2,000円。初期費用の分割はご相談ください。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
     <section class="lp-section" id="faq">
-      <div class="container">
+      <div class="container center">
         <p class="lp-label">FAQ</p>
         <h2 class="lp-h2">よくいただく質問。</h2>
-
-        <div style="max-width: 760px; margin-top: 32px;">
+        <div class="faq-wrap" style="text-align: left;">
           <div class="faq-item">
-            <p class="faq-q">うちの会社にAIを導入する余地があるか、まず相談だけでも可能ですか？</p>
-            <p class="faq-a">はい、30分の無料相談で「AI化余地マップ」を即時にお見せします。導入が時期尚早と判断した場合は、その旨を率直にお伝えします。</p>
+            <p class="faq-q">項目や帳票を、うちの運用に合わせて変えられますか？</p>
+            <p class="faq-a">はい。御社専用に作るので、項目・帳票・権限は御社の運用に合わせます。使い始めてからの変更は、月額の改善枠かお見積りで対応します。</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">社員にITリテラシーがバラついているのですが、研修は対応できますか？</p>
-            <p class="faq-a">教員10年で多様な学習者に対応してきた経験を活かし、役職別・スキル別にレイヤー分けして設計します。研修後30日の質問対応も込みです。</p>
+            <p class="faq-q">いまのExcelのデータは引き継げますか？</p>
+            <p class="faq-a">はい。取引先・案件・過去の明細など、必要なデータを移してから運用を始めます。項目名もいまのExcelに合わせます。</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">既存システム（freee／Slack／kintone等）との連携は可能ですか？</p>
-            <p class="faq-a">主要SaaSとの連携は対応可能です。具体的な連携要件は、無料相談時にヒアリングさせてください。</p>
+            <p class="faq-q">会計ソフトは何でも対応できますか？</p>
+            <p class="faq-a">TKCのFX2は対応済みです。ほかの会計ソフトは、取込ファイルの形式に合わせて設計し、契約の前に取り込めることを確認します。</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">IT導入補助金などを使えますか？</p>
-            <p class="faq-a">2026年度のデジタル化・AI導入補助金（最大450万円・小規模事業者は補助率4/5）が活用できる可能性があります。IT導入支援事業者との連携でサポート可能です。</p>
+            <p class="faq-q">データはどこに保管され、誰が見られますか？</p>
+            <p class="faq-a">クラウドに御社専用の環境を用意し、他社のデータと混ぜません。見られるのは御社が登録した担当者だけで、権限ごとに操作を分け、誰がいつ何を変えたかの記録が残ります。阿部は、設定・保守・障害対応に必要な範囲でだけアクセスします。</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">対応エリアはどこまでですか？</p>
-            <p class="faq-a">オンライン（Zoom）対応で全国対応しています。研修等は、関東圏中心に出張対応も可能です。</p>
+            <p class="faq-q">入力したデータが、外部のAIに送られることはありますか？</p>
+            <p class="faq-a">標準の機能は、入力したデータをAIサービスへ送りません。AIを使う機能（たとえば手書き見積の読み取り）を足す場合は、事前にご説明します。</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">契約期間の縛りはありますか？</p>
-            <p class="faq-a">月額顧問は3ヶ月から、開発プロジェクトは個別見積です。スポット研修や単発開発も承ります。</p>
+            <p class="faq-q">やめたいときは？データはどうなりますか？</p>
+            <p class="faq-a">データは御社のものです。契約終了後30日以内に、CSVなど汎用の形式でお渡しし、そのあと当方が保有するデータを消去します。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 申込 ============ -->
+    <!-- ============ 相談 ============ -->
     <section class="lp-section lp-final" id="contact">
       <div class="container">
-        <p class="lp-label" style="color: var(--green); display: block;">GET IN TOUCH</p>
-        <h2 class="lp-h2">まずは、30分の無料相談から。</h2>
-        <p>
-          御社のAI化余地を可視化する初回診断は、無料です。<br />
-          オンライン（Zoom）・営業電話なし。
-        </p>
-
-        <ul>
-          <li>✓ 業務フローのヒアリング</li>
-          <li>✓ AI化余地マップの即時提示</li>
-          <li>✓ 最適なサービス・補助金活用のご案内</li>
-          <li>✓ "今、導入すべきかどうか" を率直にお伝えします</li>
-        </ul>
-
-        <div style="margin-top: 40px;">
-          <a href="https://forms.gle/jE252ufo3rpbmPwk8" target="_blank" rel="noopener" class="lp-cta">30分の無料相談を予約する →</a>
+        <p class="lp-label">CONTACT — 30分の相談</p>
+        <h2 class="lp-h2">いまの業務を見ながら、作るものと目安をお伝えします。</h2>
+        <div class="final-grid">
+          <div>
+            <div class="final-prose">
+              <p>Excelや帳票をお見せいただければ、その場で「作る」か「既製の道具を組む」か、費用と期間の目安をお伝えします。面談はオンライン（Google Meet）を基本に、ご希望があれば伺います。日程の候補は、こちらから3つお出しします。</p>
+              <p>合わないと判断した場合は、その場でそうお伝えします。売り込みの電話はしません。</p>
+            </div>
+            <div class="final-mail">
+              <p class="lbl">メールでご連絡ください（お名前と会社名だけで大丈夫です）</p>
+              <a href="mailto:abe0tatsu@gmail.com?subject=%E6%A5%AD%E5%8B%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E7%9B%B8%E8%AB%87">abe0tatsu@gmail.com</a>
+              <p class="zero">※ abe のあとは数字の「0（ゼロ）」です。BNIなどの会でお会いした方は、件名にその旨を添えていただけると話が早いです。</p>
+            </div>
+          </div>
+          <div class="final-box">
+            <h3>最初に伺う3点（分かる範囲で）</h3>
+            <ol>
+              <li>いま、Excelや手作業で回している業務</li>
+              <li>使っている道具（会計ソフト・LINE・スプレッドシートなど）</li>
+              <li>使う方の人数</li>
+            </ol>
+            <p class="final-note">お問い合わせ窓口：ライフ（阿部 龍也・群馬県）。設計・開発・運用を同じ人が担当します。</p>
+          </div>
         </div>
-
-        <p class="lp-final-note">
-          ※ 守秘義務契約（NDA）の事前締結も可能です。<br />
-          ※ 不向きと判断した場合は丁寧にお断りします。
-        </p>
       </div>
     </section>
   </main>
+
+  <div class="stickybar"><a href="#contact" class="lp-cta">30分の相談（メール）</a></div>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <a href="../" class="logo logo-footer">
+        <a href="./" class="logo logo-footer">
           <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
         </a>
-        <p class="footer-jp">業務をAIで設計し、時間と仕組みを返す。それが、AI設計業務です。</p>
+        <p class="footer-jp">Excelと手作業の業務を、御社専用のシステムに。作って、月額で育てます。</p>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 DAEG.DEV — AI設計業務</p>
+        <p class="footer-copy">© 2026 ライフ（阿部）／DAEG.DEV</p>
         <ul class="footer-links">
-          <li><a href="../">トップへ戻る</a></li>
-          <li><a href="../program/">個人向けプログラム</a></li>
+          <li><a href="../construction/">建設業向けの事例</a></li>
           <li><a href="../legal/tokushoho.html">特定商取引法</a></li>
           <li><a href="../legal/privacy.html">プライバシー</a></li>
         </ul>
       </div>
     </div>
   </footer>
+
+  <script>
+    // 「御社に合う形」：業務×人数で、作るもの・目安・含まれるものを切り替える（目安。契約前の面談で確定）
+    (function () {
+      var DATA = {
+        ledger: {
+          title: "経費を入れると、工事ごとの原価と会計用ファイルまで出ます。",
+          body: "日付・金額・取引先・工事を登録すると、工事別の集計・損益・原価率が画面に出ます。対象月の仕訳データを会計ソフト用のファイルで出力し、経理担当者か会計事務所が読み込みます。いまのExcelの項目は、そのまま引き継ぎます。",
+          how: "御社専用のシステム（経費入力→台帳→会計用ファイル）",
+          s: { init: "30万円（税別）", month: "2万円（税別）〜", term: "6〜8週間" },
+          m: { init: "40〜50万円（税別）", month: "4〜8万円（税別）", term: "6〜8週間" },
+          incl: ["いまのExcel・台帳からのデータ移行", "会計側の科目・取引先コードとの照合", "読込テストへの立ち会い", "操作説明と、運用開始後の見守り"]
+        },
+        crm: {
+          title: "顧客・商談・対応履歴が1か所に集まり、次にやることが見えます。",
+          body: "顧客ごとに商談の段階と対応履歴を記録し、「今週連絡する相手」「返事待ちの案件」が一覧で出ます。見積や請求につなげることもできます。少人数なら既製のツール（Addnessなど）を御社向けに組む形も選べます。",
+          how: "御社専用のシステム。既製のツールで足りる場合はその構築",
+          s: { init: "20〜30万円（税別）", month: "2万円（税別）〜", term: "4〜6週間" },
+          m: { init: "30〜50万円（税別）", month: "4〜5万円（税別）", term: "6〜8週間" },
+          incl: ["いまの顧客リスト・商談記録の移行", "商談の段階と項目の設計", "担当者ごとの権限と記録", "操作説明と、運用開始後の見守り"]
+        },
+        daily: {
+          title: "スマホから日報・予約を入力し、集計は自動になります。",
+          body: "現場や外出先から入力すると、日ごと・担当ごと・案件ごとの集計が自動で出ます。月末にExcelへ転記する作業がなくなります。予約は受付・確認・リマインドまで。",
+          how: "御社専用のシステム。シンプルな場合はフォーム＋スプレッドシートの自動化",
+          s: { init: "10〜20万円（税別）", month: "1〜2万円（税別）", term: "3〜4週間" },
+          m: { init: "30万円（税別）〜", month: "2〜4万円（税別）", term: "4〜6週間" },
+          incl: ["入力項目と集計の設計", "スマホで使える画面", "担当者ごとの権限", "操作説明と、運用開始後の見守り"]
+        },
+        invoice: {
+          title: "受注から請求書の発行、入金の確認までが1本につながります。",
+          body: "案件ごとに受注額・請求・入金を記録し、請求書を発行。未入金の一覧が自動で出ます。会計ソフトへの取込ファイルまで出すこともできます。",
+          how: "御社専用のシステム（受注→請求→入金→会計用ファイル）",
+          s: { init: "30万円（税別）", month: "2万円（税別）〜", term: "6週間" },
+          m: { init: "40万円（税別）〜", month: "4万円（税別）〜", term: "6〜8週間" },
+          incl: ["請求書の様式と採番の設計", "取引先・案件データの移行", "会計側との照合と読込テスト", "操作説明と、運用開始後の見守り"]
+        },
+        line: {
+          title: "公式LINEの問い合わせに、よくある質問は自動で答えます。",
+          body: "登録特典の自動配信、ステップ配信、よくある質問への自動返信を組み、必要なものだけ人に回します。面談や予約への導線もつなげます。",
+          how: "既製の仕組みの構築（公式LINE＋チャットボット）",
+          s: { init: "10〜20万円（税別）", month: "1万円（税別）〜（利用量に応じて）", term: "2〜4週間" },
+          m: { init: "20〜30万円（税別）", month: "2万円（税別）〜（利用量に応じて）", term: "3〜4週間" },
+          incl: ["配信の設計と文面の整理", "よくある質問の受け答えの作成", "予約・面談への導線", "運用開始後の受け答えの調整"]
+        }
+      };
+      var task = "ledger", size = "s";
+      var $ = function (id) { return document.getElementById(id); };
+      function render() {
+        var d = DATA[task], v = d[size];
+        $("r-title").textContent = d.title;
+        $("r-body").textContent = d.body;
+        $("r-how").textContent = d.how;
+        $("r-init").textContent = v.init;
+        $("r-month").textContent = v.month;
+        $("r-term").textContent = v.term;
+        var ul = $("r-incl"); ul.innerHTML = "";
+        d.incl.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+        document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.task === task)); });
+        document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.size === size)); });
+      }
+      document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.addEventListener("click", function () { task = b.dataset.task; render(); }); });
+      document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.addEventListener("click", function () { size = b.dataset.size; render(); }); });
+      render();
+    })();
+  </script>
 </body>
 </html>
