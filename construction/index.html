@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>建設業向け 経理・工事台帳システム｜ライフ（阿部）</title>
-  <meta name="description" content="建設業の経費入力を、工事台帳の集計と会計システムへの受け渡しまでひとつの流れに。御社専用のシステムを作り、月額で運用と相談を続けます。Excelで工事別の原価を管理する社長・経理担当者様へ。" />
+  <title>経理・工事台帳システム（建設業向け）｜ライフ（阿部）</title>
+  <meta name="description" content="経費を入れると、工事ごとの原価と会計ソフト（TKC FX2）用のファイルまで出る、建設会社の経理のための仕組み。2026年10月から建設会社で本番稼働中。この形を、御社の業務に置き換えて作ります。初期30万円〜＋2万円／月〜。" />
   <meta name="robots" content="index,follow" />
 
-  <meta property="og:title" content="建設業向け 経理・工事台帳システム｜ライフ（阿部）" />
-  <meta property="og:description" content="経費を入力 → 工事台帳に集計 → 会計用ファイルを出力。御社専用のシステムを作り、月額で運用と相談を続けます。" />
+  <meta property="og:title" content="経理・工事台帳システム（建設業向け）｜ライフ（阿部）" />
+  <meta property="og:description" content="経費を入れると、工事ごとの原価と会計用ファイルまで出ます。建設会社で本番稼働中の仕組みを、御社の業務に置き換えて作ります。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tr-1103.github.io/daeg-dev/construction/" />
   <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/construction/hero.jpg" />
@@ -163,6 +163,13 @@
       .header-nav { gap: 0; }
     }
 
+    /* できること（機能一覧） */
+    .feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 900px) { .feat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .feat { grid-template-columns: 1fr; } }
+    .feat div { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; min-width: 0; }
+    .feat b { display: block; font-family: var(--font-jp); font-size: 15px; color: var(--text); margin-bottom: 6px; }
+    .feat span { font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); line-height: 1.8; }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
@@ -174,8 +181,8 @@
         <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
       </a>
       <nav class="header-nav" aria-label="ページ内ナビ">
-        <a href="#fit">合う会社</a>
-        <a href="#flow">流れ</a>
+        <a href="#flow">仕組み</a>
+        <a href="#features">できること</a>
         <a href="#case">事例</a>
         <a href="#price">料金</a>
         <a href="#safety">安全</a>
@@ -189,14 +196,14 @@
     <section class="lp-hero">
       <div class="container lp-hero-grid">
         <div>
-          <p class="lp-hero-tag"><span class="dot"></span>建設業向け 経理・工事台帳システム</p>
+          <p class="lp-hero-tag"><span class="dot"></span>経理・工事台帳システム（建設業向け）</p>
           <h1 class="lp-hero-h1">
-            <span>作って、</span>
-            <span>毎月いっしょに運用します。</span>
+            <span>経費を入れると、</span>
+            <span>工事ごとの原価と会計用ファイルまで出ます。</span>
           </h1>
-          <p class="lp-hero-sub">経理・現場・会計を、ひとつの流れに。Excelで工事別の原価を管理する社長・経理担当者様へ。</p>
+          <p class="lp-hero-sub">建設会社の経理のために作り、2026年10月から本番で動いている仕組みです。</p>
           <p class="lp-hero-lead">
-            同じ数字を何度も入力する仕事を減らします。経費を会社で入力すると、工事ごとの集計と、会計システムに取り込むファイルまで出せる、御社専用のシステムです。作って終わりではなく、月額で運用と改善の相談を続けます。
+            Excelの工事台帳も、月末の転記も、会計側の入力し直しも。会社で経費を入力すると、工事別の集計・損益・原価率が画面に出て、会計ソフトに取り込むファイルまで出ます。この形を、御社のExcelと運用に置き換えて作ります。
           </p>
           <div class="lp-hero-ctas">
             <a href="#contact" class="lp-cta">30分、いまの工事台帳を見ながら相談する</a>
@@ -226,10 +233,10 @@
             <p class="who-role">ライフ（群馬県）<br />AI業務システムの設計・開発・運用</p>
           </div>
           <div>
-            <p class="lp-prose">建設会社の経理・工事台帳システムを設計し、2026年から本番で運用しています。経理担当者・会計事務所と読込テストを重ね、使い始めてから出た要望を1つずつ反映してきました。外注の層を挟まず、ヒアリングから実装・月々の運用まで、同じ人間が責任を持ちます。</p>
+            <p class="lp-prose">この仕組みを設計し、建設会社の経理担当者・会計事務所と読込テストを重ねて、2026年10月に本番稼働させました。使い始めてから出た要望は、1つずつ反映しています。外注の層を挟まず、ヒアリングから実装・運用まで、同じ人間が責任を持ちます。</p>
             <ul class="who-points">
               <li>御社専用の環境を作り、他社のデータと混ぜません</li>
-              <li>導入後は月額の中で、不具合の修正・操作の問い合わせ・改善の相談を続けます</li>
+              <li>導入後も、不具合の修正・操作の問い合わせ・改善の相談を続けます</li>
               <li>合わないと判断した場合は、最初の30分でそうお伝えします</li>
             </ul>
           </div>
@@ -241,7 +248,7 @@
     <section class="lp-section" id="fit" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">FIT — 合う会社</p>
-        <h2 class="lp-h2">工事別の原価を、少人数で管理する会社向けです。</h2>
+        <h2 class="lp-h2">「工事ごとの原価を、Excelで追っている」会社のための仕組みです。</h2>
         <p class="lp-lead">合うかどうかは、いまの工事台帳と入力の流れを伺って、一緒に確認します。会計システムは、TKCのFX2は対応済みです。それ以外も、取り込めるかどうかを個別に確認します。</p>
         <div class="fit-grid">
           <div class="fit">
@@ -272,7 +279,7 @@
     <section class="lp-section" id="flow">
       <div class="container">
         <p class="lp-label">FLOW — 仕組み</p>
-        <h2 class="lp-h2">会社で入力し、会計用ファイルを書き出します。</h2>
+        <h2 class="lp-h2">入力は1回。集計と会計用ファイルは、仕組みが作ります。</h2>
         <figure class="lp-fig" style="max-width: 980px;">
           <img src="../assets/images/construction/workflow.jpg" alt="会社で経費を入力し、台帳とファイルを作成し、会計システムで読み込む3段階の図" width="1400" height="467" loading="lazy" />
           <figcaption>画面は説明用のイメージです。</figcaption>
@@ -298,8 +305,26 @@
       </div>
     </section>
 
+    <!-- ============ できること ============ -->
+    <section class="lp-section" id="features" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">FEATURES — できること</p>
+        <h2 class="lp-h2">経理担当者の要望で、ここまで育ちました。</h2>
+        <p class="lp-lead">本番で使われている機能です。御社に不要なものは外し、足りないものは設計のときに決めます。</p>
+        <div class="feat">
+          <div><b>工事台帳・損益の一覧</b><span>工事ごとの経費を費目別に集計し、受注額・損益・原価率を画面で確認。動きのある工事が、赤字・受注額未入力の印つきで並びます。</span></div>
+          <div><b>経費の入力（工事・一般）</b><span>日付・金額・取引先・工事を登録。項目を選ぶと摘要の候補が並び、取引先の登録番号（インボイス）も見比べられます。</span></div>
+          <div><b>会計ソフト用ファイルの出力</b><span>対象月の仕訳データを、TKC FX2の取込形式で出力。科目・取引先コードは導入時に会計事務所と照合します。</span></div>
+          <div><b>現金出納帳</b><span>現金払いの経費から支払が自動で入り、銀行からの引き出しだけ入力。前月繰越と差引残高は自動計算です。</span></div>
+          <div><b>見積書・請求書・納品書・領収書</b><span>画面で入力して、実物と同じ体裁のPDFで発行します。見積書を確定すると、そのまま請求書・納品書・領収書へ。手書きの見積書が残る会社には、撮影するとAIが下書きを作り、合計を照合してから発行する流れも用意できます。</span></div>
+          <div><b>権限と操作記録</b><span>社長・経理担当などの権限ごとに、できる操作を分けます。誰がいつ何を変えたかが記録に残ります。スマホからも使えます。</span></div>
+        </div>
+        <p class="lp-note" style="margin-top: 20px; max-width: 760px;">複数税率（10%・8%）、印刷の体裁、作業人数の記録など、使いながら出た要望も反映しています。給与計算は含みません。</p>
+      </div>
+    </section>
+
     <!-- ============ 導入前後 ============ -->
-    <section class="lp-section" id="before-after" style="background: var(--bg-soft);">
+    <section class="lp-section" id="before-after">
       <div class="container">
         <p class="lp-label">BEFORE / AFTER — 何が変わるか</p>
         <h2 class="lp-h2">月末の「転記・集計・入力し直し」を減らします。</h2>
@@ -322,7 +347,7 @@
     <section class="lp-section" id="case">
       <div class="container">
         <p class="lp-label">CASE — 導入事例（匿名）</p>
-        <h2 class="lp-h2">建設会社の経理・工事台帳を、専用システムにしました。</h2>
+        <h2 class="lp-h2">Excelの工事台帳と集計が一致し、会計事務所の読込テストを通過しました。</h2>
         <p class="lp-lead">設備・内装・建築などの工事を手がける建設会社。経理担当は1〜2名。会計システムはTKC（FX2）。導入前は、工事ごとの原価をExcelの工事台帳で管理し、経費を転記・集計したうえで、会計側でも仕訳を入力し直していました。</p>
         <div class="case-grid">
           <div class="case is-ok">
@@ -353,34 +378,34 @@
     <section class="lp-section" id="price" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">PRICE — 料金</p>
-        <h2 class="lp-h2">月額で、運用と相談を続けます。</h2>
-        <p class="lp-lead">実際に入力・閲覧する方の人数で、3つのプランから選べます。月額には、サーバー費用、稼働の見守り、不具合の修正、操作の問い合わせ対応、バックアップが含まれます。</p>
+        <h2 class="lp-h2">初期30万円〜で作り、2万円／月〜で直し続けます。</h2>
+        <p class="lp-lead">実際に入力・閲覧する方の人数で、3つから選びます。毎月の費用には、サーバー費用、稼働の見守り、不具合の修正、操作の問い合わせ対応、バックアップが含まれます。</p>
         <div class="plans">
           <div class="plan">
             <p class="plan-name">スタンダード</p>
             <p class="plan-users">5名まで</p>
-            <p class="plan-monthly">月額（税別）<strong>20,000<small>円</small></strong></p>
+            <p class="plan-monthly">毎月（税別）<strong>20,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 22,000円</p>
             <p class="plan-init">初期導入費 300,000円（税別）<br />税込 330,000円</p>
           </div>
           <div class="plan is-mid">
             <p class="plan-name">ミドル</p>
             <p class="plan-users">10名まで</p>
-            <p class="plan-monthly">月額（税別）<strong>40,000<small>円</small></strong></p>
+            <p class="plan-monthly">毎月（税別）<strong>40,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 44,000円</p>
             <p class="plan-init">初期導入費 400,000円（税別）<br />税込 440,000円</p>
           </div>
           <div class="plan">
             <p class="plan-name">プラス</p>
             <p class="plan-users">20名まで</p>
-            <p class="plan-monthly">月額（税別）<strong>80,000<small>円</small></strong></p>
+            <p class="plan-monthly">毎月（税別）<strong>80,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 88,000円</p>
             <p class="plan-init">初期導入費 500,000円（税別）<br />税込 550,000円</p>
           </div>
         </div>
         <div class="incl-grid">
           <div class="incl is-monthly">
-            <p class="incl-title">月額利用料に含むもの（導入後に続くこと）</p>
+            <p class="incl-title">毎月の費用に含むもの（導入後に続くこと）</p>
             <ul>
               <li>サーバー費用・稼働の見守り（監視）</li>
               <li>不具合の修正・障害時の復旧対応</li>
@@ -399,7 +424,7 @@
             </ul>
           </div>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 800px;">追加ユーザー：1名あたり月2,000円（税別）／2,200円（税込）。データ容量は無制限。新機能や、制度・会計ソフトの変更に伴う改修は、ご相談のうえお見積りします。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
+        <p class="lp-note" style="margin-top: 20px; max-width: 800px;">追加ユーザー：1名あたり2,000円／月（税別）／2,200円（税込）。データ容量は無制限。新機能や、制度・会計ソフトの変更に伴う改修は、ご相談のうえお見積りします。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
       </div>
     </section>
 
@@ -467,7 +492,7 @@
           </div>
           <div class="faq-item">
             <p class="faq-q">障害が起きたら、どうなりますか？</p>
-            <p class="faq-a">稼働の見守り（監視）と、原因の調査・復旧は、月額利用料に含まれます。ご連絡は電子メール等で受け、原則3営業日以内に回答します。システム全体が止まる重大な障害は、気づいた後、すみやかに対応に着手します。</p>
+            <p class="faq-a">稼働の見守り（監視）と、原因の調査・復旧は、毎月の費用に含まれます。ご連絡は電子メール等で受け、原則3営業日以内に回答します。システム全体が止まる重大な障害は、気づいた後、すみやかに対応に着手します。</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">解約したら、データはどうなりますか？</p>
@@ -482,7 +507,7 @@
     <section class="lp-section lp-final" id="contact">
       <div class="container">
         <p class="lp-label">CONTACT — 30分の相談</p>
-        <h2 class="lp-h2">いまの工事台帳を見ながら、導入できるか確認します。</h2>
+        <h2 class="lp-h2">いまの工事台帳を見ながら、この仕組みに置き換えられるか確認します。</h2>
         <div class="final-grid">
           <div>
             <div class="final-prose">
@@ -492,7 +517,7 @@
             <div class="final-mail">
               <p class="lbl">メールでご連絡ください（お名前と会社名だけで大丈夫です）</p>
               <a href="mailto:abe0tatsu@gmail.com?subject=%E5%B7%A5%E4%BA%8B%E5%8F%B0%E5%B8%B3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E7%9B%B8%E8%AB%87">abe0tatsu@gmail.com</a>
-              <p class="zero">※ abe のあとは数字の「0（ゼロ）」です。BNIなどの会でお会いした方は、件名にその旨を添えていただけると話が早いです。</p>
+              <p class="zero">※ abe のあとは数字の「0（ゼロ）」です。</p>
             </div>
             <div class="final-steps" aria-label="相談の流れ">
               <span class="chip">業務の確認</span><span class="arr">→</span>
@@ -522,7 +547,7 @@
         <a href="../" class="logo logo-footer">
           <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
         </a>
-        <p class="footer-jp">作って、毎月いっしょに運用する。建設業向け 経理・工事台帳システム。</p>
+        <p class="footer-jp">経費を入れると、工事ごとの原価と会計用ファイルまで出る。経理・工事台帳システム（建設業向け）。</p>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 ライフ（阿部）／DAEG.DEV</p>
