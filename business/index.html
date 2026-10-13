@@ -11,6 +11,10 @@
   <meta property="og:description" content="作って、月額で育てます。初期30万円〜＋月額2万円〜。ご相談から6〜8週間で稼働。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tr-1103.github.io/daeg-dev/business/" />
+  <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/og-business.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
@@ -192,7 +196,36 @@
       .stickybar .lp-cta { flex: 1; }
       body { padding-bottom: 72px; }
     }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    /* 見出しの改行：語のまとまりで折り返す（「御社専／用」で切れないように） */
+    .nb { display: inline-block; }
+    .lp-hero-h1 { word-break: auto-phrase; }
+
+    /* イメージ画像（挿入画像：原寸・角丸・ボーダー） */
+    .hero-fig { max-width: 880px; margin: 40px auto 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    .hero-fig img { display: block; width: 100%; height: auto; }
+    .case-img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; }
+
+    /* 料金表：スマホでは横スクロールさせず、縦に積む */
+    @media (max-width: 600px) {
+      table.price { min-width: 0; }
+      table.price tr:first-child { display: none; }
+      table.price tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--border); }
+      table.price td { display: block; padding: 2px 0; border: 0; }
+      table.price td:nth-child(3) { color: var(--text-sub); font-size: 14px; }
+      table.price td:nth-child(3)::before { content: "含まれるもの："; }
+    }
+
+    /* 動き（控えめに）。JSが動き、動きを減らす設定でない時だけ html に .anim が付く。
+       付かない環境では、最初から全部見えている */
+    .result.is-swap { animation: lpFade .25s var(--ease); }
+    @keyframes lpFade { from { opacity: .3; } to { opacity: 1; } }
+    .anim [data-seq] > * { opacity: 0; transform: translateY(8px); transition: opacity .45s var(--ease), transform .45s var(--ease); transition-delay: calc(var(--i, 0) * 140ms + 120ms); }
+    .anim .is-in [data-seq] > * { opacity: 1; transform: none; }
+    .mock .req .s { transition: color .3s var(--ease); }
+    .mock .req .s.is-wip { color: var(--text-mute); }
+    .mock .req .s.is-done { animation: lpFade .4s var(--ease); }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
   </style>
 </head>
 <body>
@@ -219,7 +252,7 @@
         <div class="chips" aria-label="対象の業務">
           <span>台帳・原価</span><span>顧客・商談管理</span><span>日報・予約</span><span>請求・入金</span><span>公式LINE・問い合わせ</span>
         </div>
-        <h1 class="lp-hero-h1">Excelと手作業の業務を、<br /><em>御社専用のシステムに。</em></h1>
+        <h1 class="lp-hero-h1"><span class="nb">Excelと手作業の</span><span class="nb">業務を、</span><br /><em><span class="nb">御社専用の</span><span class="nb">システムに。</span></em></h1>
         <p class="lp-hero-sub">作って、月額で育てます。</p>
         <p class="lp-hero-lead">
           いまの運用を見て、必要な部分だけをシステムにします。会計ソフトや公式LINEなど、いまの道具へ受け渡すところまで。作ったあとは、月額の中で直し続けます。
@@ -230,6 +263,9 @@
           <a href="#price" class="lp-cta is-ghost">料金を見る</a>
           <a href="#cases" class="lp-cta is-ghost">事例を見る</a>
         </div>
+        <figure class="hero-fig">
+          <img src="../assets/images/business/hero.jpg" width="1600" height="580" alt="机の上のExcelと紙の束が、1つの画面にまとまるイメージ" />
+        </figure>
         <div class="facts">
           <div class="fact"><b>設計から運用まで、同じ人</b><span>外注の層を挟まず、阿部（ライフ）が責任を持ちます</span></div>
           <div class="fact"><b>6〜8週間で稼働</b><span>ご相談→設計→制作→読込テスト→運用開始</span></div>
@@ -293,24 +329,28 @@
         <p class="lp-lead">業種と規模の近い会社の例を、面談でさらに詳しくご説明します。</p>
         <div class="cases">
           <article class="case">
+            <img class="case-img" src="../assets/images/business/case-construction.jpg" width="480" height="360" alt="工事台帳の画面とヘルメットのイラスト（イメージ）" loading="lazy" />
             <p class="case-ind">建設業（設備・内装・建築）／経理1〜2名</p>
             <p class="case-title">経理・工事台帳システム</p>
             <p class="case-body">経費を入力すると、工事別の原価・損益・原価率が画面に出て、会計ソフト（TKC FX2）用の取込ファイルまで出力。Excelの工事台帳と集計が一致し、税理士事務所との読込テストを通過。2026年10月に本番稼働し、現金出納帳や複数税率など、使いながら出た要望を反映して運用中。</p>
             <p class="case-meta">専用システム／初期＋月額2万円（5名まで）／<a class="case-link" href="../construction/">この事例を詳しく読む →</a></p>
           </article>
           <article class="case">
+            <img class="case-img" src="../assets/images/business/case-education.jpg" width="480" height="360" alt="ノートとスマホの公式LINEのイラスト（イメージ）" loading="lazy" />
             <p class="case-ind">教育事業（学級経営メソッド）／代表1名</p>
             <p class="case-title">HP＋公式LINEの構築</p>
             <p class="case-body">事業の立ち上げに合わせて、HPと公式LINE（登録特典の自動配信・個別面談への導線）を構築し、2026年8月に公開。公開後は月額で保守を続け、次の仕組み（学習支援のシステム）を一緒に設計中。</p>
             <p class="case-meta">既製の仕組みの構築／月額で保守を継続中（2026年9月〜）</p>
           </article>
           <article class="case">
+            <img class="case-img" src="../assets/images/business/case-chatbot.jpg" width="480" height="360" alt="チャットボットの画面のイラスト（イメージ）" loading="lazy" />
             <p class="case-ind">サービス業／代表1名</p>
             <p class="case-title">チャットボットの構築・運用</p>
             <p class="case-body">問い合わせに自動で答えるチャットボットを構築。2026年4月から月額で運用を続け、受け答えの調整を要望に応じて重ねています。</p>
             <p class="case-meta">既製の仕組みの構築／月額＋利用量で運用中（2026年4月〜）</p>
           </article>
           <article class="case">
+            <img class="case-img" src="../assets/images/business/case-recruit.jpg" width="480" height="360" alt="週1回の定例とカンバンのイラスト（イメージ）" loading="lazy" />
             <p class="case-ind">人材紹介業／代表1名</p>
             <p class="case-title">週1回の伴走（AI活用と業務ツールの構築）</p>
             <p class="case-body">3か月12回の伴走プログラムのあと、期限なしの継続へ。週1回の定例で、AIを使った業務の進め方と、顧客・案件管理の仕組みづくりを一緒に進めています。</p>
@@ -336,13 +376,13 @@
           <div class="mock" aria-label="画面のイメージ">
             <div class="bar"><i></i><i></i><i></i></div>
             <p class="ttl">工事台帳（イメージ）</p>
-            <table>
-              <tr><th>工事</th><th>費目</th><th class="r">金額</th></tr>
-              <tr><td>A邸 改修</td><td>材料費</td><td class="r">128,400</td></tr>
-              <tr><td>A邸 改修</td><td>外注費</td><td class="r">260,000</td></tr>
-              <tr><td>B社 設備</td><td>材料費</td><td class="r">54,900</td></tr>
+            <table data-seq>
+              <tr style="--i:0"><th>工事</th><th>費目</th><th class="r">金額</th></tr>
+              <tr style="--i:1"><td>A邸 改修</td><td>材料費</td><td class="r">128,400</td></tr>
+              <tr style="--i:2"><td>A邸 改修</td><td>外注費</td><td class="r">260,000</td></tr>
+              <tr style="--i:3"><td>B社 設備</td><td>材料費</td><td class="r">54,900</td></tr>
             </table>
-            <div class="sum"><span>A邸 改修　原価率</span><b>71.2%</b></div>
+            <div data-seq><div class="sum" style="--i:4"><span>A邸 改修　原価率</span><b>71.2%</b></div></div>
           </div>
         </div>
 
@@ -355,8 +395,8 @@
           <div class="mock" aria-label="受け渡しのイメージ">
             <div class="bar"><i></i><i></i><i></i></div>
             <p class="ttl">受け渡し（イメージ）</p>
-            <div class="flow"><span class="go">会社で入力</span><i>→</i><span>自動で集計</span><i>→</i><span class="go">出力</span></div>
-            <div class="outs"><div>会計ソフト<br />取込ファイル</div><div>スプレッド<br />シート</div><div>公式LINE<br />の返信</div></div>
+            <div class="flow" data-seq><span class="go" style="--i:0">会社で入力</span><i style="--i:1">→</i><span style="--i:2">自動で集計</span><i style="--i:3">→</i><span class="go" style="--i:4">出力</span></div>
+            <div class="outs" data-seq><div style="--i:5">会計ソフト<br />取込ファイル</div><div style="--i:6">スプレッド<br />シート</div><div style="--i:7">公式LINE<br />の返信</div></div>
           </div>
         </div>
 
@@ -369,10 +409,10 @@
           <div class="mock" aria-label="要望と反映のイメージ">
             <div class="bar"><i></i><i></i><i></i></div>
             <p class="ttl">要望と反映（イメージ）</p>
-            <div class="req">
-              <div><span class="d">10/02</span><span>現金出納帳も見たい</span><span class="s">反映済み</span></div>
-              <div><span class="d">10/08</span><span>一般経費は税込で入力したい</span><span class="s">反映済み</span></div>
-              <div><span class="d">10/09</span><span>支払方法の選択肢を増やしたい</span><span class="s">対応中</span></div>
+            <div class="req" data-seq>
+              <div style="--i:0"><span class="d">10/02</span><span>現金出納帳も見たい</span><span class="s">反映済み</span></div>
+              <div style="--i:1"><span class="d">10/08</span><span>一般経費は税込で入力したい</span><span class="s">反映済み</span></div>
+              <div style="--i:2"><span class="d">10/09</span><span>支払方法の選択肢を増やしたい</span><span class="s" id="req-last">対応中</span></div>
             </div>
           </div>
         </div>
@@ -624,7 +664,7 @@
           incl: ["配信の設計と文面の整理", "よくある質問の受け答えの作成", "予約・面談への導線", "運用開始後の受け答えの調整"]
         }
       };
-      var task = "ledger", size = "s";
+      var task = "ledger", size = "s", first = true;
       var $ = function (id) { return document.getElementById(id); };
       function render() {
         var d = DATA[task], v = d[size];
@@ -638,10 +678,32 @@
         d.incl.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
         document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.task === task)); });
         document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.size === size)); });
+        if (!first) { var r = $("result"); r.classList.remove("is-swap"); void r.offsetWidth; r.classList.add("is-swap"); }
+        first = false;
       }
       document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.addEventListener("click", function () { task = b.dataset.task; render(); }); });
       document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.addEventListener("click", function () { size = b.dataset.size; render(); }); });
       render();
+    })();
+
+    // 01〜03：画面に入ったら、模式画面の行や吹き出しを順に出す。03は「対応中」→「反映済み」に変わる
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || !("IntersectionObserver" in window)) return;
+      document.documentElement.classList.add("anim");
+      var last = document.getElementById("req-last");
+      if (last) last.classList.add("is-wip");
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+          if (last && e.target.contains(last)) {
+            setTimeout(function () { last.textContent = "反映済み"; last.classList.remove("is-wip"); last.classList.add("is-done"); }, 1600);
+          }
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll("#how .mock").forEach(function (m) { io.observe(m); });
     })();
   </script>
 </body>
