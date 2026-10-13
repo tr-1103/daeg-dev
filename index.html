@@ -1,463 +1,712 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DAEG.DEV — 月50時間創出のAI設計プロ</title>
-  <meta name="description" content="コーチ・講師業のひとり社長の月50時間を、売上にならない時間から売上行動の時間に振り替える業務AI化伴走。SNS投稿・LINE公式・LP・経理事務を月2回マンツーマンで設計します。" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Excelと手作業の業務を、御社専用のシステムに｜ライフ（阿部）</title>
+  <meta name="description" content="Excelと手作業で回している業務を、御社専用のシステムにします。たとえば建設会社では、経費を入れると工事ごとの原価と会計ソフト用のファイルまで出ます。初期30万円〜＋2万円／月〜、ご相談から6〜8週間で稼働。作ったあとも、同じ人が直し続けます。" />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Excelと手作業の業務を、御社専用のシステムに｜ライフ（阿部）" />
+  <meta property="og:description" content="たとえば建設会社では、経費を入れると工事ごとの原価と会計用ファイルまで出ます。初期30万円〜＋2万円／月〜。作ったあとも、同じ人が直し続けます。" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="DAEG.DEV" />
-  <meta property="og:title" content="AIで武装する。— DAEG.DEV" />
-  <meta property="og:description" content='"ひとり"を超えていけ。 個人事業主と1人社長のためのAI実装パートナー。' />
   <meta property="og:url" content="https://tr-1103.github.io/daeg-dev/" />
-  <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/og-image.png" />
+  <link rel="canonical" href="https://tr-1103.github.io/daeg-dev/" />
+  <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/og-business.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AIで武装する。— DAEG.DEV" />
-  <meta name="twitter:description" content='"ひとり"を超えていけ。 個人事業主と1人社長のためのAI実装パートナー。' />
-  <meta name="twitter:image" content="https://tr-1103.github.io/daeg-dev/assets/images/og-image.png" />
-  <meta name="theme-color" content="#0a8f5c" />
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./assets/style.css" />
+
+  <style>
+    /* ========== 法人向けLP（信用確認用）の固有スタイル ==========
+       構成はコンクルー（一言と料金を先に／御社に合う形の切り替え／事例／01〜03／作れるもの／料金／FAQ／下に貼り付く相談）、
+       見せ方はAddness（白地・中央寄せ・静か）。色と書体は assets/style.css の変数をそのまま使う */
+    .lp-section { padding: 88px 0; border-top: 1px solid var(--border); }
+    .lp-label { font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.4; letter-spacing: -.01em; margin-bottom: 18px; color: var(--text); text-wrap: balance; }
+    .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.5; margin-bottom: 12px; color: var(--text); }
+    .lp-lead { font-family: var(--font-jp); font-size: 17px; line-height: 1.9; color: var(--text-sub); max-width: 720px; }
+    .lp-prose { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 760px; }
+    .lp-note { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text-sub); }
+    .center { text-align: center; }
+    .center .lp-lead, .center .lp-note { margin-left: auto; margin-right: auto; }
+    .lp-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 15px; font-family: var(--font-jp); transition: background .2s var(--ease), transform .2s var(--ease); }
+    .lp-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .lp-cta.is-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+    .lp-cta.is-ghost:hover { background: var(--bg-tint); }
+
+    /* Hero（中央寄せ） */
+    .lp-hero { padding: 88px 0 64px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); text-align: center; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; }
+    .chips span { font-family: var(--font-jp); font-size: 13px; padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text-sub); }
+    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(30px, 5vw, 54px); line-height: 1.3; letter-spacing: -.015em; color: var(--text); margin: 0 auto 20px; max-width: 900px; text-wrap: balance; }
+    .lp-hero-h1 em { font-style: normal; color: var(--green); }
+    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; color: var(--text-sub); margin-bottom: 18px; }
+    .lp-hero-lead { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 640px; margin: 0 auto 28px; }
+    .price-line { font-family: var(--font-jp); font-size: 15px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; padding: 10px 18px; margin-bottom: 28px; }
+    .price-line b { font-family: var(--font-en); font-size: 17px; }
+    @media (max-width: 600px) {
+      .lp-hero-h1 { font-size: clamp(26px, 8vw, 32px); }
+      .lp-hero-h1 br { display: none; }
+      .price-line { border-radius: var(--radius); flex-direction: column; gap: 4px; }
+      .price-line .sep { display: none; }
+    }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 980px; margin: 44px auto 0; text-align: left; }
+    @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
+    .fact { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; min-width: 0; }
+    .fact b { display: block; font-family: "Noto Serif JP", serif; font-size: 17px; color: var(--text); line-height: 1.5; }
+    .fact span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
+
+    /* 御社に合う形（切り替え） */
+    .picker { max-width: 980px; margin: 0 auto; }
+    .picker-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
+    .picker-row .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); width: 64px; }
+    .pick { font: inherit; font-family: var(--font-jp); font-size: 14px; padding: 8px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
+    .pick:hover { background: var(--bg-tint); }
+    .pick:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .pick[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .result { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 24px; margin-top: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    @media (max-width: 800px) { .result { grid-template-columns: 1fr; } }
+    .result h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; margin-bottom: 10px; color: var(--text); }
+    .result p { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
+    .result dl { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 8px 12px; font-family: var(--font-jp); font-size: 14px; margin-top: 14px; }
+    .result dt { color: var(--text-sub); } .result dd { color: var(--text); margin: 0; }
+    .result-side { background: var(--bg-tint); border-radius: var(--radius); padding: 18px; min-width: 0; }
+    .result-side .t { font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--green); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+    .result-side ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); }
+    .result-side li { padding-left: 20px; position: relative; }
+    .result-side li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+    /* 事例 */
+    .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .cases { grid-template-columns: 1fr; } }
+    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .case-ind { font-family: var(--font-jp); font-size: 12px; color: var(--green); font-weight: 700; letter-spacing: .04em; }
+    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; color: var(--text); line-height: 1.5; }
+    .case-body { font-family: var(--font-jp); font-size: 14.5px; line-height: 1.9; color: var(--text); }
+    .case-meta { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+    .case-link { font-family: var(--font-jp); font-size: 14px; color: var(--green); font-weight: 600; }
+    .case-link:hover { text-decoration: underline; }
+
+    /* 01〜03 価値 */
+    .value { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px 0; border-top: 1px solid var(--border); }
+    .value:first-of-type { border-top: 0; }
+    @media (max-width: 860px) { .value { grid-template-columns: 1fr; gap: 20px; } }
+    .value .num { font-family: var(--font-en); font-size: 13px; letter-spacing: .18em; color: var(--green); font-weight: 700; margin-bottom: 10px; }
+    .mock { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-sm); min-width: 0; font-family: var(--font-jp); }
+    .mock .bar { display: flex; gap: 6px; margin-bottom: 12px; }
+    .mock .bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .mock .ttl { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; }
+    .mock table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .mock th { text-align: left; color: var(--text-mute); font-weight: 600; font-size: 11px; padding: 4px 6px; border-bottom: 1px solid var(--border); }
+    .mock td { padding: 6px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .mock td.r, .mock th.r { text-align: right; }
+    .mock .sum { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 6px 0; }
+    .mock .sum b { font-family: var(--font-en); }
+    .mock .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .mock .flow span { font-size: 13px; padding: 7px 12px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--bg-soft); }
+    .mock .flow span.go { background: var(--bg-tint); border-color: var(--green-soft); color: var(--green); font-weight: 700; }
+    .mock .flow i { color: var(--text-mute); font-style: normal; }
+    .mock .outs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+    .mock .outs div { font-size: 12px; padding: 10px; border: 1px dashed var(--border-strong); border-radius: 8px; text-align: center; color: var(--text-sub); }
+    .mock .req { display: grid; gap: 8px; }
+    .mock .req div { display: grid; grid-template-columns: 54px minmax(0, 1fr) 70px; gap: 8px; align-items: center; font-size: 13px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; }
+    .mock .req .d { color: var(--text-mute); font-family: var(--font-en); font-size: 12px; }
+    .mock .req .s { text-align: right; font-size: 12px; color: var(--green); font-weight: 700; }
+
+    /* 理由・進め方・作れるもの */
+    .reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .reasons { grid-template-columns: 1fr; } }
+    .reason { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; min-width: 0; }
+    .reason h4 { font-family: "Noto Serif JP", serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--text); line-height: 1.5; }
+    .reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 14.5px; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 800px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+    .step { padding: 22px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 0; }
+    .step-num { font-family: var(--font-en); font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; color: var(--text); }
+    .step-desc { font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); line-height: 1.8; }
+    .grid12 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    @media (max-width: 900px) { .grid12 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; min-width: 0; }
+    .item b { display: block; font-family: var(--font-jp); font-size: 15px; color: var(--text); margin-bottom: 4px; }
+    .item span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+    /* 料金 */
+    .tbl { overflow-x: auto; margin-top: 24px; }
+    table.price { width: 100%; border-collapse: collapse; font-family: var(--font-jp); font-size: 15px; min-width: 520px; }
+    table.price th, table.price td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.price th { font-size: 12px; color: var(--text-sub); font-weight: 600; }
+    table.price td b { font-family: var(--font-en); font-size: 17px; }
+    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+    @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
+    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 24px; min-width: 0; }
+    .plan.is-mid { border-color: var(--green); box-shadow: var(--shadow-sm); }
+    .plan-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; color: var(--text); }
+    .plan-for { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-bottom: 16px; min-height: 2.6em; }
+    .plan-monthly { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
+    .plan-monthly strong { display: block; font-family: var(--font-en); font-size: 34px; font-weight: 700; color: var(--text); line-height: 1.2; font-variant-numeric: tabular-nums; }
+    .plan-monthly strong small { font-family: var(--font-jp); font-size: 14px; font-weight: 500; color: var(--text-sub); margin-left: 4px; }
+    .plan ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .plan li { padding-left: 20px; position: relative; }
+    .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+    /* FAQ */
+    .faq-wrap { max-width: 800px; margin: 24px auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 10px; padding-left: 28px; position: relative; }
+    .faq-q::before { content: "Q."; position: absolute; left: 0; color: var(--green); font-family: var(--font-en); font-weight: 700; }
+    .faq-a { font-family: var(--font-jp); color: var(--text-sub); font-size: 15px; line-height: 1.9; padding-left: 28px; position: relative; }
+    .faq-a::before { content: "A."; position: absolute; left: 0; color: var(--text-mute); font-family: var(--font-en); font-weight: 700; }
+
+    /* 相談 */
+    .lp-final { background: var(--footer-bg); color: var(--footer-text); padding: 96px 0; }
+    .lp-final .lp-h2 { color: #fff; }
+    .lp-final .lp-label { color: var(--green); }
+    .final-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: start; }
+    @media (max-width: 860px) { .final-grid { grid-template-columns: 1fr; } }
+    .final-prose { font-family: var(--font-jp); color: var(--footer-text); font-size: 16px; line-height: 2; }
+    .final-prose p + p { margin-top: 1em; }
+    .final-box { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
+    .final-box h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 12px; }
+    .final-box ol { font-family: var(--font-jp); color: var(--footer-text); font-size: 15px; line-height: 1.9; list-style: decimal; padding-left: 1.4em; }
+    .final-mail { margin-top: 28px; }
+    .final-mail .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); }
+    .final-mail a { font-family: var(--font-en); font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; color: #fff; word-break: break-all; text-decoration: underline; text-underline-offset: 4px; }
+    .final-mail .zero { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); margin-top: 6px; }
+    .final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; line-height: 1.9; margin-top: 24px; }
+
+    /* スマホ：ヘッダーの文字リンクを隠し、下に相談ボタンを貼り付ける */
+    .stickybar { display: none; }
+    @media (max-width: 760px) {
+      .header-nav a:not(.btn) { display: none; }
+      .header-nav { gap: 0; }
+      .stickybar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-top: 1px solid var(--border); gap: 10px; }
+      .stickybar .lp-cta { flex: 1; }
+      body { padding-bottom: 72px; }
+    }
+    /* 見出しの改行：語のまとまりで折り返す（「御社専／用」で切れないように） */
+    .nb { display: inline-block; }
+    .lp-hero-h1 { word-break: auto-phrase; }
+
+    /* イメージ画像（挿入画像：原寸・角丸・ボーダー） */
+    .hero-fig { max-width: 880px; margin: 40px auto 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    .hero-fig img { display: block; width: 100%; height: auto; }
+    .case-img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; }
+
+    /* 料金表：スマホでは横スクロールさせず、縦に積む */
+    @media (max-width: 600px) {
+      table.price { min-width: 0; }
+      table.price tr:first-child { display: none; }
+      table.price tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--border); }
+      table.price td { display: block; padding: 2px 0; border: 0; }
+      table.price td:nth-child(3) { color: var(--text-sub); font-size: 14px; }
+      table.price td:nth-child(3)::before { content: "含まれるもの："; }
+    }
+
+    /* 動き（控えめに）。JSが動き、動きを減らす設定でない時だけ html に .anim が付く。
+       付かない環境では、最初から全部見えている */
+    .result.is-swap { animation: lpFade .25s var(--ease); }
+    @keyframes lpFade { from { opacity: .3; } to { opacity: 1; } }
+    .anim [data-seq] > * { opacity: 0; transform: translateY(8px); transition: opacity .45s var(--ease), transform .45s var(--ease); transition-delay: calc(var(--i, 0) * 140ms + 120ms); }
+    .anim .is-in [data-seq] > * { opacity: 1; transform: none; }
+    .mock .req .s { transition: color .3s var(--ease); }
+    .mock .req .s.is-wip { color: var(--text-mute); }
+    .mock .req .s.is-done { animation: lpFade .4s var(--ease); }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
 </head>
 <body>
   <!-- ============ HEADER ============ -->
-  <header class="site-header" id="siteHeader">
+  <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="daeg.dev">
-        <span class="logo-mark">daeg</span><span class="logo-dot" aria-hidden="true"></span><span class="logo-tld">dev</span>
+      <a href="./" class="logo" aria-label="ページの先頭へ">
+        <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#vision"><span class="nav-en">VISION</span><span class="nav-jp">理念</span></a></li>
-          <li><a href="#service"><span class="nav-en">SERVICE</span><span class="nav-jp">事業</span></a></li>
-          <li><a href="#works"><span class="nav-en">WORKS</span><span class="nav-jp">実績</span></a></li>
-          <li><a href="#news"><span class="nav-en">NEWS</span><span class="nav-jp">最新</span></a></li>
-          <li><a href="#about"><span class="nav-en">ABOUT</span><span class="nav-jp">経歴</span></a></li>
-          <li><a href="#contact"><span class="nav-en">CONTACT</span><span class="nav-jp">相談</span></a></li>
-        </ul>
+      <nav class="header-nav" aria-label="ページ内ナビ">
+        <a href="#fit">御社に合う形</a>
+        <a href="#cases">事例</a>
+        <a href="#price">料金</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary">30分の相談</a>
       </nav>
-      <a href="#contact" class="btn btn-primary btn-sm header-cta">30分の面談を予約</a>
-      <button class="nav-toggle" aria-label="メニューを開く" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
-        <span class="orb orb-5"></span>
-      </div>
-      <div class="container hero-inner">
-        <p class="hero-eyebrow reveal" style="--rd:.05s;">
-          <span class="dot-pulse"></span>
-          AI設計業務 — AI BUSINESS DESIGN
+    <section class="lp-hero">
+      <div class="container">
+        <div class="chips" aria-label="対象の業務">
+          <span>台帳・原価</span><span>顧客・商談管理</span><span>日報・予約</span><span>請求・入金</span><span>公式LINE・問い合わせ</span>
+        </div>
+        <h1 class="lp-hero-h1"><span class="nb">Excelと手作業の</span><span class="nb">業務を、</span><br /><em><span class="nb">御社専用の</span><span class="nb">システムに。</span></em></h1>
+        <p class="lp-hero-sub">作って、終わりにしません。</p>
+        <p class="lp-hero-lead">
+          御社のExcelも、紙の台帳も、手作業の転記も。いまの運用を見て、必要な部分だけをシステムにします。たとえば建設会社では、経費を入力すると、工事ごとの原価と会計ソフト用のファイルまで出ます。
         </p>
-        <h1 class="hero-title">
-          <span class="hero-line reveal" style="--rd:.20s;">業務を、</span>
-          <span class="hero-line reveal" style="--rd:.40s;">AIで設計する。</span>
-        </h1>
-        <p class="hero-jp reveal" style="--rd:.70s;">ひとり社長にも、法人にも。</p>
-        <p class="hero-lead reveal" style="--rd:.85s;">時間を返し、仕組みを残す。<br />それが、私たちのAI設計業務です。</p>
-        <div class="hero-ctas reveal" style="--rd:1.0s;">
-          <a href="./program/" class="btn btn-primary">FOR SOLO <span class="btn-sub">— 個人向けプログラム</span></a>
-          <a href="./business/" class="btn btn-ghost">FOR BUSINESS <span class="btn-sub">— 法人向けサービス</span></a>
+        <div class="price-line"><span>初期 <b>30万円</b>〜</span><span class="sep">＋</span><span>運用 <b>2万円／月</b>〜（税別）</span><span class="sep">・</span><span>ご相談から <b>6〜8週間</b> で稼働</span></div>
+        <div class="lp-hero-ctas">
+          <a href="#contact" class="lp-cta">30分、いまの業務を見ながら相談する</a>
+          <a href="#price" class="lp-cta is-ghost">料金を見る</a>
+          <a href="#cases" class="lp-cta is-ghost">事例を見る</a>
         </div>
-        <div class="hero-meta reveal" style="--rd:1.2s;">
-          <span><strong data-count="2" data-count-end="2">0</strong> SEGMENTS</span>
-          <span><strong data-count="10" data-count-end="10">0</strong> YEARS TEACHING</span>
-          <span><strong data-count="0" data-count-end="0">0</strong> 動画教材</span>
-        </div>
-      </div>
-      <span class="hero-scroll-hint" aria-hidden="true">
-        <span class="hsh-label">SCROLL</span>
-        <span class="hsh-bar"></span>
-      </span>
-    </section>
-
-    <!-- ============ VISION ============ -->
-    <section class="section section-vision" id="vision">
-      <div class="container vision-inner vision-grid">
-        <div class="vision-text">
-          <p class="section-label">VISION</p>
-          <h2 class="vision-headline">業務をAIで設計し、<br />時間と仕組みを返す。</h2>
-          <p class="vision-body">
-            ひとり社長には、月50時間を売上行動の時間に。<br />
-            法人には、社員の手から反復業務を解放する仕組みを。<br />
-            横で一緒に、組み立てる。
-          </p>
-          <a href="#about" class="link-arrow">READ MORE — 活動方針を読む</a>
-        </div>
-        <figure class="vision-image">
-          <img src="assets/images/vision.jpg" alt="AI設計で業務をこなすビジネスパーソン" loading="lazy" />
+        <figure class="hero-fig">
+          <img src="./assets/images/business/hero.jpg" width="1600" height="580" alt="机の上のExcelと紙の束が、1つの画面にまとまるイメージ" />
         </figure>
-      </div>
-    </section>
-
-    <!-- ============ NEWS ============ -->
-    <section class="section section-news" id="news">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-label">NEWS</p>
-          <h2 class="section-title">Latest Updates<span class="section-title-jp">最新のうごき</span></h2>
-          <p class="section-lead">講座・登壇・リリース、すべての&ldquo;うごき&rdquo;はここに。</p>
-        </header>
-
-        <!-- Now Working -->
-        <div class="now-working" role="status">
-          <span class="now-label"><span class="dot-pulse"></span>NOW WORKING</span>
-          <span class="now-text">業務AI化伴走 第1期 募集準備中 ／ 中小企業3社 自動化伴走中</span>
-        </div>
-
-        <!-- Channels -->
-        <div class="news-channels">
-          <article class="news-channel">
-            <header class="channel-head">
-              <h3>Threads</h3>
-              <a href="https://www.threads.com/@daeg_ai_teacher?hl=ja" target="_blank" rel="noopener" class="link-arrow link-arrow-sm">VIEW ALL</a>
-            </header>
-            <ul class="news-list">
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.05.14</span><span class="news-tag">業務AI化伴走</span></div>
-                <p class="news-title">「月50時間創出のAI設計プロ」として再始動。</p>
-              </li>
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.04.25</span><span class="news-tag">CONSULT</span></div>
-                <p class="news-title">中小企業の請求書フロー、月20h削減で着地。</p>
-              </li>
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.04.22</span><span class="news-tag">MEDIA</span></div>
-                <p class="news-title">"売上にならない50時間を、売上行動の50時間に"の作り方、公開準備中。</p>
-              </li>
-            </ul>
-          </article>
-
-          <article class="news-channel">
-            <header class="channel-head">
-              <h3>note</h3>
-              <a href="https://note.com/daeg_teacher" target="_blank" rel="noopener" class="link-arrow link-arrow-sm">VIEW ALL</a>
-            </header>
-            <ul class="news-list">
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.05.14</span><span class="news-tag">業務AI化伴走</span></div>
-                <p class="news-title">コーチ・講師業のAI設計プログラム、6ヶ月の中身を公開。</p>
-              </li>
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.04.20</span><span class="news-tag">CONSULT</span></div>
-                <p class="news-title">バックオフィス自動化、最初の3ステップ。</p>
-              </li>
-              <li class="news-card">
-                <div class="news-meta"><span class="news-date">2026.04.15</span><span class="news-tag">CLASS</span></div>
-                <p class="news-title">教壇にAIを持ち込むときの、最初の壁。</p>
-              </li>
-            </ul>
-          </article>
+        <div class="facts">
+          <div class="fact"><b>設計から運用まで、同じ人</b><span>外注の層を挟まず、阿部（ライフ）が責任を持ちます</span></div>
+          <div class="fact"><b>6〜8週間で稼働</b><span>ご相談→設計→制作→読込テスト→運用開始</span></div>
+          <div class="fact"><b>御社専用の環境</b><span>会社ごとに別の環境。他社のデータと混ぜません</span></div>
+          <div class="fact"><b>2026年から本番稼働中</b><span>建設業の経理・工事台帳システムほか、作ったあとの運用が続いています</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ SERVICE ============ -->
-    <section class="section section-service" id="service">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-label">OUR SERVICE</p>
-          <h2 class="section-title">事業案内<span class="section-title-jp">Our service.</span></h2>
-          <p class="section-lead service-lead">個人と法人、それぞれにAIを仕込みます。</p>
-        </header>
-
-        <div class="service-grid service-grid-2col">
-          <!-- 個人向け：業務AI化伴走プログラム -->
-          <article class="service-card service-card-large">
-            <div class="service-visual service-visual-icon">
-              <img src="assets/images/svc-solo-icon.jpg" alt="業務AI化伴走プログラム — 個人向け" loading="lazy" />
+    <!-- ============ 御社に合う形 ============ -->
+    <section class="lp-section" id="fit" style="background: var(--bg-soft);">
+      <div class="container center">
+        <p class="lp-label">FIT — 30秒でわかる</p>
+        <h2 class="lp-h2">「うちの業務だと、どうなる？」が、30秒でわかります。</h2>
+        <p class="lp-lead">業務と人数を選ぶと、作るもの・金額・期間の目安が出ます。</p>
+        <div class="picker" style="text-align: left;">
+          <div class="picker-row" id="pick-task" role="group" aria-label="業務">
+            <span class="lbl">業務</span>
+            <button type="button" class="pick" data-task="ledger" aria-pressed="true">台帳・原価</button>
+            <button type="button" class="pick" data-task="crm" aria-pressed="false">顧客・商談管理</button>
+            <button type="button" class="pick" data-task="daily" aria-pressed="false">日報・予約</button>
+            <button type="button" class="pick" data-task="invoice" aria-pressed="false">請求・入金</button>
+            <button type="button" class="pick" data-task="line" aria-pressed="false">公式LINE・問い合わせ</button>
+          </div>
+          <div class="picker-row" id="pick-size" role="group" aria-label="人数">
+            <span class="lbl">人数</span>
+            <button type="button" class="pick" data-size="s" aria-pressed="true">1〜5人</button>
+            <button type="button" class="pick" data-size="m" aria-pressed="false">6〜30人</button>
+          </div>
+          <div class="result" id="result" aria-live="polite">
+            <div>
+              <h3 id="r-title">経費を入れると、工事ごとの原価と会計用ファイルまで出ます。</h3>
+              <p id="r-body">日付・金額・取引先・工事を登録すると、工事別の集計・損益・原価率が画面に出ます。対象月の仕訳データを会計ソフト用のファイルで出力し、経理担当者か会計事務所が読み込みます。いまのExcelの項目は、そのまま引き継ぎます。</p>
+              <dl>
+                <dt>作り方</dt><dd id="r-how">御社専用のシステム（経費入力→台帳→会計用ファイル）</dd>
+                <dt>初期の目安</dt><dd id="r-init">30万円（税別）</dd>
+                <dt>運用の目安</dt><dd id="r-month">2万円／月（税別）〜</dd>
+                <dt>期間の目安</dt><dd id="r-term">6〜8週間</dd>
+              </dl>
             </div>
-            <div class="service-card-body">
-              <div class="service-chip">FOR SOLO</div>
-              <p class="service-question">「ChatGPT触ったけど、業務に落ちない人へ。」</p>
-              <h3 class="service-title">業務AI化伴走プログラム</h3>
-              <p class="service-en">個人向け — コーチ・講師業のひとり社長</p>
-              <p class="service-jp">月50時間を、売上にならない時間から、売上行動の時間に振り替える。</p>
-              <p class="service-body">
-                SNS投稿・LINE公式・LP・経理事務をAIで設計伴走。<br />
-                動画教材は配らず、月2回マンツーマンで実装まで一緒に。
-              </p>
-              <ul class="service-points">
-                <li>6ヶ月パッケージ（ライト3ヶ月もあり）</li>
-                <li>月¥15,000〜 / 3プラン構成</li>
-                <li>業務別KPIの成果保証付き</li>
+            <div class="result-side">
+              <p class="t">含まれるもの</p>
+              <ul id="r-incl">
+                <li>いまのExcel・台帳からのデータ移行</li>
+                <li>会計側の科目・取引先コードとの照合</li>
+                <li>読込テストへの立ち会い</li>
+                <li>操作説明と、運用開始後の見守り</li>
               </ul>
-              <a href="./program/" class="btn btn-primary">VIEW PROGRAM</a>
-            </div>
-          </article>
-
-          <!-- 法人向け：AI設計業務 -->
-          <article class="service-card service-card-large">
-            <div class="service-visual service-visual-icon">
-              <img src="assets/images/svc-business-icon.jpg" alt="法人向けAI設計業務" loading="lazy" />
-            </div>
-            <div class="service-card-body">
-              <div class="service-chip">FOR BUSINESS</div>
-              <p class="service-question">「組織にAIを定着させたい法人の方へ。」</p>
-              <h3 class="service-title">法人向けAI設計業務</h3>
-              <p class="service-en">法人向け — 中小企業・士業のためのAI実装</p>
-              <p class="service-jp">毎日の反復業務をAIに移植し、社員の手を空ける。</p>
-              <p class="service-body">
-                AI業務効率化コンサル・社員AI研修・自動化ツール開発・HP/LP制作。<br />
-                教育力×実装力で、設計から定着まで一気通貫。
-              </p>
-              <ul class="service-points">
-                <li>月額顧問 ¥200,000〜／開発 ¥300,000〜</li>
-                <li>1day〜3dayのAI研修（¥500,000〜）</li>
-                <li>初回30分の無料相談あり</li>
-              </ul>
-              <a href="./business/" class="btn btn-primary">VIEW BUSINESS</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section section-contact" id="contact">
-      <div class="container contact-inner">
-        <p class="section-label">GET IN TOUCH</p>
-        <h2 class="section-title contact-title">まずは、サービスを選んでください。<span class="section-title-jp">Choose your starting point.</span></h2>
-        <p class="contact-lead">
-          個人事業主／コーチ・講師業の方は <strong>「業務AI化伴走プログラム」</strong>、<br />
-          法人・士業の方は <strong>「法人向けAI設計業務」</strong> をご覧ください。
-        </p>
-        <div class="hero-ctas" style="justify-content: center; margin: 32px 0;">
-          <a href="./program/" class="btn btn-primary">FOR SOLO <span class="btn-sub">— 個人向けプログラム</span></a>
-          <a href="./business/" class="btn btn-ghost">FOR BUSINESS <span class="btn-sub">— 法人向けサービス</span></a>
-        </div>
-        <p class="contact-body">
-          どちらか迷う場合は、お気軽にお問い合わせください。<br />
-          完全無料・オンライン（Zoom）30分。営業電話・売り込みは一切ありません。
-        </p>
-        <a href="https://forms.gle/jE252ufo3rpbmPwk8" target="_blank" rel="noopener" class="btn btn-outline contact-cta">BOOK A CALL <span class="btn-sub">— どちらか迷う方の30分相談</span></a>
-        <div class="contact-sub-links">
-          <a href="https://www.threads.com/@daeg_ai_teacher?hl=ja" target="_blank" rel="noopener">or — Threads DM で相談する →</a>
-          <a href="mailto:contact@daeg.dev">or — メールで送る →</a>
-        </div>
-        <p class="contact-note">※ 営業電話・しつこい連絡は一切ありません。</p>
-      </div>
-    </section>
-
-    <!-- ============ WORKS ============ -->
-    <section class="section section-works" id="works">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-label">WORKS</p>
-          <h2 class="section-title">実装の記録<span class="section-title-jp">Proof of delivery.</span></h2>
-          <p class="section-lead">
-            言葉ではなく、結果で語る。<br />
-            個人事業主・1人社長の現場で動いた、AI実装の記録。
-          </p>
-        </header>
-
-        <div class="works-filter" role="tablist">
-          <button class="filter-chip is-active" data-filter="all">ALL</button>
-          <button class="filter-chip" data-filter="automation">AUTOMATION</button>
-          <button class="filter-chip" data-filter="web">WEB</button>
-          <button class="filter-chip" data-filter="design">DESIGN</button>
-          <button class="filter-chip" data-filter="training">TRAINING</button>
-        </div>
-
-        <div class="works-grid">
-          <article class="work-card" data-category="automation">
-            <span class="work-tag">AUTOMATION</span>
-            <p class="work-metric"><strong>月 <span class="num" data-count-end="20">0</span>h</strong> 削減</p>
-            <h3 class="work-title">請求書発行の自動化</h3>
-            <p class="work-body">中小企業の経理工数を、AIワークフローで圧縮した事例。</p>
-            <a href="#contact" class="link-arrow link-arrow-sm">CASE →</a>
-          </article>
-
-          <article class="work-card" data-category="web">
-            <span class="work-tag">WEB</span>
-            <p class="work-metric"><strong>公開2週間で <span class="num" data-count-end="12">0</span>件</strong> 問合せ</p>
-            <h3 class="work-title">コーチ業向けLP制作</h3>
-            <p class="work-body">ひとり社長の集客LPをAI設計で再構築。設計から実装まで一気通貫。</p>
-            <a href="#contact" class="link-arrow link-arrow-sm">CASE →</a>
-          </article>
-
-          <article class="work-card" data-category="design">
-            <span class="work-tag">DESIGN</span>
-            <p class="work-metric"><strong>SNS投稿準備 月<span class="num" data-count-end="18">0</span>h</strong> 削減</p>
-            <h3 class="work-title">SNS投稿のAI設計</h3>
-            <p class="work-body">コーチ業のSNS運用にAIを移植。キャラに馴染む量産プロンプト集を一緒に作成。</p>
-            <a href="#contact" class="link-arrow link-arrow-sm">CASE →</a>
-          </article>
-
-          <article class="work-card" data-category="training">
-            <span class="work-tag">TRAINING</span>
-            <p class="work-metric"><strong>社員<span class="num" data-count-end="30">0</span>名</strong> 一斉導入</p>
-            <h3 class="work-title">法人向けAI研修</h3>
-            <p class="work-body">教育系企業の社員30名に、ChatGPT実務活用を1day×3部で指導。社内利用率92%を達成。</p>
-            <a href="#contact" class="link-arrow link-arrow-sm">CASE →</a>
-          </article>
-
-          <article class="work-card" data-category="automation">
-            <span class="work-tag">AUTOMATION</span>
-            <p class="work-metric"><strong>応答時間 <span class="num" data-count-end="83">0</span>%</strong> 短縮</p>
-            <h3 class="work-title">問合せチャットボット導入</h3>
-            <p class="work-body">中小企業のカスタマーサポートを、AIで初動対応。一次返答の自動化を実現。</p>
-            <a href="#contact" class="link-arrow link-arrow-sm">CASE →</a>
-          </article>
-        </div>
-
-        <div class="section-foot">
-          <a href="#" class="link-arrow">ALL WORKS — すべての事例を見る</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section section-about" id="about">
-      <div class="container about-inner">
-        <header class="section-head">
-          <p class="section-label">ABOUT</p>
-          <h2 class="section-title">越境者の記録<span class="section-title-jp">Crossing the borders.</span></h2>
-          <p class="section-lead">
-            教壇から、AI開発へ。<br />
-            ひとつの肩書きでは、もう収まらない。
-          </p>
-        </header>
-
-        <div class="about-grid">
-          <div class="about-profile">
-            <figure class="about-portrait">
-              <img src="assets/images/instructor.png" alt="ダエグ先生のポートレート" loading="lazy" />
-              <figcaption class="about-portrait-cap">ダエグ先生 ／ DAEG</figcaption>
-            </figure>
-            <div class="about-profile-text">
-              <p class="about-handle">— 月50時間創出のAI設計プロ / Founder</p>
-              <p class="about-bio">
-                教員歴10年。子どもたちに&ldquo;伝える力&rdquo;を磨き続けた現場から、AI開発の世界へ越境した。<br /><br />
-                今は、コーチ・講師業のひとり社長の月50時間を、売上にならない時間から売上行動の時間に振り替える業務AI化伴走を主宰。SNS投稿・LINE公式・LP・経理事務の4業務を、月2回マンツーマンでAI設計する。動画教材は配らず、横で一緒に手を動かす伴走スタイル。
-              </p>
             </div>
           </div>
+          <p class="lp-note" style="margin-top: 12px;">目安です。業務の内容と人数で変わるので、30分の相談で具体的な金額と期間をお伝えします。</p>
+        </div>
+      </div>
+    </section>
 
-          <ol class="about-steps">
-            <li>
-              <p class="step-num">01</p>
-              <p class="step-en">TEACH → BUILD</p>
-              <p class="step-jp">教壇で磨いた翻訳力を、コードと設計に変換した。</p>
-            </li>
-            <li>
-              <p class="step-num">02</p>
-              <p class="step-en">BUILD → LEAD</p>
-              <p class="step-jp">自分が武装するだけでなく、武装する人を増やす側へ。</p>
-            </li>
-            <li>
-              <p class="step-num">03</p>
-              <p class="step-en">LEAD → MOVEMENT</p>
-              <p class="step-jp">ひとりの挑戦が、誰かの挑戦に火をつける連鎖を作る。</p>
-            </li>
-          </ol>
+    <!-- ============ 事例 ============ -->
+    <section class="lp-section" id="cases">
+      <div class="container">
+        <p class="lp-label">CASES — 事例</p>
+        <h2 class="lp-h2">作ったあとも、一緒に直し続けています。</h2>
+        <p class="lp-lead">いずれも、先に具体的なものを作ってから、運用が始まりました。</p>
+        <div class="cases">
+          <article class="case">
+            <img class="case-img" src="./assets/images/business/case-construction.jpg" width="480" height="360" alt="工事台帳の画面とヘルメットのイラスト（イメージ）" loading="lazy" />
+            <p class="case-ind">建設業（設備・内装・建築）／経理1〜2名</p>
+            <p class="case-title">経費を入れると、工事別の原価と会計用ファイルが出る</p>
+            <p class="case-body">Excelの工事台帳と集計が一致し、税理士事務所の読込テスト（TKC FX2）を通過して、2026年10月に本番稼働。現金出納帳や複数税率など、使いながら出た要望を反映しています。</p>
+            <p class="case-meta">専用システム／初期＋2万円／月（5名まで）／<a class="case-link" href="./construction/">この事例を詳しく読む →</a></p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="./assets/images/business/case-education.jpg" width="480" height="360" alt="ノートとスマホの公式LINEのイラスト（イメージ）" loading="lazy" />
+            <p class="case-ind">教育事業（学級経営メソッド）／代表1名</p>
+            <p class="case-title">HPと公式LINEで、登録から個別面談までが自動で進む</p>
+            <p class="case-body">事業の立ち上げに合わせてHPと公式LINE（登録特典の自動配信・個別面談への導線）を作り、2026年8月に公開。いまは保守を続けながら、次の仕組み（学習支援のシステム）を一緒に設計しています。</p>
+            <p class="case-meta">既製の仕組みの構築／保守を継続中（2026年9月〜）</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="./assets/images/business/case-chatbot.jpg" width="480" height="360" alt="チャットボットの画面のイラスト（イメージ）" loading="lazy" />
+            <p class="case-ind">サービス業／代表1名</p>
+            <p class="case-title">決まった問い合わせには、チャットボットが答える</p>
+            <p class="case-body">2026年4月から運用中。受け答えは、要望が出るたびに調整しています。</p>
+            <p class="case-meta">既製の仕組みの構築／運用中（2026年4月〜）</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="./assets/images/business/case-recruit.jpg" width="480" height="360" alt="週1回の定例とカンバンのイラスト（イメージ）" loading="lazy" />
+            <p class="case-ind">人材紹介業／代表1名</p>
+            <p class="case-title">週1回の定例で、AI活用と案件管理の仕組みを一緒に作る</p>
+            <p class="case-body">3か月12回のプログラムを終えて、期限なしの継続に。2026年6月から、AIを使った業務の進め方と、顧客・案件管理の仕組みづくりを週1回の定例で進めています。</p>
+            <p class="case-meta">伴走／継続中（2026年6月〜）</p>
+          </article>
+        </div>
+        <p class="lp-note" style="margin-top: 16px;">社名・画面は、面談でお見せできる範囲でご説明します。</p>
+      </div>
+    </section>
+
+    <!-- ============ 01〜03 ============ -->
+    <section class="lp-section" id="how" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">HOW — 作って、つないで、直し続ける</p>
+        <h2 class="lp-h2">作って、つないで、直し続けます。</h2>
+
+        <div class="value">
+          <div>
+            <p class="num">01 — 作る</p>
+            <h3 class="lp-h3">項目はいまのExcelのまま、入力する人が迷わない画面にします。</h3>
+            <p class="lp-prose">いまの運用を見て、必要な部分だけをシステムにします。社長・担当者ごとの権限と、誰がいつ何を変えたかの記録もつきます。御社専用の環境に作るので、他社の都合で画面が変わることはありません。</p>
+          </div>
+          <div class="mock" aria-label="画面のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">工事台帳（イメージ）</p>
+            <table data-seq>
+              <tr style="--i:0"><th>工事</th><th>費目</th><th class="r">金額</th></tr>
+              <tr style="--i:1"><td>A邸 改修</td><td>材料費</td><td class="r">128,400</td></tr>
+              <tr style="--i:2"><td>A邸 改修</td><td>外注費</td><td class="r">260,000</td></tr>
+              <tr style="--i:3"><td>B社 設備</td><td>材料費</td><td class="r">54,900</td></tr>
+            </table>
+            <div data-seq><div class="sum" style="--i:4"><span>A邸 改修　原価率</span><b>71.2%</b></div></div>
+          </div>
         </div>
 
-        <div class="about-creed">
-          <p class="creed-label">最大の武器</p>
-          <p>IT知識ゼロの相手を、&ldquo;分かる→できる&rdquo;へ運ぶ翻訳力。教壇で10年磨き続けた、人を動かす言葉の精度。無料ツールだけで月20時間の業務削減を実装した、現場の手触り。</p>
-          <p class="creed-label">信じていること</p>
-          <p>AIを学ぶことは、スキルを増やすことじゃない。自分の人生を、自分の手で組み上げ直すことだ。<br />——人生が変わる体験を、ひとりでも多くの個人へ。</p>
+        <div class="value">
+          <div>
+            <p class="num">02 — つなぐ</p>
+            <h3 class="lp-h3">会計ソフトや公式LINEへ渡し、同じ数字を二度入力する仕事をなくします。</h3>
+            <p class="lp-prose">入力した数字を、会計ソフトの取込ファイル、スプレッドシート、公式LINEの返信へ受け渡します。会計ソフトに合わせてファイルの形式を設計し、読込テストまで一緒に確認します。</p>
+          </div>
+          <div class="mock" aria-label="受け渡しのイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">受け渡し（イメージ）</p>
+            <div class="flow" data-seq><span class="go" style="--i:0">会社で入力</span><i style="--i:1">→</i><span style="--i:2">自動で集計</span><i style="--i:3">→</i><span class="go" style="--i:4">出力</span></div>
+            <div class="outs" data-seq><div style="--i:5">会計ソフト<br />取込ファイル</div><div style="--i:6">スプレッド<br />シート</div><div style="--i:7">公式LINE<br />の返信</div></div>
+          </div>
         </div>
 
-        <div class="about-ctas">
-          <a href="https://www.threads.com/@daeg_ai_teacher?hl=ja" target="_blank" rel="noopener" class="link-arrow">FOLLOW ON THREADS →</a>
-          <a href="https://note.com/daeg_teacher" target="_blank" rel="noopener" class="link-arrow">READ ON NOTE →</a>
+        <div class="value">
+          <div>
+            <p class="num">03 — 直し続ける</p>
+            <h3 class="lp-h3">「この帳票も欲しい」と言えば、直ります。</h3>
+            <p class="lp-prose">要望は、使い始めてから出てきます。稼働の見守り・不具合の修正・問い合わせ対応・バックアップに加えて、改善の相談まで、運用に含みます。作って終わりにしません。</p>
+          </div>
+          <div class="mock" aria-label="要望と反映のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">要望と反映（イメージ）</p>
+            <div class="req" data-seq>
+              <div style="--i:0"><span class="d">10/02</span><span>現金出納帳も見たい</span><span class="s">反映済み</span></div>
+              <div style="--i:1"><span class="d">10/08</span><span>一般経費は税込で入力したい</span><span class="s">反映済み</span></div>
+              <div style="--i:2"><span class="d">10/09</span><span>支払方法の選択肢を増やしたい</span><span class="s" id="req-last">対応中</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 理由 ============ -->
+    <section class="lp-section" id="why">
+      <div class="container">
+        <p class="lp-label">WHY — なぜ、この価格と速さで</p>
+        <h2 class="lp-h2">AIと型があるので、ひとりで6〜8週間で作れます。</h2>
+        <div class="reasons">
+          <div class="reason">
+            <h4>AIを使って作ります</h4>
+            <p>設計・実装・テストにAIを使い、人手で書いていた部分を短くします。御社専用のシステムを、既製品を組み合わせるのに近い費用と期間で作れるのはこのためです。</p>
+          </div>
+          <div class="reason">
+            <h4>型があります</h4>
+            <p>御社専用の環境を用意する仕組み、契約書、導入の手順書（データの準備→環境の設定→読込テスト→運用開始）が揃っています。この型に、御社の業務を当てはめて作ります。</p>
+          </div>
+          <div class="reason">
+            <h4>同じ人が最後まで担当します</h4>
+            <p>ヒアリングした人が設計し、作り、運用も見ます。言ったことが伝わっていない、担当が変わって話が戻る、ということが起きません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 進め方 ============ -->
+    <section class="lp-section" id="process" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">PROCESS — 進め方</p>
+        <h2 class="lp-h2">ご相談から、6〜8週間で運用開始。</h2>
+        <p class="lp-lead">資料を揃えてからでなくて大丈夫です。いま使っているExcelか帳票を1つお見せいただければ、始まります。</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><div class="step-name">30分の相談</div><div class="step-desc">いまの業務と道具を伺い、作るものと目安をその場でお伝えします。合わない場合も、その場で率直に。</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-name">設計（1〜2週間）</div><div class="step-desc">いまのExcel・帳票を見て、画面と項目、受け渡し先を決めます。お見積りと契約はここで。</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-name">作る（4〜8週間）</div><div class="step-desc">御社専用の環境に作り、データを移し、担当者と読込テスト。操作説明をして運用開始。</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-name">育てる（運用）</div><div class="step-desc">見守り・修正・問い合わせ対応に加えて、要望を聞いて直し続けます。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 作れるもの ============ -->
+    <section class="lp-section" id="menu">
+      <div class="container">
+        <p class="lp-label">MENU — 作れるもの</p>
+        <h2 class="lp-h2">台帳から公式LINEまで、この12の業務を作ります。</h2>
+        <p class="lp-lead">一覧に無い業務も、いまの運用を伺って、「作る」か「既製の道具を組む」かをお伝えします。</p>
+        <div class="grid12">
+          <div class="item"><b>経費入力</b><span>日付・金額・取引先・案件を登録。権限と操作記録つき</span></div>
+          <div class="item"><b>工事台帳・原価管理</b><span>案件別の原価・損益・原価率を自動集計</span></div>
+          <div class="item"><b>顧客・商談管理</b><span>顧客・商談・対応履歴を1か所に。次にやることが見える</span></div>
+          <div class="item"><b>日報</b><span>スマホから入力。集計は自動</span></div>
+          <div class="item"><b>予約・受付</b><span>予約の受付・確認・リマインド</span></div>
+          <div class="item"><b>請求書・入金管理</b><span>受注から請求書の発行、未入金の一覧まで</span></div>
+          <div class="item"><b>見積書の清書</b><span>手書きの見積を撮影して、清書と合計の照合</span></div>
+          <div class="item"><b>会計ソフトへの取込ファイル</b><span>TKC FX2は対応済み。ほかは形式に合わせて設計</span></div>
+          <div class="item"><b>公式LINE</b><span>登録特典の自動配信・ステップ配信・面談への導線</span></div>
+          <div class="item"><b>チャットボット</b><span>よくある質問に自動で答え、必要なものだけ人へ</span></div>
+          <div class="item"><b>HP・LP</b><span>事業の立ち上げに合わせた最小構成のサイト</span></div>
+          <div class="item"><b>スプレッドシート・Addnessの自動化</b><span>いまの道具のまま、転記と集計を自動に</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 料金 ============ -->
+    <section class="lp-section" id="price" style="background: var(--bg-soft);">
+      <div class="container">
+        <p class="lp-label">PRICE — 料金</p>
+        <h2 class="lp-h2">初期30万円〜で作り、2万円／月〜で直し続けます。</h2>
+        <p class="lp-lead">初期費用は作るものの種類で決まり、運用は「守る・育てる・伴走」の3段から選びます。</p>
+
+        <h3 class="lp-h3" style="margin-top: 28px;">作る費用（初期・税別）</h3>
+        <div class="tbl"><table class="price">
+          <tr><th>作るもの</th><th>目安</th><th>含まれるもの</th></tr>
+          <tr><td>既製の仕組みの構築・カスタマイズ<br /><span class="lp-note">公式LINE・チャットボット・HP・Addness・スプレッドシート自動化</span></td><td><b>10〜30万円</b></td><td>設計、構築、初期データの登録、操作説明</td></tr>
+          <tr><td>御社専用のシステム（1つの業務）<br /><span class="lp-note">台帳・顧客管理・日報・予約・請求など</span></td><td><b>30〜60万円</b></td><td>設計、専用環境、データ移行、会計側との照合、読込テスト、操作説明</td></tr>
+          <tr><td>複数の業務・外部との連携</td><td><b>60万円〜</b></td><td>お見積り</td></tr>
+        </table></div>
+
+        <h3 class="lp-h3" style="margin-top: 36px;">育てる費用（毎月・税別）</h3>
+        <div class="plans">
+          <div class="plan">
+            <p class="plan-name">守る</p>
+            <p class="plan-for">まず安定して動かしたい会社に</p>
+            <p class="plan-monthly"><strong>20,000<small>円／月</small></strong></p>
+            <ul>
+              <li>サーバー費用・稼働の見守り</li>
+              <li>不具合の修正・障害時の復旧</li>
+              <li>操作の問い合わせ対応</li>
+              <li>データのバックアップ</li>
+            </ul>
+          </div>
+          <div class="plan is-mid">
+            <p class="plan-name">育てる</p>
+            <p class="plan-for">使いながら、帳票や項目を足していきたい会社に</p>
+            <p class="plan-monthly"><strong>50,000<small>円／月</small></strong></p>
+            <ul>
+              <li>「守る」のすべて</li>
+              <li>月5時間までの改善・追加（項目・帳票・小さな機能）</li>
+              <li>月1回30分の定例（要望の整理と次の一手）</li>
+            </ul>
+          </div>
+          <div class="plan">
+            <p class="plan-name">伴走</p>
+            <p class="plan-for">業務の進め方ごと、AIと一緒に変えたい会社に</p>
+            <p class="plan-monthly"><strong>100,000<small>円／月</small></strong></p>
+            <ul>
+              <li>「育てる」のすべて</li>
+              <li>週1回60分の定例</li>
+              <li>月10時間までの改善・追加</li>
+              <li>AIを使った業務の進め方の相談</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lp-note" style="margin-top: 18px; max-width: 800px;">既製の仕組みだけの保守は1万円／月から。追加ユーザーは1名あたり2,000円／月。初期費用の分割はご相談ください。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="lp-section" id="faq">
+      <div class="container center">
+        <p class="lp-label">FAQ</p>
+        <h2 class="lp-h2">よくいただく質問。</h2>
+        <div class="faq-wrap" style="text-align: left;">
+          <div class="faq-item">
+            <p class="faq-q">項目や帳票を、うちの運用に合わせて変えられますか？</p>
+            <p class="faq-a">はい。御社専用に作るので、項目・帳票・権限は御社の運用に合わせます。使い始めてからの変更は、運用プランの改善枠か、お見積りで対応します。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">いまのExcelのデータは引き継げますか？</p>
+            <p class="faq-a">はい。取引先・案件・過去の明細など、必要なデータを移してから運用を始めます。項目名もいまのExcelに合わせます。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">会計ソフトは何でも対応できますか？</p>
+            <p class="faq-a">TKCのFX2は対応済みです。ほかの会計ソフトは、取込ファイルの形式に合わせて設計し、契約の前に取り込めることを確認します。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">データはどこに保管され、誰が見られますか？</p>
+            <p class="faq-a">クラウドに御社専用の環境を用意し、他社のデータと混ぜません。見られるのは御社が登録した担当者だけで、権限ごとに操作を分け、誰がいつ何を変えたかの記録が残ります。阿部は、設定・保守・障害対応に必要な範囲でだけアクセスします。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">入力したデータが、外部のAIに送られることはありますか？</p>
+            <p class="faq-a">標準の機能は、入力したデータをAIサービスへ送りません。AIを使う機能（たとえば手書き見積の読み取り）を足す場合は、事前にご説明します。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">やめたいときは？データはどうなりますか？</p>
+            <p class="faq-a">データは御社のものです。契約終了後30日以内に、CSVなど汎用の形式でお渡しし、そのあと当方が保有するデータを消去します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 相談 ============ -->
+    <section class="lp-section lp-final" id="contact">
+      <div class="container">
+        <p class="lp-label">CONTACT — 30分の相談</p>
+        <h2 class="lp-h2">30分で、作るものと金額の目安をお伝えします。</h2>
+        <div class="final-grid">
+          <div>
+            <div class="final-prose">
+              <p>Excelや帳票をお見せいただければ、その場で「作る」か「既製の道具を組む」か、費用と期間の目安をお伝えします。面談はオンライン（Google Meet）を基本に、ご希望があれば伺います。日程の候補は、こちらから3つお出しします。</p>
+              <p>合わないと判断した場合は、その場でそうお伝えします。売り込みの電話はしません。</p>
+            </div>
+            <div class="final-mail">
+              <p class="lbl">メールでご連絡ください（お名前と会社名だけで大丈夫です）</p>
+              <a href="mailto:abe0tatsu@gmail.com?subject=%E6%A5%AD%E5%8B%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E7%9B%B8%E8%AB%87">abe0tatsu@gmail.com</a>
+              <p class="zero">※ abe のあとは数字の「0（ゼロ）」です。</p>
+            </div>
+          </div>
+          <div class="final-box">
+            <h3>最初に伺う3点（分かる範囲で）</h3>
+            <ol>
+              <li>いま、Excelや手作業で回している業務</li>
+              <li>使っている道具（会計ソフト・LINE・スプレッドシートなど）</li>
+              <li>使う方の人数</li>
+            </ol>
+            <p class="final-note">お問い合わせ窓口：ライフ（阿部 龍也・群馬県）。設計・開発・運用を同じ人が担当します。</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <div class="stickybar"><a href="#contact" class="lp-cta">30分の相談（メール）</a></div>
+
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="container">
       <div class="footer-top">
-        <p class="footer-en">AI BUSINESS DESIGN.</p>
-        <p class="footer-jp">業務をAIで設計し、時間と仕組みを返す。それが、AI設計業務です。</p>
+        <a href="./" class="logo logo-footer">
+          <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
+        </a>
+        <p class="footer-jp">Excelと手作業の業務を、御社専用のシステムに。作って、終わりにしません。</p>
       </div>
-
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h4>SERVICE</h4>
-          <ul>
-            <li><a href="./program/">業務AI化伴走プログラム <span class="footer-tag">個人向け</span></a></li>
-            <li><a href="./business/">法人向けAI設計業務 <span class="footer-tag">法人向け</span></a></li>
-            <li><a href="https://daeg-teacher.com/class/" target="_blank" rel="noopener">CLASS <span class="footer-tag">教員向け ↗</span></a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>CONTENT</h4>
-          <ul>
-            <li><a href="#vision">Vision</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>CONTACT</h4>
-          <ul>
-            <li><a href="#contact">30分無料相談</a></li>
-            <li><a href="https://www.threads.com/@daeg_ai_teacher?hl=ja" target="_blank" rel="noopener">Threads DM</a></li>
-            <li><a href="mailto:contact@daeg.dev">Email</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>SOCIAL</h4>
-          <ul class="footer-socials">
-            <li>
-              <a href="https://www.threads.com/@daeg_ai_teacher?hl=ja" target="_blank" rel="noopener" aria-label="Threads">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M17.4 11.05c-.07-.03-.14-.07-.22-.1-.13-2.49-1.5-3.91-3.78-3.93h-.03c-1.37 0-2.5.58-3.2 1.65l1.26.86c.52-.79 1.34-.96 1.94-.96h.02c.75.01 1.31.22 1.68.65.27.31.45.74.54 1.28-.66-.11-1.38-.15-2.14-.1-2.16.13-3.55 1.39-3.45 3.13.05.88.49 1.64 1.24 2.13.63.42 1.45.62 2.3.58 1.13-.06 2.01-.49 2.63-1.27.47-.6.77-1.37.91-2.34.56.34.97.79 1.2 1.32.39.91.41 2.4-.81 3.62-1.06 1.06-2.34 1.52-4.27 1.53-2.15-.02-3.77-.71-4.83-2.04C5.6 14.86 5.1 13 5.08 12c.02-1 .52-2.86 1.45-4.06C7.59 6.6 9.21 5.91 11.36 5.9c2.16.02 3.81.71 4.91 2.06.54.66.94 1.49 1.21 2.45l1.51-.4c-.32-1.18-.83-2.2-1.51-3.04C16.04 5.32 13.95 4.4 11.37 4.38h-.01c-2.57.02-4.62.94-6.1 2.74C3.86 8.81 3.18 11.07 3.16 12s.7 3.19 2.1 4.88c1.48 1.8 3.53 2.72 6.1 2.74h.01c2.27-.02 3.88-.61 5.21-1.94 1.74-1.74 1.69-3.93 1.11-5.27-.41-.97-1.2-1.76-2.29-2.36zm-3.95 4.13c-.94.05-1.92-.37-1.97-1.27-.04-.67.47-1.41 2.02-1.5.18-.01.35-.02.52-.02.56 0 1.08.05 1.55.16-.18 2.21-1.21 2.59-2.12 2.63z"/>
-                </svg>
-                <span>Threads</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://note.com/daeg_teacher" target="_blank" rel="noopener" aria-label="note">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M3 4h18v16H3V4zm2.4 2.4v11.2H8V9.4l5.5 8.2H18V6.4h-2.6v8.2L9.9 6.4H5.4z"/>
-                </svg>
-                <span>note</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <div class="footer-bottom">
-        <p class="footer-logo">daeg<span class="footer-dot" aria-hidden="true"></span>dev</p>
-        <ul class="footer-legal">
-          <li><a href="legal/tokushoho.html">特定商取引法に基づく表記</a></li>
-          <li><a href="legal/privacy.html">プライバシーポリシー</a></li>
+        <p class="footer-copy">© 2026 ライフ（阿部）／DAEG.DEV</p>
+        <ul class="footer-links">
+          <li><a href="./construction/">建設業向けの事例</a></li>
+          <li><a href="./legal/tokushoho.html">特定商取引法</a></li>
+          <li><a href="./legal/privacy.html">プライバシー</a></li>
         </ul>
-        <p class="footer-copy">© 2026 DAEG.DEV — All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="assets/script.js"></script>
+  <script>
+    // 「御社に合う形」：業務×人数で、作るもの・目安・含まれるものを切り替える（目安。契約前の面談で確定）
+    (function () {
+      var DATA = {
+        ledger: {
+          title: "経費を入れると、工事ごとの原価と会計用ファイルまで出ます。",
+          body: "日付・金額・取引先・工事を登録すると、工事別の集計・損益・原価率が画面に出ます。対象月の仕訳データを会計ソフト用のファイルで出力し、経理担当者か会計事務所が読み込みます。いまのExcelの項目は、そのまま引き継ぎます。",
+          how: "御社専用のシステム（経費入力→台帳→会計用ファイル）",
+          s: { init: "30万円（税別）", month: "2万円／月（税別）〜", term: "6〜8週間" },
+          m: { init: "40〜50万円（税別）", month: "4〜8万円／月（税別）", term: "6〜8週間" },
+          incl: ["いまのExcel・台帳からのデータ移行", "会計側の科目・取引先コードとの照合", "読込テストへの立ち会い", "操作説明と、運用開始後の見守り"]
+        },
+        crm: {
+          title: "顧客・商談・対応履歴が1か所に集まり、次にやることが見えます。",
+          body: "顧客ごとに商談の段階と対応履歴を記録し、「今週連絡する相手」「返事待ちの案件」が一覧で出ます。見積や請求につなげることもできます。少人数なら既製のツール（Addnessなど）を御社向けに組む形も選べます。",
+          how: "御社専用のシステム。既製のツールで足りる場合はその構築",
+          s: { init: "20〜30万円（税別）", month: "2万円／月（税別）〜", term: "4〜6週間" },
+          m: { init: "30〜50万円（税別）", month: "4〜5万円／月（税別）", term: "6〜8週間" },
+          incl: ["いまの顧客リスト・商談記録の移行", "商談の段階と項目の設計", "担当者ごとの権限と記録", "操作説明と、運用開始後の見守り"]
+        },
+        daily: {
+          title: "スマホから日報・予約を入力し、集計は自動になります。",
+          body: "現場や外出先から入力すると、日ごと・担当ごと・案件ごとの集計が自動で出ます。月末にExcelへ転記する作業がなくなります。予約は受付・確認・リマインドまで。",
+          how: "御社専用のシステム。シンプルな場合はフォーム＋スプレッドシートの自動化",
+          s: { init: "10〜20万円（税別）", month: "1〜2万円／月（税別）", term: "3〜4週間" },
+          m: { init: "30万円（税別）〜", month: "2〜4万円／月（税別）", term: "4〜6週間" },
+          incl: ["入力項目と集計の設計", "スマホで使える画面", "担当者ごとの権限", "操作説明と、運用開始後の見守り"]
+        },
+        invoice: {
+          title: "受注から請求書の発行、入金の確認までが1本につながります。",
+          body: "案件ごとに受注額・請求・入金を記録し、請求書を発行。未入金の一覧が自動で出ます。会計ソフトへの取込ファイルまで出すこともできます。",
+          how: "御社専用のシステム（受注→請求→入金→会計用ファイル）",
+          s: { init: "30万円（税別）", month: "2万円／月（税別）〜", term: "6週間" },
+          m: { init: "40万円（税別）〜", month: "4万円／月（税別）〜", term: "6〜8週間" },
+          incl: ["請求書の様式と採番の設計", "取引先・案件データの移行", "会計側との照合と読込テスト", "操作説明と、運用開始後の見守り"]
+        },
+        line: {
+          title: "公式LINEの問い合わせに、よくある質問は自動で答えます。",
+          body: "登録特典の自動配信、ステップ配信、よくある質問への自動返信を組み、必要なものだけ人に回します。面談や予約への導線もつなげます。",
+          how: "既製の仕組みの構築（公式LINE＋チャットボット）",
+          s: { init: "10〜20万円（税別）", month: "1万円／月（税別）〜（利用量に応じて）", term: "2〜4週間" },
+          m: { init: "20〜30万円（税別）", month: "2万円／月（税別）〜（利用量に応じて）", term: "3〜4週間" },
+          incl: ["配信の設計と文面の整理", "よくある質問の受け答えの作成", "予約・面談への導線", "運用開始後の受け答えの調整"]
+        }
+      };
+      var task = "ledger", size = "s", first = true;
+      var $ = function (id) { return document.getElementById(id); };
+      function render() {
+        var d = DATA[task], v = d[size];
+        $("r-title").textContent = d.title;
+        $("r-body").textContent = d.body;
+        $("r-how").textContent = d.how;
+        $("r-init").textContent = v.init;
+        $("r-month").textContent = v.month;
+        $("r-term").textContent = v.term;
+        var ul = $("r-incl"); ul.innerHTML = "";
+        d.incl.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+        document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.task === task)); });
+        document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.size === size)); });
+        if (!first) { var r = $("result"); r.classList.remove("is-swap"); void r.offsetWidth; r.classList.add("is-swap"); }
+        first = false;
+      }
+      document.querySelectorAll("#pick-task .pick").forEach(function (b) { b.addEventListener("click", function () { task = b.dataset.task; render(); }); });
+      document.querySelectorAll("#pick-size .pick").forEach(function (b) { b.addEventListener("click", function () { size = b.dataset.size; render(); }); });
+      render();
+    })();
+
+    // 01〜03：画面に入ったら、模式画面の行や吹き出しを順に出す。03は「対応中」→「反映済み」に変わる
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || !("IntersectionObserver" in window)) return;
+      document.documentElement.classList.add("anim");
+      var last = document.getElementById("req-last");
+      if (last) last.classList.add("is-wip");
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+          if (last && e.target.contains(last)) {
+            setTimeout(function () { last.textContent = "反映済み"; last.classList.remove("is-wip"); last.classList.add("is-done"); }, 1600);
+          }
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll("#how .mock").forEach(function (m) { io.observe(m); });
+    })();
+  </script>
 </body>
 </html>
