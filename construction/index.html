@@ -4,14 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>経理・工事台帳システム（建設業向け）｜ライフ（阿部）</title>
-  <meta name="description" content="経費を入れると、工事ごとの原価と会計ソフト（TKC FX2）用のファイルまで出る、建設会社の経理のための仕組み。2026年10月から建設会社で本番稼働中。この形を、御社の業務に置き換えて作ります。初期30万円〜＋2万円／月〜。" />
+  <meta name="description" content="経費を入れると、工事ごとの原価と会計ソフト（TKC FX2）用のファイルまで出る、建設会社の経理のための仕組み。建設会社で本番稼働中。この形を、御社の業務に置き換えて作ります。初期30万円〜＋2万円／月〜。" />
   <meta name="robots" content="index,follow" />
 
-  <meta property="og:title" content="経理・工事台帳システム（建設業向け）｜ライフ（阿部）" />
-  <meta property="og:description" content="経費を入れると、工事ごとの原価と会計用ファイルまで出ます。建設会社で本番稼働中の仕組みを、御社の業務に置き換えて作ります。" />
+  <meta property="og:title" content="経理も事務も会計も、もっとまとまっていい。｜経理・工事台帳システム（建設業向け）" />
+  <meta property="og:description" content="見積もり・請求・領収→案件管理→経費管理→会計の流れをひとつに。土木・建設会社の経理のために作り、本番で動いている仕組みを、御社の今までの運用にカスタマイズして作ります。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tr-1103.github.io/daeg-dev/construction/" />
-  <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/construction/hero.jpg" />
+  <meta property="og:image" content="https://tr-1103.github.io/daeg-dev/assets/images/og-construction.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://tr-1103.github.io/daeg-dev/construction/" />
 
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
@@ -22,115 +26,145 @@
 
   <link rel="stylesheet" href="../assets/style.css" />
 
-  <style>
-    /* ========== 建設業向けLP（信用確認用1ページ）の固有スタイル ========== */
-    /* 配色・書体は assets/style.css の変数（白×深緑）をそのまま使う。このページだけの部品を下に書く */
+<style>
+    /* ========== 法人向けLP（信用確認用）の固有スタイル ==========
+       構成はコンクルー（一言と料金を先に／御社に合う形の切り替え／事例／01〜03／作れるもの／料金／FAQ／下に貼り付く相談）、
+       見せ方はAddness（白地・中央寄せ・静か）。色と書体は assets/style.css の変数をそのまま使う */
     .lp-section { padding: 88px 0; border-top: 1px solid var(--border); }
     .lp-label { font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
-    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.4; letter-spacing: -.01em; margin-bottom: 20px; color: var(--text); text-wrap: balance; }
+    .lp-h2 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.4; letter-spacing: -.01em; margin-bottom: 18px; color: var(--text); text-wrap: balance; }
     .lp-h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.5; margin-bottom: 12px; color: var(--text); }
     .lp-lead { font-family: var(--font-jp); font-size: 17px; line-height: 1.9; color: var(--text-sub); max-width: 720px; }
     .lp-prose { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 760px; }
-    .lp-prose p + p { margin-top: 1.2em; }
     .lp-note { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text-sub); }
-    .lp-fig { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg); }
-    .lp-fig img { width: 100%; height: auto; display: block; }
-    .lp-fig figcaption { font-family: var(--font-jp); font-size: 12px; color: var(--text-mute); padding: 8px 14px; border-top: 1px solid var(--border); }
-
-    /* Hero */
-    .lp-hero { padding: 96px 0 72px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); }
-    .lp-hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: center; }
-    @media (max-width: 900px) { .lp-hero-grid { grid-template-columns: 1fr; } }
-    .lp-hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-en); font-size: 12px; letter-spacing: .18em; color: var(--green); font-weight: 600; text-transform: uppercase; margin-bottom: 24px; }
-    .lp-hero-tag .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); line-height: 1.3; letter-spacing: -.015em; color: var(--text); margin-bottom: 24px; text-wrap: balance; }
-    .lp-hero-h1 span { display: block; }
-    .lp-hero-h1 span:last-child { color: var(--green); }
-    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(17px, 2vw, 20px); font-weight: 500; color: var(--text-sub); margin-bottom: 20px; line-height: 1.7; }
-    .lp-hero-lead { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 600px; margin-bottom: 32px; }
-    .lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 15px; font-family: var(--font-jp); transition: background .2s var(--ease), transform .2s var(--ease); }
+    .center { text-align: center; }
+    .center .lp-lead, .center .lp-note { margin-left: auto; margin-right: auto; }
+    .lp-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; background: var(--green); color: #fff; border-radius: 999px; font-weight: 600; font-size: 15px; font-family: var(--font-jp); transition: background .2s var(--ease), transform .2s var(--ease); }
     .lp-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
     .lp-cta.is-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
     .lp-cta.is-ghost:hover { background: var(--bg-tint); }
-    .lp-flow3 { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 28px; font-family: var(--font-jp); font-size: 14px; }
-    .lp-flow3 .chip { padding: 8px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text); font-weight: 500; }
-    .lp-flow3 .arr { color: var(--text-mute); }
 
-    /* 誰が */
-    .who { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; align-items: start; max-width: 860px; }
-    @media (max-width: 720px) { .who { grid-template-columns: 1fr; } }
-    .who-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 22px; color: var(--text); line-height: 1.4; }
-    .who-role { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: 6px; line-height: 1.7; }
-    .who-points { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); margin-top: 12px; }
-    .who-points li { padding-left: 20px; position: relative; }
-    .who-points li::before { content: "・"; position: absolute; left: 2px; color: var(--green); font-weight: 700; }
+    /* Hero（中央寄せ） */
+    .lp-hero { padding: 88px 0 64px; background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%); text-align: center; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; }
+    .chips span { font-family: var(--font-jp); font-size: 13px; padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text-sub); }
+    .lp-hero-h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(30px, 5vw, 54px); line-height: 1.3; letter-spacing: -.015em; color: var(--text); margin: 0 auto 20px; max-width: 900px; text-wrap: balance; }
+    .lp-hero-h1 em { font-style: normal; color: var(--green); }
+    .lp-hero-sub { font-family: "Noto Serif JP", serif; font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; color: var(--text-sub); margin-bottom: 18px; }
+    .lp-hero-lead { font-family: var(--font-jp); font-size: 16px; line-height: 2; color: var(--text); max-width: 640px; margin: 0 auto 28px; }
+    .price-line { font-family: var(--font-jp); font-size: 15px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; padding: 10px 18px; margin-bottom: 28px; }
+    .price-line b { font-family: var(--font-en); font-size: 17px; }
+    @media (max-width: 600px) {
+      .lp-hero-h1 { font-size: clamp(26px, 8vw, 32px); }
+      .lp-hero-h1 br { display: none; }
+      .price-line { border-radius: var(--radius); flex-direction: column; gap: 4px; }
+      .price-line .sep { display: none; }
+    }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 980px; margin: 44px auto 0; text-align: left; }
+    @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .facts { grid-template-columns: 1fr; } }
+    .fact { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; min-width: 0; }
+    .fact b { display: block; font-family: "Noto Serif JP", serif; font-size: 17px; color: var(--text); line-height: 1.5; }
+    .fact span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
 
-    /* 合う会社 */
-    .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
-    @media (max-width: 760px) { .fit-grid { grid-template-columns: 1fr; } }
-    .fit { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
-    .fit-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; margin-bottom: 12px; color: var(--text); }
-    .fit ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
-    .fit li { padding-left: 22px; position: relative; }
-    .fit li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-    .fit.is-scope li::before { content: "—"; color: var(--text-mute); }
+    /* 御社に合う形（切り替え） */
+    .picker { max-width: 980px; margin: 0 auto; }
+    .picker-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
+    .picker-row .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); width: 64px; }
+    .pick { font: inherit; font-family: var(--font-jp); font-size: 14px; padding: 8px 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
+    .pick:hover { background: var(--bg-tint); }
+    .pick:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .pick[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .result { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 24px; margin-top: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    @media (max-width: 800px) { .result { grid-template-columns: 1fr; } }
+    .result h3 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; margin-bottom: 10px; color: var(--text); }
+    .result p { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
+    .result dl { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 8px 12px; font-family: var(--font-jp); font-size: 14px; margin-top: 14px; }
+    .result dt { color: var(--text-sub); } .result dd { color: var(--text); margin: 0; }
+    .result-side { background: var(--bg-tint); border-radius: var(--radius); padding: 18px; min-width: 0; }
+    .result-side .t { font-family: var(--font-en); font-size: 11px; letter-spacing: .15em; color: var(--green); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+    .result-side ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); }
+    .result-side li { padding-left: 20px; position: relative; }
+    .result-side li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-    /* 流れ */
-    .steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
-    @media (max-width: 760px) { .steps3 { grid-template-columns: 1fr; } }
-    .step { padding: 24px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 0; }
-    .step-num { font-family: var(--font-en); font-size: 26px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
-    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; margin-bottom: 8px; color: var(--text); }
-    .step-desc { font-family: var(--font-jp); font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+    /* 事例 */
+    .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .cases { grid-template-columns: 1fr; } }
+    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .case-ind { font-family: var(--font-jp); font-size: 12px; color: var(--green); font-weight: 700; letter-spacing: .04em; }
+    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; color: var(--text); line-height: 1.5; }
+    .case-body { font-family: var(--font-jp); font-size: 14.5px; line-height: 1.9; color: var(--text); }
+    .case-meta { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+    .case-link { font-family: var(--font-jp); font-size: 14px; color: var(--green); font-weight: 600; }
+    .case-link:hover { text-decoration: underline; }
 
-    /* 導入前後 */
-    .ba-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 28px; }
-    @media (max-width: 900px) { .ba-grid { grid-template-columns: 1fr; } }
-    .ba-calc { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.5; color: var(--text); margin-top: 16px; }
-    .ba-calc small { display: block; font-family: var(--font-jp); font-weight: 500; font-size: 15px; color: var(--green); margin-top: 8px; }
+    /* 01〜03 価値 */
+    .value { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px 0; border-top: 1px solid var(--border); }
+    .value:first-of-type { border-top: 0; }
+    @media (max-width: 860px) { .value { grid-template-columns: 1fr; gap: 20px; } }
+    .value .num { font-family: var(--font-en); font-size: 13px; letter-spacing: .18em; color: var(--green); font-weight: 700; margin-bottom: 10px; }
+    .mock { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-sm); min-width: 0; font-family: var(--font-jp); }
+    .mock .bar { display: flex; gap: 6px; margin-bottom: 12px; }
+    .mock .bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .mock .ttl { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; }
+    .mock table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .mock th { text-align: left; color: var(--text-mute); font-weight: 600; font-size: 11px; padding: 4px 6px; border-bottom: 1px solid var(--border); }
+    .mock td { padding: 6px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .mock td.r, .mock th.r { text-align: right; }
+    .mock .sum { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 6px 0; }
+    .mock .sum b { font-family: var(--font-en); }
+    .mock .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .mock .flow span { font-size: 13px; padding: 7px 12px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--bg-soft); }
+    .mock .flow span.go { background: var(--bg-tint); border-color: var(--green-soft); color: var(--green); font-weight: 700; }
+    .mock .flow i { color: var(--text-mute); font-style: normal; }
+    .mock .outs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+    .mock .outs div { font-size: 12px; padding: 10px; border: 1px dashed var(--border-strong); border-radius: 8px; text-align: center; color: var(--text-sub); }
+    .mock .req { display: grid; gap: 8px; }
+    .mock .req div { display: grid; grid-template-columns: 54px minmax(0, 1fr) 70px; gap: 8px; align-items: center; font-size: 13px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; }
+    .mock .req .d { color: var(--text-mute); font-family: var(--font-en); font-size: 12px; }
+    .mock .req .s { text-align: right; font-size: 12px; color: var(--green); font-weight: 700; }
 
-    /* 事例 2列 */
-    .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
-    @media (max-width: 760px) { .case-grid { grid-template-columns: 1fr; } }
-    .case { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
-    .case.is-ok { border-color: var(--green-soft); background: var(--bg-tint); }
-    .case-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; margin-bottom: 14px; color: var(--text); }
-    .case ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
-    .case li { padding-left: 20px; position: relative; margin-bottom: 6px; }
-    .case.is-ok li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-    .case.is-open li::before { content: "・"; position: absolute; left: 2px; color: var(--text-mute); font-weight: 700; }
-    .case-meta { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text-sub); max-width: 760px; margin-top: 8px; }
+    /* 理由・進め方・作れるもの */
+    .reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    @media (max-width: 800px) { .reasons { grid-template-columns: 1fr; } }
+    .reason { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; min-width: 0; }
+    .reason h4 { font-family: "Noto Serif JP", serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--text); line-height: 1.5; }
+    .reason p { font-family: var(--font-jp); color: var(--text-sub); line-height: 1.9; font-size: 14.5px; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 800px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+    .step { padding: 22px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 0; }
+    .step-num { font-family: var(--font-en); font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .step-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; color: var(--text); }
+    .step-desc { font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); line-height: 1.8; }
+    .grid12 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    @media (max-width: 900px) { .grid12 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; min-width: 0; }
+    .item b { display: block; font-family: var(--font-jp); font-size: 15px; color: var(--text); margin-bottom: 4px; }
+    .item span { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.7; }
 
     /* 料金 */
-    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+    .tbl { overflow-x: auto; margin-top: 24px; }
+    table.price { width: 100%; border-collapse: collapse; font-family: var(--font-jp); font-size: 15px; min-width: 520px; }
+    table.price th, table.price td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.price th { font-size: 12px; color: var(--text-sub); font-weight: 600; }
+    table.price td b { font-family: var(--font-en); font-size: 17px; }
+    .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
     @media (max-width: 860px) { .plans { grid-template-columns: 1fr; } }
-    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; min-width: 0; }
+    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 24px; min-width: 0; }
     .plan.is-mid { border-color: var(--green); box-shadow: var(--shadow-sm); }
     .plan-name { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 20px; color: var(--text); }
-    .plan-users { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-bottom: 18px; }
+    .plan-for { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-bottom: 16px; min-height: 2.6em; }
     .plan-monthly { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); }
     .plan-monthly strong { display: block; font-family: var(--font-en); font-size: 34px; font-weight: 700; color: var(--text); line-height: 1.2; font-variant-numeric: tabular-nums; }
     .plan-monthly strong small { font-family: var(--font-jp); font-size: 14px; font-weight: 500; color: var(--text-sub); margin-left: 4px; }
-    .plan-tax { font-family: var(--font-jp); font-size: 12px; color: var(--text-mute); margin-top: 2px; }
-    .plan-init { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); line-height: 1.7; }
-    .incl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
-    @media (max-width: 760px) { .incl-grid { grid-template-columns: 1fr; } }
-    .incl { padding: 24px 28px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); min-width: 0; }
-    .incl.is-monthly { background: var(--bg-tint); border-color: var(--green-soft); }
-    .incl-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 17px; color: var(--text); margin-bottom: 10px; }
-    .incl ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
-    .incl li { padding-left: 20px; position: relative; }
-    .incl li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
-
-    /* 導入5ステップ */
-    .steps5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
-    @media (max-width: 1000px) { .steps5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 560px) { .steps5 { grid-template-columns: 1fr; } }
-    .steps5 .step-desc { font-size: 13px; }
+    .plan ul { font-family: var(--font-jp); font-size: 14px; line-height: 1.9; color: var(--text); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .plan li { padding-left: 20px; position: relative; }
+    .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
     /* FAQ */
-    .faq-wrap { max-width: 800px; margin-top: 24px; }
+    .faq-wrap { max-width: 800px; margin: 24px auto 0; }
     .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
     .faq-q { font-family: var(--font-jp); font-weight: 700; color: var(--text); font-size: 16px; margin-bottom: 10px; padding-left: 28px; position: relative; }
     .faq-q::before { content: "Q."; position: absolute; left: 0; color: var(--green); font-family: var(--font-en); font-weight: 700; }
@@ -152,40 +186,102 @@
     .final-mail .lbl { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); }
     .final-mail a { font-family: var(--font-en); font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; color: #fff; word-break: break-all; text-decoration: underline; text-underline-offset: 4px; }
     .final-mail .zero { font-family: var(--font-jp); font-size: 13px; color: var(--footer-mute); margin-top: 6px; }
-    .final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; line-height: 1.9; margin-top: 28px; }
-    .final-steps { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; font-family: var(--font-jp); font-size: 14px; color: var(--footer-text); }
-    .final-steps .chip { padding: 6px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; }
-    .final-steps .arr { color: var(--footer-mute); }
+    .final-note { font-family: var(--font-jp); color: var(--footer-mute); font-size: 13px; line-height: 1.9; margin-top: 24px; }
 
-    /* スマホではページ内リンクを隠し、「30分の相談」のボタンだけ残す（ロゴと重ならないように） */
+    /* スマホ：ヘッダーの文字リンクを隠し、下に相談ボタンを貼り付ける */
+    .stickybar { display: none; }
     @media (max-width: 760px) {
       .header-nav a:not(.btn) { display: none; }
       .header-nav { gap: 0; }
+      .stickybar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-top: 1px solid var(--border); gap: 10px; }
+      .stickybar .lp-cta { flex: 1; }
+      body { padding-bottom: 72px; }
+    }
+    /* 見出しの改行：語のまとまりで折り返す（「御社専／用」で切れないように） */
+    .nb { display: inline-block; }
+    .lp-hero-h1 { word-break: auto-phrase; }
+
+    /* イメージ画像（挿入画像：原寸・角丸・ボーダー） */
+    .hero-fig { max-width: 880px; margin: 40px auto 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+    .hero-fig img { display: block; width: 100%; height: auto; }
+    .case-img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; }
+
+    /* 料金表：スマホでは横スクロールさせず、縦に積む */
+    @media (max-width: 600px) {
+      table.price { min-width: 0; }
+      table.price tr:first-child { display: none; }
+      table.price tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--border); }
+      table.price td { display: block; padding: 2px 0; border: 0; }
+      table.price td:nth-child(3) { color: var(--text-sub); font-size: 14px; }
+      table.price td:nth-child(3)::before { content: "含まれるもの："; }
     }
 
-    /* できること（機能一覧） */
-    .feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
-    @media (max-width: 900px) { .feat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 560px) { .feat { grid-template-columns: 1fr; } }
-    .feat div { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; min-width: 0; }
-    .feat b { display: block; font-family: var(--font-jp); font-size: 15px; color: var(--text); margin-bottom: 6px; }
-    .feat span { font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); line-height: 1.8; }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    /* 動き（控えめに）。JSが動き、動きを減らす設定でない時だけ html に .anim が付く。
+       付かない環境では、最初から全部見えている */
+    .result.is-swap { animation: lpFade .25s var(--ease); }
+    @keyframes lpFade { from { opacity: .3; } to { opacity: 1; } }
+    .anim [data-seq] > * { opacity: 0; transform: translateY(8px); transition: opacity .45s var(--ease), transform .45s var(--ease); transition-delay: calc(var(--i, 0) * 140ms + 120ms); }
+    .anim .is-in [data-seq] > * { opacity: 1; transform: none; }
+    .mock .req .s { transition: color .3s var(--ease); }
+    .mock .req .s.is-wip { color: var(--text-mute); }
+    .mock .req .s.is-done { animation: lpFade .4s var(--ease); }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+
+  <style>
+    /* ========== 製品ページ固有 ========== */
+    .lp-hero-h1 em .nb + .nb { margin-left: 0; }
+    .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+    @media (max-width: 760px) { .fit-grid { grid-template-columns: 1fr; } }
+    .fit { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
+    .fit.is-scope { background: var(--bg-tint); border-color: var(--green-soft); }
+    .fit-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 18px; margin-bottom: 12px; color: var(--text); }
+    .fit ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
+    .fit li { padding-left: 22px; position: relative; }
+    .fit li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .cases-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 960px) { .cases-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .cases-3 { grid-template-columns: 1fr; } }
+    .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+    @media (max-width: 760px) { .case-grid { grid-template-columns: 1fr; } }
+    .case2 { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; min-width: 0; }
+    .case2.is-ok { border-color: var(--green-soft); background: var(--bg-tint); }
+    .case2 .case-title { margin-bottom: 12px; }
+    .case2 ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
+    .case2 li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+    .case2.is-ok li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .case2.is-open li::before { content: "・"; position: absolute; left: 2px; color: var(--text-mute); font-weight: 700; }
+    .ba-calc { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.5; color: var(--text); margin-top: 28px; }
+    .ba-calc small { display: block; font-family: var(--font-jp); font-weight: 500; font-size: 15px; color: var(--green); margin-top: 8px; }
+    .plan-tax { font-family: var(--font-jp); font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+    .plan-init { font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); line-height: 1.7; }
+    .incl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+    @media (max-width: 760px) { .incl-grid { grid-template-columns: 1fr; } }
+    .incl { padding: 24px 28px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg); min-width: 0; }
+    .incl.is-monthly { background: var(--bg-tint); border-color: var(--green-soft); }
+    .incl-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 16px; margin-bottom: 10px; color: var(--text); }
+    .incl ul { font-family: var(--font-jp); font-size: 14.5px; line-height: 1.9; color: var(--text); }
+    .incl li { padding-left: 20px; position: relative; }
+    .incl li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .steps-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    @media (max-width: 1000px) { .steps-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .steps-5 { grid-template-columns: 1fr; } }
+    .mock .req div { grid-template-columns: 44px minmax(0, 1fr) 44px; }
   </style>
 </head>
 <body>
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../" class="logo" aria-label="法人向けの案内へ">
+      <a href="../" class="logo" aria-label="トップへ">
         <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
       </a>
       <nav class="header-nav" aria-label="ページ内ナビ">
-        <a href="#flow">仕組み</a>
+        <a href="#how">仕組み</a>
         <a href="#features">できること</a>
-        <a href="#case">事例</a>
         <a href="#price">料金</a>
-        <a href="#safety">安全</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary">30分の相談</a>
       </nav>
     </div>
@@ -194,52 +290,30 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="lp-hero">
-      <div class="container lp-hero-grid">
-        <div>
-          <p class="lp-hero-tag"><span class="dot"></span>経理・工事台帳システム（建設業向け）</p>
-          <h1 class="lp-hero-h1">
-            <span>経費を入れると、</span>
-            <span>工事ごとの原価と会計用ファイルまで出ます。</span>
-          </h1>
-          <p class="lp-hero-sub">建設会社の経理のために作り、2026年10月から本番で動いている仕組みです。</p>
-          <p class="lp-hero-lead">
-            Excelの工事台帳も、月末の転記も、会計側の入力し直しも。会社で経費を入力すると、工事別の集計・損益・原価率が画面に出て、会計ソフトに取り込むファイルまで出ます。この形を、御社のExcelと運用に置き換えて作ります。
-          </p>
-          <div class="lp-hero-ctas">
-            <a href="#contact" class="lp-cta">30分、いまの工事台帳を見ながら相談する</a>
-            <a href="#price" class="lp-cta is-ghost">料金を見る</a>
-          </div>
-          <div class="lp-flow3" aria-label="仕組みの流れ">
-            <span class="chip">経費を入力</span><span class="arr">→</span>
-            <span class="chip">工事台帳に集計</span><span class="arr">→</span>
-            <span class="chip">会計用ファイルを出力</span>
-          </div>
-        </div>
-        <figure class="lp-fig">
-          <img src="../assets/images/construction/hero.jpg" alt="経費入力から工事台帳、会計への受け渡しまでをひとつの流れにする様子のイラスト" width="1400" height="933" />
-          <figcaption>画面・人物は説明用のイメージです。</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============ 誰が ============ -->
-    <section class="lp-section" id="who">
       <div class="container">
-        <p class="lp-label">WHO — 担当する人</p>
-        <h2 class="lp-h2">設計・開発・運用を、同じ人が担当します。</h2>
-        <div class="who">
-          <div>
-            <p class="who-name">阿部 龍也</p>
-            <p class="who-role">ライフ（群馬県）<br />AI業務システムの設計・開発・運用</p>
-          </div>
-          <div>
-            <p class="lp-prose">この仕組みを設計し、建設会社の経理担当者・会計事務所と読込テストを重ねて、2026年10月に本番稼働させました。使い始めてから出た要望は、1つずつ反映しています。外注の層を挟まず、ヒアリングから実装・運用まで、同じ人間が責任を持ちます。</p>
-            <ul class="who-points">
-              <li>御社専用の環境を作り、他社のデータと混ぜません</li>
-              <li>導入後も、不具合の修正・操作の問い合わせ・改善の相談を続けます</li>
-              <li>合わないと判断した場合は、最初の30分でそうお伝えします</li>
-            </ul>
-          </div>
+        <div class="chips" aria-label="この仕組みに入っているもの">
+          <span>経費入力</span><span>工事台帳</span><span>損益・原価率</span><span>会計用ファイル</span><span>見積書・請求書</span>
+        </div>
+        <p class="lp-label" style="margin-bottom: 14px;">経理・工事台帳システム（建設業向け）</p>
+        <h1 class="lp-hero-h1"><span class="nb">経理も事務も会計も、</span><br /><em><span class="nb">もっと</span><span class="nb">まとまっていい。</span></em></h1>
+        <p class="lp-hero-sub">見積もり・請求・領収→案件管理→経費管理→会計の流れをひとつに。</p>
+        <p class="lp-hero-lead">
+          土木・建設会社の経理のために作り、本番で動いている仕組みです。この形を、御社の今までの運用にカスタマイズして作ります。
+        </p>
+        <div class="price-line"><span>初期 <b>30万円</b>〜</span><span class="sep">＋</span><span>運用 <b>2万円／月</b>〜（税別）</span><span class="sep">・</span><span>ご相談から <b>6〜8週間</b> で稼働</span></div>
+        <div class="lp-hero-ctas">
+          <a href="#contact" class="lp-cta">30分、いまの工事台帳を見ながら相談する</a>
+          <a href="#price" class="lp-cta is-ghost">料金を見る</a>
+          <a href="../" class="lp-cta is-ghost">ほかの業務の例を見る</a>
+        </div>
+        <figure class="hero-fig">
+          <img src="../assets/images/construction/hero.jpg" width="1600" height="700" alt="紙の工事台帳と領収書の束が、1つの画面と会計用ファイルにまとまるイメージ" />
+        </figure>
+        <div class="facts">
+          <div class="fact"><b>建設会社の経理専用</b><span>工事台帳のための画面。給与や販売管理は混ぜません</span></div>
+          <div class="fact"><b>6〜8週間で稼働</b><span>ご相談→設計→制作→読込テスト→運用開始</span></div>
+          <div class="fact"><b>設計から運用まで、外注を挟みません</b><span>阿部（ライフ）が最後まで責任を持ちます</span></div>
+          <div class="fact"><b>税理士法人と共同開発</b><span>会計ソフトへの取込みまで、税理士法人と一緒に設計しました</span></div>
         </div>
       </div>
     </section>
@@ -248,8 +322,8 @@
     <section class="lp-section" id="fit" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">FIT — 合う会社</p>
-        <h2 class="lp-h2">「工事ごとの原価を、Excelで追っている」会社のための仕組みです。</h2>
-        <p class="lp-lead">合うかどうかは、いまの工事台帳と入力の流れを伺って、一緒に確認します。会計システムは、TKCのFX2は対応済みです。それ以外も、取り込めるかどうかを個別に確認します。</p>
+        <h2 class="lp-h2">“Excelで追う”から、“AIで管理する”仕組みへ。</h2>
+        <p class="lp-lead">合うかどうかは、いまの工事台帳と入力の流れを伺って、一緒に確認します。</p>
         <div class="fit-grid">
           <div class="fit">
             <p class="fit-title">こんな会社に合います</p>
@@ -266,42 +340,71 @@
               <li>経費の入力・修正</li>
               <li>工事別の経費集計</li>
               <li>受注額・損益・原価率の確認</li>
-              <li>会計システム取込用ファイルの出力</li>
-              <li>初期設定・操作説明・運用保守</li>
+              <li>会計ソフト取込用ファイルの出力</li>
+              <li>初期設定・操作説明・運用</li>
             </ul>
           </div>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 760px;">読込は、社内の経理担当者でも会計事務所でも構いません。会計事務所が記帳している場合は、御社の了承を得て、阿部が会計事務所へ説明します。</p>
+        <p class="lp-note" style="margin-top: 16px; max-width: 760px;">読込は、社内の経理担当者でも会計事務所でも構いません。会計事務所が記帳している場合は、御社の了承を得て、阿部が会計事務所へ説明します。</p>
       </div>
     </section>
 
-    <!-- ============ 流れ ============ -->
-    <section class="lp-section" id="flow">
+    <!-- ============ 01〜03 仕組み ============ -->
+    <section class="lp-section" id="how">
       <div class="container">
-        <p class="lp-label">FLOW — 仕組み</p>
-        <h2 class="lp-h2">入力は1回。集計と会計用ファイルは、仕組みが作ります。</h2>
-        <figure class="lp-fig" style="max-width: 980px;">
-          <img src="../assets/images/construction/workflow.jpg" alt="会社で経費を入力し、台帳とファイルを作成し、会計システムで読み込む3段階の図" width="1400" height="467" loading="lazy" />
-          <figcaption>画面は説明用のイメージです。</figcaption>
-        </figure>
-        <div class="steps3">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-name">会社で経費を入力</div>
-            <div class="step-desc">日付・金額・取引先・工事を登録します。社長・経理担当などの権限ごとに、できる操作を分けます。</div>
+        <p class="lp-label">HOW — 入力して、集計して、渡す</p>
+        <h2 class="lp-h2">欲しい状態に、すでになっている。</h2>
+
+        <div class="value">
+          <div>
+            <p class="num">01 — 入力する</p>
+            <h3 class="lp-h3">入れるのは、日付・金額・取引先・工事の4つだけ。</h3>
+            <p class="lp-prose">項目を選ぶと摘要の候補が並び、取引先の登録番号も見比べられます。現場からスマホで入力することもできます。社長・経理担当などの権限ごとに、できる操作を分けます。</p>
           </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-name">台帳・ファイルを作成</div>
-            <div class="step-desc">工事別に自動集計し、損益・原価率を画面で確認。対象月の仕訳データを出力します。</div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-name">会計システムで読込</div>
-            <div class="step-desc">経理担当者か会計事務所が内容を確認し、会計システムに読み込みます。</div>
+          <div class="mock" aria-label="経費入力のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">経費入力（イメージ）</p>
+            <div class="req" data-seq>
+              <div style="--i:0"><span class="d">日付</span><span>10/08</span><span class="s"></span></div>
+              <div style="--i:1"><span class="d">工事</span><span>A邸 改修</span><span class="s"></span></div>
+              <div style="--i:2"><span class="d">項目</span><span>材料費（配管材）</span><span class="s"></span></div>
+              <div style="--i:3"><span class="d">金額</span><span>128,400円</span><span class="s">登録</span></div>
+            </div>
           </div>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 760px;">FX2（TKCの会計システム）向けの取込用ファイル（SLP）は対応済みです。ほかの会計システムは、取込ファイルの形式に合わせて設計します。勘定科目・取引先コード（会計側の登録番号）は、導入時に事前に照合します。</p>
+
+        <div class="value">
+          <div>
+            <p class="num">02 — 集計する</p>
+            <h3 class="lp-h3">入れた瞬間に、工事ごとの損益と原価率が出ます。</h3>
+            <p class="lp-prose">入力した経費は、工事別に費目ごとに集計されます。受注額を入れておけば、損益と原価率が画面に出て、動きのある工事が赤字・受注額未入力の印つきで並びます。月末にExcelで集計し直す作業がなくなります。</p>
+          </div>
+          <div class="mock" aria-label="工事台帳のイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">工事台帳（イメージ）</p>
+            <table data-seq>
+              <tr style="--i:0"><th>工事</th><th>費目</th><th class="r">金額</th></tr>
+              <tr style="--i:1"><td>A邸 改修</td><td>材料費</td><td class="r">128,400</td></tr>
+              <tr style="--i:2"><td>A邸 改修</td><td>外注費</td><td class="r">260,000</td></tr>
+              <tr style="--i:3"><td>B社 設備</td><td>材料費</td><td class="r">54,900</td></tr>
+            </table>
+            <div data-seq><div class="sum" style="--i:4"><span>A邸 改修　原価率</span><b>71.2%</b></div></div>
+          </div>
+        </div>
+
+        <div class="value">
+          <div>
+            <p class="num">03 — 渡す</p>
+            <h3 class="lp-h3">月末の仕訳入力は、ファイルを1つ渡すだけになります。</h3>
+            <p class="lp-prose">経理担当者か会計事務所が、ファイルを会計ソフトに読み込みます。同じ数字をもう一度入力する仕事がなくなります。科目・取引先コードは導入時に会計事務所と照合し、読込テストまで一緒に確認します。TKCをはじめ多様な会計ソフトの取込みファイル形式に合わせて設計可能です。</p>
+          </div>
+          <div class="mock" aria-label="受け渡しのイメージ">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <p class="ttl">受け渡し（イメージ）</p>
+            <div class="flow" data-seq><span class="go" style="--i:0">会社で入力</span><i style="--i:1">→</i><span style="--i:2">自動で集計</span><i style="--i:3">→</i><span class="go" style="--i:4">取込ファイル</span></div>
+            <div class="outs" data-seq><div style="--i:5">会計ソフト<br />（TKC FX2）</div><div style="--i:6">経理担当者が<br />確認して読込</div><div style="--i:7">会計事務所が<br />確認して読込</div></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -309,58 +412,62 @@
     <section class="lp-section" id="features" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">FEATURES — できること</p>
-        <h2 class="lp-h2">経理担当者の要望で、ここまで育ちました。</h2>
-        <p class="lp-lead">本番で使われている機能です。御社に不要なものは外し、足りないものは設計のときに決めます。</p>
-        <div class="feat">
-          <div><b>工事台帳・損益の一覧</b><span>工事ごとの経費を費目別に集計し、受注額・損益・原価率を画面で確認。動きのある工事が、赤字・受注額未入力の印つきで並びます。</span></div>
-          <div><b>経費の入力（工事・一般）</b><span>日付・金額・取引先・工事を登録。項目を選ぶと摘要の候補が並び、取引先の登録番号（インボイス）も見比べられます。</span></div>
-          <div><b>会計ソフト用ファイルの出力</b><span>対象月の仕訳データを、TKC FX2の取込形式で出力。科目・取引先コードは導入時に会計事務所と照合します。</span></div>
-          <div><b>現金出納帳</b><span>現金払いの経費から支払が自動で入り、銀行からの引き出しだけ入力。前月繰越と差引残高は自動計算です。</span></div>
-          <div><b>見積書・請求書・納品書・領収書</b><span>画面で入力して、実物と同じ体裁のPDFで発行します。見積書を確定すると、そのまま請求書・納品書・領収書へ。手書きの見積書が残る会社には、撮影するとAIが下書きを作り、合計を照合してから発行する流れも用意できます。</span></div>
-          <div><b>権限と操作記録</b><span>社長・経理担当などの権限ごとに、できる操作を分けます。誰がいつ何を変えたかが記録に残ります。スマホからも使えます。</span></div>
+        <h2 class="lp-h2">「こんなのできない？」で育った、6つの機能。</h2>
+        <p class="lp-lead">御社専用にカスタマイズして、ストレスゼロへ。</p>
+        <div class="cases cases-3">
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-ledger.jpg" width="480" height="360" alt="工事台帳と損益のイメージ" loading="lazy" />
+            <p class="case-title">工事台帳・損益の一覧</p>
+            <p class="case-body">どの工事が赤字か、開いた瞬間に分かります。経費は工事別・費目別に自動で集計され、受注額を入れれば損益と原価率が並びます。</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-input.jpg" width="480" height="360" alt="スマホからの経費入力のイメージ" loading="lazy" />
+            <p class="case-title">経費の入力（工事・一般）</p>
+            <p class="case-body">現場からでも、スマホで入力できます。項目を選ぶと摘要の候補が並び、取引先の登録番号（インボイス）も見比べられます。</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-export.jpg" width="480" height="360" alt="会計ソフトへファイルを渡すイメージ" loading="lazy" />
+            <p class="case-title">会計ソフト用ファイルの出力</p>
+            <p class="case-body">会計側の二度入力が、なくなります。対象月の仕訳データを会計ソフトの取込形式で出力。科目・取引先コードは導入時に会計事務所と照合します。</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-cashbook.jpg" width="480" height="360" alt="現金出納帳のイメージ" loading="lazy" />
+            <p class="case-title">現金出納帳</p>
+            <p class="case-body">入力するのは、銀行からの引き出しだけ。現金払いの経費は自動で支払に入り、前月繰越と差引残高も自動計算です。</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-docs.jpg" width="480" height="360" alt="見積書・請求書・納品書・領収書のイメージ" loading="lazy" />
+            <p class="case-title">見積書・請求書・納品書・領収書</p>
+            <p class="case-body">見積書を確定すると、請求書・納品書・領収書まで出せます。画面で入力して、実物と同じ体裁のPDFに。手書きの見積書が残る会社には、撮影するとAIが下書きを作り、合計を照合してから発行する流れも用意できます。</p>
+          </article>
+          <article class="case">
+            <img class="case-img" src="../assets/images/construction/feat-security.jpg" width="480" height="360" alt="権限と操作記録のイメージ" loading="lazy" />
+            <p class="case-title">権限と操作記録</p>
+            <p class="case-body">誰がいつ何を変えたか、全部残ります。社長・経理担当などの権限ごとに、できる操作を分けます。御社専用の環境に作るので、他社のデータと混ぜません。</p>
+          </article>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 760px;">複数税率（10%・8%）、印刷の体裁、作業人数の記録など、使いながら出た要望も反映しています。給与計算は含みません。</p>
-      </div>
-    </section>
-
-    <!-- ============ 導入前後 ============ -->
-    <section class="lp-section" id="before-after">
-      <div class="container">
-        <p class="lp-label">BEFORE / AFTER — 何が変わるか</p>
-        <h2 class="lp-h2">月末の「転記・集計・入力し直し」を減らします。</h2>
-        <div class="ba-grid">
-          <figure class="lp-fig">
-            <img src="../assets/images/construction/before_after.jpg" alt="導入前はあちこちに入力し直し、導入後は入力した経費がつながる対比のイラスト" width="1400" height="700" loading="lazy" />
-            <figcaption>画面・人物は説明用のイメージです。</figcaption>
-          </figure>
-          <div>
-            <p class="lp-prose"><strong>導入前：</strong>経費をExcelへ転記し、工事ごとに集計し、会計側でもう一度入力する。<br /><strong>導入後：</strong>入力した経費が、工事別の集計と会計への受け渡しまでつながる。</p>
-            <p class="ba-calc">月300件 × 転記2分 ＝ 月10時間が、見直しの対象に。
-              <small>計算例です。御社の件数と流れを伺って、見直せる範囲をお伝えします。</small>
-            </p>
-          </div>
-        </div>
+        <p class="lp-note" style="margin-top: 16px; max-width: 760px;">複数税率（10%・8%）、印刷の体裁、作業人数の記録など、使いながら出た要望も反映しています。給与計算は含みません。</p>
       </div>
     </section>
 
     <!-- ============ 事例 ============ -->
     <section class="lp-section" id="case">
       <div class="container">
-        <p class="lp-label">CASE — 導入事例（匿名）</p>
-        <h2 class="lp-h2">Excelの工事台帳と集計が一致し、会計事務所の読込テストを通過しました。</h2>
-        <p class="lp-lead">設備・内装・建築などの工事を手がける建設会社。経理担当は1〜2名。会計システムはTKC（FX2）。導入前は、工事ごとの原価をExcelの工事台帳で管理し、経費を転記・集計したうえで、会計側でも仕訳を入力し直していました。</p>
+        <p class="lp-label">CASE — 建設会社での導入</p>
+        <h2 class="lp-h2">Excelの転記と会計側の入力し直しが、1回の入力になりました。</h2>
+        <p class="lp-lead">設備・内装・建築などの工事を手がける建設会社。経理担当は1〜2名、会計ソフトはTKC FX2。導入前は、工事ごとの原価をExcelの工事台帳で管理し、経費を転記・集計したうえで、会計側でも仕訳を入力し直していました。導入にあたり、Excelの工事台帳と集計が一致し、会計事務所の読込テストを通過しています。</p>
         <div class="case-grid">
-          <div class="case is-ok">
+          <div class="case2 is-ok">
             <p class="case-title">導入後の状態</p>
             <ul>
               <li>経費を会社で入力すると、工事別の集計・損益・原価率が画面に出る</li>
-              <li>工事台帳のExcelと、システムの集計が、実際のデータで一致（2026年6月）</li>
-              <li>FX2への取込用ファイルは、税理士事務所との読込テストを通過（2026年7月）</li>
+              <li>工事台帳のExcelと、システムの集計が、実際のデータで一致</li>
+              <li>FX2 への取込用ファイルは、税理士事務所との読込テストを通過</li>
               <li>誰がいつ何を変更したかが、操作記録に残る</li>
-              <li>2026年10月に本番稼働。印刷の体裁・作業人数の記録・複数税率・現金出納帳など、使いながら出た要望を反映して運用中</li>
+              <li>2026年10月に本番稼働。現金出納帳・複数税率・印刷の体裁など、使いながら出た要望を反映して運用中</li>
             </ul>
           </div>
-          <div class="case is-open">
+          <div class="case2 is-open">
             <p class="case-title">進め方で工夫したこと</p>
             <ul>
               <li>いまのExcelから、必要な部分だけをシステムに移した（運用を変えすぎない）</li>
@@ -370,7 +477,8 @@
             </ul>
           </div>
         </div>
-        <p class="case-meta">社名・画面は、面談でお見せできる範囲でご説明します。</p>
+        <p class="ba-calc">月300件 × 転記2分 ＝ 月10時間が、見直しの対象に。<small>計算例です。御社の件数と流れを伺って、見直せる範囲をお伝えします。</small></p>
+        <p class="lp-note" style="margin-top: 16px;">社名・画面は、面談でお見せできる範囲でご説明します。</p>
       </div>
     </section>
 
@@ -378,26 +486,26 @@
     <section class="lp-section" id="price" style="background: var(--bg-soft);">
       <div class="container">
         <p class="lp-label">PRICE — 料金</p>
-        <h2 class="lp-h2">初期30万円〜で作り、2万円／月〜で直し続けます。</h2>
+        <h2 class="lp-h2">初期30万円・2万円／月。5名までなら、これで全部です。</h2>
         <p class="lp-lead">実際に入力・閲覧する方の人数で、3つから選びます。毎月の費用には、サーバー費用、稼働の見守り、不具合の修正、操作の問い合わせ対応、バックアップが含まれます。</p>
         <div class="plans">
           <div class="plan">
             <p class="plan-name">スタンダード</p>
-            <p class="plan-users">5名まで</p>
+            <p class="plan-for">5名まで</p>
             <p class="plan-monthly">毎月（税別）<strong>20,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 22,000円</p>
             <p class="plan-init">初期導入費 300,000円（税別）<br />税込 330,000円</p>
           </div>
           <div class="plan is-mid">
             <p class="plan-name">ミドル</p>
-            <p class="plan-users">10名まで</p>
+            <p class="plan-for">10名まで</p>
             <p class="plan-monthly">毎月（税別）<strong>40,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 44,000円</p>
             <p class="plan-init">初期導入費 400,000円（税別）<br />税込 440,000円</p>
           </div>
           <div class="plan">
             <p class="plan-name">プラス</p>
-            <p class="plan-users">20名まで</p>
+            <p class="plan-for">20名まで</p>
             <p class="plan-monthly">毎月（税別）<strong>80,000<small>円／月</small></strong></p>
             <p class="plan-tax">税込 88,000円</p>
             <p class="plan-init">初期導入費 500,000円（税別）<br />税込 550,000円</p>
@@ -424,71 +532,51 @@
             </ul>
           </div>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 800px;">追加ユーザー：1名あたり2,000円／月（税別）／2,200円（税込）。データ容量は無制限。新機能や、制度・会計ソフトの変更に伴う改修は、ご相談のうえお見積りします。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
+        <p class="lp-note" style="margin-top: 18px; max-width: 800px;">追加ユーザー：1名あたり2,000円／月（税別）／2,200円（税込）。データ容量は無制限。新機能や、制度・会計ソフトの変更に伴う改修は、ご相談のうえお見積りします。初期費用の分割はご相談ください。対応範囲・連絡方法・契約期間などの条件は、個別の契約で確認します。</p>
       </div>
     </section>
 
     <!-- ============ 導入の流れ ============ -->
-    <section class="lp-section" id="onboarding">
+    <section class="lp-section" id="process">
       <div class="container">
-        <p class="lp-label">ONBOARDING — 導入の流れ</p>
-        <h2 class="lp-h2">経理担当者と確認しながら、運用開始まで進めます。</h2>
-        <p class="lp-lead">ご相談から運用開始まで、約6〜8週間を目安に計画します。期間は計画上の目安で、資料の準備状況・読込テスト・追加要望で変わります。</p>
-        <div class="steps5">
-          <div class="step">
-            <div class="step-num">01</div>
-            <div class="step-name">業務・条件の確認</div>
-            <div class="step-desc">入力担当・工事台帳・会計システムを確認。会計システムへの取込の可否は契約の前に確認し、見積り・契約へ。</div>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <div class="step-name">データの準備</div>
-            <div class="step-desc">取引先、勘定科目（費用の分類名）、部門、月次締めの予定を確認します。</div>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <div class="step-name">専用環境の設定</div>
-            <div class="step-desc">御社専用の画面とデータの置き場を用意し、利用者と基本データを登録。会計側の取引先コードと照合します。</div>
-          </div>
-          <div class="step">
-            <div class="step-num">04</div>
-            <div class="step-name">読込テスト</div>
-            <div class="step-desc">経理担当者・会計事務所と、取り込めること・内容が合うことを確認します。</div>
-          </div>
-          <div class="step">
-            <div class="step-num">05</div>
-            <div class="step-name">操作説明・運用開始</div>
-            <div class="step-desc">経理担当へ説明し、初月のファイル出力を支援します。</div>
-          </div>
+        <p class="lp-label">PROCESS — 導入の流れ</p>
+        <h2 class="lp-h2">工事台帳を1つ見せてもらうところから、6〜8週間で運用開始。</h2>
+        <p class="lp-lead">資料を揃えてからでなくて大丈夫です。いまの工事台帳を1つお見せいただければ、始まります。期間は目安で、資料の準備・読込テスト・追加の要望で変わります。</p>
+        <div class="steps steps-5">
+          <div class="step"><div class="step-num">01</div><div class="step-name">業務・条件の確認</div><div class="step-desc">入力担当・工事台帳・会計ソフトを確認。会計ソフトへの取込の可否は契約の前に確認し、見積り・契約へ。</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-name">データの準備</div><div class="step-desc">取引先、勘定科目（費用の分類名）、部門、月次締めの予定を確認します。</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-name">専用環境の設定</div><div class="step-desc">御社専用の画面とデータの置き場を用意し、利用者と基本データを登録。会計側の取引先コードと照合します。</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-name">読込テスト</div><div class="step-desc">経理担当者・会計事務所と、取り込めること・内容が合うことを確認します。</div></div>
+          <div class="step"><div class="step-num">05</div><div class="step-name">操作説明・運用開始</div><div class="step-desc">経理担当へ説明し、初月のファイル出力を支援します。</div></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 安全・運用 ============ -->
-    <section class="lp-section" id="safety" style="background: var(--bg-soft);">
-      <div class="container">
-        <p class="lp-label">SAFETY — 安全・運用</p>
-        <h2 class="lp-h2">預けるデータの扱いと、運用の約束。</h2>
-        <div class="faq-wrap">
+    <!-- ============ FAQ ============ -->
+    <section class="lp-section" id="faq" style="background: var(--bg-soft);">
+      <div class="container center">
+        <p class="lp-label">FAQ — 安全・運用</p>
+        <h2 class="lp-h2">「データは安全か」「やめたらどうなるか」に、先に答えます。</h2>
+        <div class="faq-wrap" style="text-align: left;">
           <div class="faq-item">
             <p class="faq-q">データはどこに保管されますか？</p>
-            <p class="faq-a">クラウド（Supabase）に、御社専用の環境（会社ごとに別のデータベース）をつくって保管します。他社のデータとは混ぜません。通信は暗号化（HTTPS）で守られ、保管するデータもクラウド事業者の標準の機能で暗号化されます。保管場所の詳細は、面談でご説明します。</p>
+            <p class="faq-a">クラウドに、御社専用の環境（会社ごとに別のデータベース）をつくって保管します。他社のデータとは混ぜません。通信は暗号化（HTTPS）で守られ、保管するデータもクラウド事業者の標準の機能で暗号化されます。</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">誰がデータを見られますか？</p>
-            <p class="faq-a">御社が登録した担当者だけです。ログインはメールアドレスとパスワードで、社長・経理担当などの権限ごとに、できる操作を分けます。誰がいつ何を変更したかは操作記録として残ります。</p>
-          </div>
-          <div class="faq-item">
-            <p class="faq-q">阿部（ライフ）は、データを見られますか？</p>
-            <p class="faq-a">初期設定・保守・障害対応に必要な範囲でだけアクセスします。それ以外の目的では使わず、第三者へは提供しません。</p>
+            <p class="faq-a">御社が登録した担当者だけです。ログインはメールアドレスとパスワードで、社長・経理担当などの権限ごとに、できる操作を分けます。誰がいつ何を変更したかは操作記録として残ります。阿部は、設定・保守・障害対応に必要な範囲でだけアクセスします。</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">外部のAIサービスに、データは送られますか？</p>
-            <p class="faq-a">標準の機能（経費入力・工事台帳・ファイル出力）は、入力したデータをAIサービスへ送りません。AIを使う機能を追加する場合は、事前にご説明します。</p>
+            <p class="faq-a">標準の機能（経費入力・工事台帳・ファイル出力）は、入力したデータをAIサービスへ送りません。AIを使う機能（手書き見積の読み取りなど）を足す場合は、事前にご説明します。</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">どんなデータを預けますか？</p>
             <p class="faq-a">経費・取引先・工事・受注額などの業務データです。領収書の画像や、給与の情報は預かりません。</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">会計ソフトは何でも対応できますか？</p>
+            <p class="faq-a">TKCのFX2は対応済みです。ほかの会計ソフトは、取込ファイルの形式に合わせて設計し、契約の前に取り込めることを確認します。</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">障害が起きたら、どうなりますか？</p>
@@ -496,10 +584,9 @@
           </div>
           <div class="faq-item">
             <p class="faq-q">解約したら、データはどうなりますか？</p>
-            <p class="faq-a">データは御社のものです。契約が終わったあと30日以内に、ご請求に応じてCSVなど汎用の形式でお渡しし、そのあと当方が保有するデータを消去します（法令で保存が必要なものを除く）。</p>
+            <p class="faq-a">データは御社のものです。契約が終わったあと30日以内に、CSVなど汎用の形式でお渡しし、そのあと当方が保有するデータを消去します（法令で保存が必要なものを除く）。</p>
           </div>
         </div>
-        <p class="lp-note" style="margin-top: 20px; max-width: 800px;">以上は、標準の構成と契約にもとづく説明です。条件の詳細は、ご契約の前に契約書でご確認いただけます。</p>
       </div>
     </section>
 
@@ -507,11 +594,11 @@
     <section class="lp-section lp-final" id="contact">
       <div class="container">
         <p class="lp-label">CONTACT — 30分の相談</p>
-        <h2 class="lp-h2">いまの工事台帳を見ながら、この仕組みに置き換えられるか確認します。</h2>
+        <h2 class="lp-h2">30分で、置き換えられる範囲と金額の目安をお伝えします。</h2>
         <div class="final-grid">
           <div>
             <div class="final-prose">
-              <p>導入できるかの確認から、個別のお見積りまで、阿部が直接承ります。面談はオンライン（Google Meet）を基本に、ご希望があれば伺います。日程の候補は、こちらから3つお出しします。</p>
+              <p>工事台帳のExcelをお見せいただければ、その場で、置き換えられる範囲と費用・期間の目安をお伝えします。面談はオンライン（Google Meet）を基本に、ご希望があれば伺います。日程の候補は、こちらから3つお出しします。</p>
               <p>合わないと判断した場合は、その場でそうお伝えします。売り込みの電話はしません。</p>
             </div>
             <div class="final-mail">
@@ -519,26 +606,23 @@
               <a href="mailto:abe0tatsu@gmail.com?subject=%E5%B7%A5%E4%BA%8B%E5%8F%B0%E5%B8%B3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E7%9B%B8%E8%AB%87">abe0tatsu@gmail.com</a>
               <p class="zero">※ abe のあとは数字の「0（ゼロ）」です。</p>
             </div>
-            <div class="final-steps" aria-label="相談の流れ">
-              <span class="chip">業務の確認</span><span class="arr">→</span>
-              <span class="chip">画面のご説明</span><span class="arr">→</span>
-              <span class="chip">導入範囲・費用のお見積り</span>
-            </div>
           </div>
           <div class="final-box">
             <h3>最初に伺う4点（分かる範囲で・未定でも大丈夫です）</h3>
             <ol>
               <li>いまの工事台帳・経費入力の方法</li>
               <li>利用する方の人数と役割</li>
-              <li>会計システムと、読込を担当する方</li>
+              <li>会計ソフトと、読込を担当する方</li>
               <li>始めたい時期</li>
             </ol>
-            <p class="final-note">お問い合わせ窓口：ライフ（阿部）。SLP・取引先コードなどの用語は、面談前にお送りする補足資料で説明します。</p>
+            <p class="final-note">お問い合わせ窓口：ライフ（阿部 龍也・群馬県）。設計・開発・運用を同じ人が担当します。</p>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="stickybar"><a href="#contact" class="lp-cta">30分の相談（メール）</a></div>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
@@ -547,17 +631,34 @@
         <a href="../" class="logo logo-footer">
           <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
         </a>
-        <p class="footer-jp">経費を入れると、工事ごとの原価と会計用ファイルまで出る。経理・工事台帳システム（建設業向け）。</p>
+        <p class="footer-jp">経理も事務も会計も、もっとまとまっていい。経理・工事台帳システム（建設業向け）。</p>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 ライフ（阿部）／DAEG.DEV</p>
         <ul class="footer-links">
-          <li><a href="../">法人向けの案内へ</a></li>
+          <li><a href="../">トップ（ほかの業務の例）</a></li>
           <li><a href="../legal/tokushoho.html">特定商取引法</a></li>
           <li><a href="../legal/privacy.html">プライバシー</a></li>
         </ul>
       </div>
     </div>
   </footer>
+
+  <script>
+    // 01〜03：画面に入ったら、模式画面の行や吹き出しを順に出す（トップと同じ作り）
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || !("IntersectionObserver" in window)) return;
+      document.documentElement.classList.add("anim");
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll("#how .mock").forEach(function (m) { io.observe(m); });
+    })();
+  </script>
 </body>
 </html>
