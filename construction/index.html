@@ -240,6 +240,18 @@
     .fit ul { font-family: var(--font-jp); font-size: 15px; line-height: 1.9; color: var(--text); }
     .fit li { padding-left: 22px; position: relative; }
     .fit li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    /* 導入後のベネフィット写真 */
+    .benefit-section { background: var(--bg); }
+    .benefit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+    .benefit-card { margin: 0; overflow: hidden; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); min-width: 0; }
+    .benefit-card img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .benefit-copy { padding: 22px 24px 24px; }
+    .benefit-num { font-family: var(--font-en); font-size: 11px; letter-spacing: .18em; color: var(--green); font-weight: 700; margin-bottom: 8px; }
+    .benefit-title { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.5; color: var(--text); }
+    @media (max-width: 700px) {
+      .benefit-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+      .benefit-copy { padding: 18px 20px 20px; }
+    }
     .cases-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     @media (max-width: 960px) { .cases-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .cases-3 { grid-template-columns: 1fr; } }
@@ -346,6 +358,45 @@
           </div>
         </div>
         <p class="lp-note" style="margin-top: 16px; max-width: 760px;">読込は、社内の経理担当者でも会計事務所でも構いません。会計事務所が記帳している場合は、御社の了承を得て、阿部が会計事務所へ説明します。</p>
+      </div>
+    </section>
+
+    <!-- ============ 導入後のベネフィット ============ -->
+    <section class="lp-section benefit-section" id="benefits">
+      <div class="container">
+        <p class="lp-label">BENEFITS — 導入後の変化</p>
+        <h2 class="lp-h2">社長も、経理も、会計事務所も、楽になる。</h2>
+        <p class="lp-lead">入力や転記に追われる時間を減らし、本来の仕事に戻れる状態をつくります。</p>
+        <div class="benefit-grid">
+          <figure class="benefit-card">
+            <img src="../assets/images/construction/benefit-1.jpg" width="1600" height="1067" alt="月末の仕事を終え、明るいうちに閉じたノートパソコンが置かれた机" loading="lazy" />
+            <figcaption class="benefit-copy">
+              <p class="benefit-num">BENEFIT 01</p>
+              <h3 class="benefit-title">月末が、定時で終わる。</h3>
+            </figcaption>
+          </figure>
+          <figure class="benefit-card">
+            <img src="../assets/images/construction/benefit-2.jpg" width="1600" height="1067" alt="建設現場の作業車でスマートフォンから入力する手元" loading="lazy" />
+            <figcaption class="benefit-copy">
+              <p class="benefit-num">BENEFIT 02</p>
+              <h3 class="benefit-title">現場で入れて、その場で終わり。</h3>
+            </figcaption>
+          </figure>
+          <figure class="benefit-card">
+            <img src="../assets/images/construction/benefit-3.jpg" width="1600" height="1067" alt="見積書から請求書までの連動を表す4枚の書類" loading="lazy" />
+            <figcaption class="benefit-copy">
+              <p class="benefit-num">BENEFIT 03</p>
+              <h3 class="benefit-title">見積書を直せば、請求書も直っている。</h3>
+            </figcaption>
+          </figure>
+          <figure class="benefit-card">
+            <img src="../assets/images/construction/benefit-4.jpg" width="1600" height="1067" alt="要望をもとに画面を改善していく様子を表すノートとパソコン" loading="lazy" />
+            <figcaption class="benefit-copy">
+              <p class="benefit-num">BENEFIT 04</p>
+              <h3 class="benefit-title">「こうできない？」を、次の画面へ。</h3>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
