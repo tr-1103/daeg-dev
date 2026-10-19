@@ -280,6 +280,48 @@
     @media (max-width: 1000px) { .steps-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 640px) { .steps-5 { grid-template-columns: 1fr; } }
     .mock .req div { grid-template-columns: 44px minmax(0, 1fr) 44px; }
+    /* ========== 動いている画面（2026-10-19 トップから移した）==========
+       架空の会社「サンプル建設」とダミーデータで動かした、実際の画面と操作動画。
+       左に約30秒の全体デモ（画面に入ると無音で再生）、右に4機能のボタン（押すと操作動画を大きく） */
+    .sys { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 32px; margin-top: 32px; align-items: start; }
+    .sys > div { min-width: 0; }
+    @media (max-width: 960px) { .sys { grid-template-columns: 1fr; gap: 24px; } }
+    .vf { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); overflow: hidden; }
+    .vf .bar { display: flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px; border-bottom: 1px solid var(--border); background: var(--bg-soft); font-family: var(--font-jp); font-size: 12.5px; color: var(--text-sub); }
+    .vf .bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); flex: none; }
+    .vf .bar .t { margin-left: 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .vf video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #f4f5f2; cursor: zoom-in; }
+    .vf .ctls { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 8px; }
+    .vf .ctl { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgba(255,255,255,.94); color: var(--text); font: 500 13.5px/1 var(--font-jp); cursor: pointer; }
+    .vf .ctl:hover { border-color: var(--green); color: var(--green-hover); }
+    .vf .ctl svg { width: 12px; height: 12px; fill: currentColor; flex: none; }
+    @media (max-width: 760px) { .vf .ctls { right: 8px; bottom: 8px; gap: 6px; } .vf .ctl { min-height: 36px; padding: 0 11px; } }
+    .demo-cap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; font-family: var(--font-jp); font-size: 13.5px; color: var(--text-sub); }
+    .demo-cap span + span { color: var(--text-mute); }
+    .feats { display: grid; gap: 12px; }
+    .feat { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 14px; align-items: center; width: 100%; text-align: left; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: inherit; font: inherit; cursor: zoom-in; }
+    .feat:hover { border-color: var(--green); }
+    .feat:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .feat img { display: block; width: 128px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); background: #f4f5f2; }
+    .feat b { display: block; font-family: var(--font-jp); font-size: 15px; font-weight: 700; line-height: 1.5; color: var(--text); }
+    .feat span span { display: block; font-family: var(--font-jp); font-size: 13px; color: var(--text-sub); line-height: 1.65; margin-top: 2px; }
+    .feats .hint { font-family: var(--font-jp); font-size: 13px; color: var(--text-mute); margin-top: 4px; }
+    @media (max-width: 420px) { .feat { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; } .feat img { width: 96px; } }
+    .lb { border: 0; padding: 0; margin: 0; width: 100%; max-width: none; height: 100%; max-height: none; background: transparent; }
+    .lb::backdrop { background: rgba(15, 20, 24, .8); }
+    .lb-box { width: min(1240px, calc(100% - 32px)); margin: 4vh auto 0; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
+    .lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 52px; padding: 0 8px 0 18px; border-bottom: 1px solid var(--border); background: var(--bg-soft); font-family: var(--font-jp); font-size: 14.5px; color: var(--text); }
+    .lb-bar span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lb-x { flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--text); font: 400 26px/1 var(--font-jp); cursor: pointer; }
+    .lb-x:hover { background: var(--bg-tint); }
+    .lb-scr video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #f4f5f2; }
+    .lb-hint { display: none; margin: 0; padding: 8px 16px; font-family: var(--font-jp); font-size: 12.5px; color: var(--text-sub); border-top: 1px solid var(--border); }
+    @media (max-width: 760px) {
+      .lb-box { width: calc(100% - 16px); margin-top: 2vh; }
+      .lb-scr { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+      .lb-scr video { width: 900px; max-width: none; }
+      .lb-hint { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -290,6 +332,7 @@
         <span class="logo-mark">daeg</span><span class="logo-dot"></span><span class="logo-tld">dev</span>
       </a>
       <nav class="header-nav" aria-label="ページ内ナビ">
+        <a href="#demo">画面</a>
         <a href="#how">仕組み</a>
         <a href="#features">できること</a>
         <a href="#price">料金</a>
@@ -326,6 +369,38 @@
           <div class="fact"><b>6〜8週間で稼働</b><span>ご相談→設計→制作→読込テスト→運用開始</span></div>
           <div class="fact"><b>設計から運用まで、外注を挟みません</b><span>阿部（ライフ）が最後まで責任を持ちます</span></div>
           <div class="fact"><b>税理士法人と共同開発</b><span>会計ソフトへの取込みまで、税理士法人と一緒に設計しました</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 動いている画面（架空の会社・ダミーデータ） ============ -->
+    <section class="lp-section" id="demo">
+      <div class="container">
+        <p class="lp-label">DEMO — 動いている画面</p>
+        <h2 class="lp-h2"><span class="nb">経費を一度入れると、</span><span class="nb">損益も、出納帳も、</span><span class="nb">会計ソフトの取込ファイルも出ます。</span></h2>
+        <p class="lp-lead">お客様の社名と画面は出せないので、同じシステムを、架空の会社「サンプル建設」とダミーデータで動かして撮りました。数字も社名も、すべて架空です。</p>
+        <div class="sys">
+          <div>
+            <div class="vf" data-demo data-title="経費システム（架空の会社「サンプル建設」）" data-src-webm="../assets/demo/demo-all.webm" data-src-mp4="../assets/demo/demo-all.mp4">
+              <div class="bar"><i></i><i></i><i></i><span class="t">経費システム（架空の会社「サンプル建設」）</span></div>
+              <div class="scr"><video muted playsinline loop preload="none" width="1600" height="900" poster="../assets/demo/shot-f1-dashboard-list.webp" aria-label="案件ごとの経費と利益、一般経費と現金出納帳、手書きの見積書の読み取り、会計ソフトへの出力を、続けて操作している画面">
+                <source src="../assets/demo/demo-all.webm" type="video/webm" />
+                <source src="../assets/demo/demo-all.mp4" type="video/mp4" />
+              </video></div>
+              <div class="ctls">
+                <button class="ctl" type="button" data-toggle aria-label="動画を再生する"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg><span>再生</span></button>
+                <button class="ctl" type="button" data-zoom aria-label="大きく見る"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h4v1.4H2.4V5H1zM7 1h4v4H9.6V2.4H7zM1 7h1.4v2.6H5V11H1zM9.6 7H11v4H7V9.6h2.6z"/></svg><span>拡大</span></button>
+              </div>
+            </div>
+            <p class="demo-cap"><span>4つの機能を、同じシステムで続けて操作しています。</span><span>音声なし・約30秒</span></p>
+          </div>
+          <div class="feats">
+            <button class="feat" type="button" data-title="案件ごとの経費・利益管理" data-src-mp4="../assets/demo/feature-1.mp4" data-poster="../assets/demo/shot-f1-dashboard-cards.webp"><img src="../assets/demo/shot-f1-dashboard-cards.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>案件ごとの経費・利益管理</b><span>経費を入れると、案件の損益と原価率がその場で変わる</span></span></button>
+            <button class="feat" type="button" data-title="一般経費・現金出納帳" data-src-mp4="../assets/demo/feature-2.mp4" data-poster="../assets/demo/shot-f2-cashbook.webp"><img src="../assets/demo/shot-f2-cashbook.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>一般経費・現金出納帳</b><span>現金払いの分が、残高つきで出納帳に並ぶ</span></span></button>
+            <button class="feat" type="button" data-title="見積もり作成" data-src-mp4="../assets/demo/feature-3.mp4" data-poster="../assets/demo/shot-f3-quote-top.webp"><img src="../assets/demo/shot-f3-quote-top.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>見積もり作成</b><span>手書きの見積書を撮ると、清書のPDFまで出る</span></span></button>
+            <button class="feat" type="button" data-title="会計ソフト出力" data-src-mp4="../assets/demo/feature-4.mp4" data-poster="../assets/demo/shot-f4-slp.webp"><img src="../assets/demo/shot-f4-slp.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>会計ソフト出力</b><span>期間を選ぶと、会計ソフトの取込ファイルが出る</span></span></button>
+            <p class="hint">押すと、操作の様子を大きく見られます。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -695,6 +770,14 @@
     </div>
   </footer>
 
+  <dialog class="lb" aria-label="画面を大きく見る">
+    <div class="lb-box">
+      <div class="lb-bar"><span></span><button class="lb-x" type="button" aria-label="閉じる">×</button></div>
+      <div class="lb-scr"><video muted playsinline loop controls preload="none"></video></div>
+      <p class="lb-hint">横にスワイプすると、画面の右側も見られます。</p>
+    </div>
+  </dialog>
+
   <script>
     // 01〜03：画面に入ったら、模式画面の行や吹き出しを順に出す（トップと同じ作り）
     (function () {
@@ -709,6 +792,71 @@
         });
       }, { threshold: 0.35 });
       document.querySelectorAll("#how .mock").forEach(function (m) { io.observe(m); });
+    })();
+  </script>
+  <script>
+    // 動いている画面：全体デモは画面に入ると無音で再生、外れると止める。押すと大きく見る。
+    // 動きを減らす設定・データ節約のときは自動再生しない（ボタンで見る）
+    (function () {
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var c = navigator.connection || {};
+      var still = reduce || c.saveData === true || /(^|-)2g$/.test(c.effectiveType || '');
+      var dlg = document.querySelector('.lb'), lbv = dlg.querySelector('video'), lbt = dlg.querySelector('.lb-bar span');
+      var PAUSE = '<rect x="1" y="1" width="3.5" height="10"/><rect x="7.5" y="1" width="3.5" height="10"/>', PLAY = '<path d="M2 1l9 5-9 5z"/>';
+      var openFrame = null;
+      function openLB(f) {
+        openFrame = f;
+        lbt.textContent = f.getAttribute('data-title') || '';
+        lbv.innerHTML = '';
+        [['data-src-webm', 'video/webm'], ['data-src-mp4', 'video/mp4']].forEach(function (a) {
+          var u = f.getAttribute(a[0]); if (!u) return;
+          var s = document.createElement('source'); s.src = u; s.type = a[1]; lbv.appendChild(s);
+        });
+        var pv = f.querySelector('video');
+        lbv.poster = f.getAttribute('data-poster') || (pv ? pv.poster : '');
+        lbv.load(); dlg.showModal();
+        var p = lbv.play(); if (p && p.catch) p.catch(function () {});
+      }
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.querySelector('.lb-x').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('close', function () {
+        lbv.pause(); lbv.innerHTML = ''; lbv.removeAttribute('src'); lbv.load();
+        if (openFrame && openFrame._resume) openFrame._resume();
+        openFrame = null;
+      });
+      var demo = document.querySelector('.vf[data-demo]');
+      if (demo) {
+        var v = demo.querySelector('video'), btn = demo.querySelector('[data-toggle]'), zoom = demo.querySelector('[data-zoom]');
+        var manual = false, visible = false;
+        function label(playing) {
+          btn.setAttribute('aria-label', playing ? '動画を一時停止する' : '動画を再生する');
+          btn.querySelector('span').textContent = playing ? '一時停止' : '再生';
+          btn.querySelector('svg').innerHTML = playing ? PAUSE : PLAY;
+        }
+        function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        demo._resume = function () { if (!still && visible && !manual) play(); };
+        demo._pause = function () { v.pause(); };
+        btn.addEventListener('click', function () { if (v.paused) { manual = false; play(); } else { manual = true; v.pause(); } });
+        zoom.addEventListener('click', function () { v.pause(); openLB(demo); });
+        v.addEventListener('click', function () { v.pause(); openLB(demo); });
+        v.addEventListener('play', function () { label(true); });
+        v.addEventListener('pause', function () { label(false); });
+        label(false);
+        if (!still && 'IntersectionObserver' in window) {
+          new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+              visible = e.isIntersecting && e.intersectionRatio >= 0.5;
+              if (visible) { if (!manual && !dlg.open) play(); } else if (!v.paused) v.pause();
+            });
+          }, { threshold: [0, 0.5] }).observe(demo);
+        }
+      }
+      document.querySelectorAll('.feat[data-src-mp4]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (demo && demo._pause) { demo._pause(); b._resume = demo._resume; }
+          openLB(b);
+        });
+      });
     })();
   </script>
 </body>

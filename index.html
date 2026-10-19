@@ -165,14 +165,14 @@
     .sec .sl{color:var(--ink-sub);max-width:40em;margin:16px 0 0}
     @media (max-width:760px){ .sec{padding:72px 0 0} }
 
-    /* 支援内容：頼めること5つを、品書きのように1行ずつ */
+    /* 支援内容：頼めること5つ。左に文（名前・起きること・説明・実例と目安）、右にその仕事のデモ */
     .svc{margin-top:48px;border-bottom:1px solid var(--line)}
-    .svc article{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr) minmax(0,.9fr);gap:14px 44px;padding:34px 0;border-top:1px solid var(--line)}
-    .svc h3{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.5;margin:0}
-    .svc .say{font-family:var(--serif);font-weight:500;font-size:18.5px;line-height:1.6;color:var(--green-deep);margin:0}
-    .svc .body p + p{margin-top:8px}
-    .svc .body .d{font-size:15px;color:var(--ink-sub);line-height:1.85;margin-top:10px}
-    .svc dl{margin:0;display:grid;gap:12px;font-size:14px;line-height:1.7}
+    .svc article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:24px 56px;padding:48px 0;border-top:1px solid var(--line);align-items:center}
+    .svc .txt,.svc .media{min-width:0}
+    .svc h3{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.5;margin:0}
+    .svc .say{font-family:var(--serif);font-weight:500;font-size:18.5px;line-height:1.6;color:var(--green-deep);margin:12px 0 0}
+    .svc .d{font-size:15px;color:var(--ink-sub);line-height:1.85;margin-top:12px}
+    .svc dl{margin:22px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;font-size:14px;line-height:1.7;padding-top:16px;border-top:1px solid var(--line)}
     .svc dt{font-size:12px;color:var(--mute);margin:0}
     .svc dd{margin:2px 0 0}
     .svc dd a{color:var(--green-deep);border-bottom:1px solid var(--green-soft)}
@@ -180,29 +180,62 @@
     .svc .yen{font-variant-numeric:tabular-nums;font-weight:500}
     .svc .yen small{display:block;font-size:12.5px;color:var(--ink-sub);font-weight:400}
     .svc-note{font-size:13.5px;color:var(--mute);margin-top:16px}
-    @media (max-width:900px){
-      .svc article{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:12px 32px}
-      .svc dl{grid-column:2}
-    }
-    @media (max-width:640px){
-      .svc article{grid-template-columns:1fr;gap:10px;padding:28px 0}
-      .svc dl{grid-column:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:6px}
-    }
+    @media (max-width:860px){ .svc article{grid-template-columns:1fr;gap:22px;padding:36px 0} }
+    @media (max-width:420px){ .svc dl{grid-template-columns:1fr} }
 
-    /* 開発機能例：30秒の動画＋4機能（押すと操作動画を大きく） */
-    .sys{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px;margin-top:48px;align-items:start}
-    .sys>div{min-width:0}
-    .feats{display:grid;gap:12px}
-    .feat{display:grid;grid-template-columns:128px minmax(0,1fr);gap:14px;align-items:center;width:100%;text-align:left;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--screen);color:inherit;font:inherit;cursor:zoom-in}
-    .feat:hover{border-color:var(--green)}
-    .feat img{display:block;width:128px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:#F4F5F2}
-    .feat b{display:block;font-size:15px;font-weight:700;line-height:1.5}
-    .feat span span{display:block;font-size:13px;color:var(--ink-sub);line-height:1.65;margin-top:2px}
-    .feats .hint{font-size:13px;color:var(--mute);margin-top:4px}
-    .feats .more{display:inline-block;margin-top:6px;font-size:14.5px;color:var(--green-deep);border-bottom:1px solid var(--green-soft);justify-self:start}
-    .feats .more:hover{border-color:var(--green)}
-    @media (max-width:960px){ .sys{grid-template-columns:1fr;gap:28px} }
-    @media (max-width:420px){ .feat{grid-template-columns:96px minmax(0,1fr);gap:12px} .feat img{width:96px} }
+    /* デモの展示台（薄緑の台に、画面を1つ置く） */
+    .stage{background:var(--mat);border-radius:16px;padding:clamp(16px,2.6vw,30px);display:grid;place-items:center;min-height:340px}
+    .stage{grid-template-columns:minmax(0,1fr)}
+    .stage>*{width:100%;min-width:0}
+    .stage .cap{margin-top:12px}
+    .media .go{display:inline-block;margin-top:12px;font-size:14px;color:var(--green-deep);border-bottom:1px solid var(--green-soft)}
+    .media .go:hover{border-color:var(--green)}
+    /* 公式LINE：スマホの画面 */
+    .phone{max-width:290px;background:var(--screen);border:1px solid var(--line-strong);border-radius:30px;padding:8px;box-shadow:0 22px 44px rgba(22,32,27,.16)}
+    .phone .ph-top{display:flex;align-items:center;justify-content:center;gap:6px;height:36px;font-size:12px;color:var(--ink-sub);border-bottom:1px solid var(--line)}
+    .phone .ph-top b{width:18px;height:18px;border-radius:50%;background:var(--green);display:inline-block}
+    .phone .chat{background:#F3F6F2;border-radius:0 0 22px 22px;padding:12px 10px 16px;font-size:12px;gap:7px}
+    .phone .bub{max-width:86%}
+    .file{display:flex;align-items:center;gap:6px;margin-top:6px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--screen);font-size:11px;color:var(--ink-sub)}
+    .file i{flex:none;width:18px;height:22px;border-radius:3px;background:var(--green-soft);font-style:normal}
+    .notice{align-self:center;font-size:11px;color:var(--green-deep);background:var(--screen);border:1px solid var(--green-soft);border-radius:999px;padding:3px 10px}
+    /* チャットボット：ホームページ＋右下の質問窓 */
+    .site{max-width:460px;background:var(--screen);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 22px 44px rgba(22,32,27,.14)}
+    .site .bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-bottom:1px solid var(--line);background:var(--bar);font-size:11.5px;color:var(--ink-sub)}
+    .site .bar i{width:7px;height:7px;border-radius:50%;background:var(--line-strong);flex:none}
+    .site .bar .t{margin-left:6px}
+    .site .pg{position:relative;padding:16px 16px 12px;display:grid;gap:8px}
+    .sk{height:9px;border-radius:5px;background:#EDF1ED}
+    .sk.h{height:14px;width:55%;background:#E3EAE4} .sk.w8{width:82%} .sk.w6{width:64%} .sk.w7{width:72%}
+    .widget{margin:4px 0 0 auto;width:min(290px,92%);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--screen);box-shadow:0 10px 24px rgba(22,32,27,.12)}
+    .widget .wh{background:var(--green);color:#fff;font-size:11.5px;padding:7px 12px}
+    .widget .chat{padding:10px;font-size:12px;gap:7px}
+    .widget .bub{max-width:88%}
+    /* AI秘書：一日の流れ（朝・昼・夜） */
+    .day{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:460px}
+    .day>li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:start}
+    .day .when{font-family:var(--logo);font-weight:600;font-size:13px;color:var(--green-deep);padding-top:11px;font-variant-numeric:tabular-nums}
+    .day .card{min-width:0;background:var(--screen);border:1px solid var(--line);border-radius:10px;padding:10px 12px;box-shadow:0 10px 22px rgba(22,32,27,.08);font-size:12.5px;line-height:1.6}
+    .day .card>b{display:block;font-size:12px;color:var(--ink-sub);font-weight:500;margin-bottom:4px}
+    .day .todo{padding:0}
+    .day .q{background:#F0F3EF;border-radius:10px;padding:6px 10px;display:inline-block}
+    .day .to{display:block;margin-top:6px;color:var(--green-deep)}
+    .wave{display:flex;align-items:center;gap:2px;height:18px;margin:2px 0 6px}
+    .wave i{width:3px;border-radius:2px;background:var(--line-strong)}
+    /* 顧問契約：チャットと定例のメモ */
+    .thread{max-width:460px;background:var(--screen);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 22px 44px rgba(22,32,27,.14)}
+    .thread .bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-bottom:1px solid var(--line);background:var(--bar);font-size:11.5px;color:var(--ink-sub)}
+    .thread .bar i{width:7px;height:7px;border-radius:50%;background:var(--line-strong);flex:none}
+    .thread .bar .t{margin-left:6px}
+    .thread .tb{padding:12px;display:grid;gap:10px;font-size:12.5px;line-height:1.6}
+    .msg{max-width:86%;padding:8px 12px;border-radius:12px;background:#F0F3EF}
+    .msg.abe{justify-self:end;background:var(--green-soft)}
+    .msg small{display:block;font-size:10.5px;color:var(--mute);margin-bottom:2px}
+    .thread .memo{border:1px dashed var(--line-strong);border-radius:10px;padding:8px 12px 6px}
+    /* デモの動き：JSが動き、動きを減らす設定でない時だけ html に .play が付く。付かなければ最初から全部見えている */
+    .play [data-step]{opacity:0;transform:translateY(6px);transition:opacity .45s ease,transform .45s ease}
+    .play [data-step].in{opacity:1;transform:none}
+    @media (max-width:520px){ .stage{min-height:0;padding:14px;border-radius:12px} .phone{max-width:260px} }
 
     /* 導入事例 */
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 48px;margin-top:56px}
@@ -287,7 +320,6 @@
       <a class="logo" href="./" aria-label="ページの先頭へ">daeg<span class="dot"></span>dev</a>
       <nav class="nav" aria-label="ページ内">
         <a href="#services">支援内容</a>
-        <a href="#system">開発機能例</a>
         <a href="#works">導入事例</a>
         <a href="#who">担当者紹介</a>
         <a class="cta" href="#contact">30分の相談</a>
@@ -373,103 +405,151 @@
       </div>
     </section>
 
-    <!-- 支援内容：頼めること5つ -->
+    <!-- 支援内容：頼めること5つ（左に文、右にデモ。画面は業務システム以外イメージ） -->
     <section class="sec" id="services">
       <div class="wrap">
         <h2>支援内容</h2>
         <p class="catch"><span class="nb">いまの仕事に合わせて、</span><span class="nb">5つの形で</span><span class="nb">お手伝いします。</span></p>
-        <p class="sl">どれが合うか分からなくても大丈夫です。困っている仕事を1つ教えていただければ、30分の相談で、合う形をお伝えします。</p>
+        <p class="sl">どれが合うか分からなくても大丈夫です。困っている仕事を1つ教えていただければ、30分の相談で、合う形をお伝えします。右側の画面は、業務システム以外はイメージです（名前・数字は架空）。</p>
         <div class="svc">
           <article id="svc-line">
-            <h3>公式LINEの自動応答</h3>
-            <div class="body">
+            <div class="txt">
+              <h3>公式LINEの自動応答</h3>
               <p class="say">友だち追加から面談の予約まで、LINEが自動で進めます。</p>
               <p class="d">登録のお礼、特典の資料、日程の案内を、決めた順に自動で送ります。返事が要るものだけを、担当の方に知らせます。</p>
+              <dl>
+                <div><dt>実例</dt><dd>教育事業のHPと公式LINE（2026年8月に公開）</dd></div>
+                <div><dt>目安（税別）</dt><dd class="yen" data-price="line">初期10万円〜<small>1万円／月〜</small></dd></div>
+              </dl>
             </div>
-            <dl>
-              <div><dt>実例</dt><dd>教育事業のHPと公式LINE（2026年8月に公開）</dd></div>
-              <div><dt>目安（税別）</dt><dd class="yen" data-price="line">初期10万円〜<small>1万円／月〜</small></dd></div>
-            </dl>
+            <div class="media">
+              <div class="stage" role="img" aria-label="公式LINEの画面のイメージ。友だち追加のあと、お礼と特典の資料、翌日に面談の希望日の案内が自動で届き、日を選ぶと予約が確定して、担当に通知が届く">
+                <div class="phone" aria-hidden="true">
+                  <div class="ph-top"><b></b><span>公式LINE</span></div>
+                  <div class="chat" data-demo-seq>
+                    <div class="bub me" data-step>友だち追加しました</div>
+                    <div class="bub bot" data-step><small>自動</small>ご登録ありがとうございます。特典の資料をお送りします。<span class="file"><i></i>はじめての方へ.pdf</span></div>
+                    <div class="bub bot" data-step><small>自動・翌日</small>個別面談の希望日を選んでください。<span class="chips" style="margin-top:6px"><span>10/23(木)</span><span>10/24(金)</span></span></div>
+                    <div class="bub me" data-step>10/24(金)</div>
+                    <div class="bub bot" data-step><small>自動</small>10/24(金) 14:00で承りました。前日にお知らせします。</div>
+                    <div class="notice" data-step>担当に通知：新しい予約 1件</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
           <article id="svc-bot">
-            <h3>チャットボットの構築</h3>
-            <div class="body">
+            <div class="txt">
+              <h3>チャットボットの構築</h3>
               <p class="say">「営業時間は？」「駐車場は？」に、夜中でも答えます。</p>
               <p class="d">よく聞かれる質問と答えを一緒に整理して、HPや公式LINEに置きます。答えられない質問は、人に回します。</p>
+              <dl>
+                <div><dt>実例</dt><dd>サービス業の問い合わせ（2026年4月から運用中）</dd></div>
+                <div><dt>目安（税別）</dt><dd class="yen" data-price="bot">初期10万円〜<small>5,000円／月〜</small></dd></div>
+              </dl>
             </div>
-            <dl>
-              <div><dt>実例</dt><dd>サービス業の問い合わせ（2026年4月から運用中）</dd></div>
-              <div><dt>目安（税別）</dt><dd class="yen" data-price="bot">初期10万円〜<small>5,000円／月〜</small></dd></div>
-            </dl>
+            <div class="media">
+              <div class="stage" role="img" aria-label="ホームページの右下のチャットボットのイメージ。駐車場の質問には自動で答え、予約の相談は担当に引き継ぐ">
+                <div class="site" aria-hidden="true">
+                  <div class="bar"><i></i><i></i><i></i><span class="t">ホームページ</span></div>
+                  <div class="pg">
+                    <div class="sk h"></div><div class="sk w8"></div><div class="sk w6"></div>
+                    <div class="widget">
+                      <div class="wh">チャットで質問する</div>
+                      <div class="chat" data-demo-seq>
+                        <div class="bub me" data-step>駐車場はありますか？</div>
+                        <div class="bub bot" data-step><small>自動・23:40</small>店の裏に3台分あります。満車のときは、向かいのコインパーキングをご利用ください。</div>
+                        <div class="bub me" data-step>明日の午後、予約できますか？</div>
+                        <div class="bub bot" data-step><small>人へ</small>担当に引き継ぎました。明日の朝、ご連絡します。</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
           <article id="svc-system">
-            <h3>業務システムの開発</h3>
-            <div class="body">
+            <div class="txt">
+              <h3>業務システムの開発</h3>
               <p class="say">Excelと手作業の業務を、御社専用のシステムにします。</p>
               <p class="d">項目はいまのExcelのまま、入力する人が迷わない画面にします。会計ソフトの取込ファイルまで出るので、同じ数字を二度入れる仕事がなくなります。</p>
+              <dl>
+                <div><dt>実例</dt><dd>建設業の経理・工事台帳（2026年10月に本番稼働）</dd></div>
+                <div><dt>目安（税別）</dt><dd class="yen" data-price="system">初期30万円〜<small>2万円／月〜</small></dd></div>
+              </dl>
             </div>
-            <dl>
-              <div><dt>実例</dt><dd>建設業の経理・工事台帳（2026年10月に本番稼働）。<a href="#system">実際の画面を見る</a></dd></div>
-              <div><dt>目安（税別）</dt><dd class="yen" data-price="system">初期30万円〜<small>2万円／月〜</small></dd></div>
-            </dl>
+            <div class="media">
+              <div class="stage">
+                <div>
+                  <div class="vf" data-demo data-title="経費システム（架空の会社「サンプル建設」）" data-src-webm="./assets/demo/demo-all.webm" data-src-mp4="./assets/demo/demo-all.mp4">
+                    <div class="bar"><i></i><i></i><i></i><span class="t">経費システム（架空の会社「サンプル建設」）</span></div>
+                    <div class="scr"><video muted playsinline loop preload="none" width="1600" height="900" poster="./assets/demo/shot-f1-dashboard-list.webp" aria-label="案件ごとの経費と利益、一般経費と現金出納帳、手書きの見積書の読み取り、会計ソフトへの出力を、続けて操作している画面">
+                      <source src="./assets/demo/demo-all.webm" type="video/webm" />
+                      <source src="./assets/demo/demo-all.mp4" type="video/mp4" />
+                    </video></div>
+                    <div class="ctls">
+                      <button class="ctl" type="button" data-toggle aria-label="動画を再生する"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg><span>再生</span></button>
+                      <button class="ctl" type="button" data-zoom aria-label="大きく見る"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h4v1.4H2.4V5H1zM7 1h4v4H9.6V2.4H7zM1 7h1.4v2.6H5V11H1zM9.6 7H11v4H7V9.6h2.6z"/></svg><span>拡大</span></button>
+                    </div>
+                  </div>
+                  <p class="cap"><span>実際の画面です。架空の会社とダミーデータで動かしています。</span><span>音声なし・約30秒</span></p>
+                </div>
+              </div>
+              <a class="go" href="./construction/#demo">4つの機能の操作を見る（建設業向けのページ）</a>
+            </div>
           </article>
           <article id="svc-secretary">
-            <h3>AI秘書の<span class="nb">環境づくり</span></h3>
-            <div class="body">
+            <div class="txt">
+              <h3>AI秘書の<span class="nb">環境づくり</span></h3>
               <p class="say">朝には、今日やる3件が届いています。</p>
               <p class="d">やることと決めたことをAIが読める場所にまとめ、朝に今日の3件を届け、LINEの用件はタスクに入れ、打ち合わせの録音は夜のうちに議事録にします。阿部が自分の仕事で毎日使っている仕組みを、御社の仕事に合わせて作ります。</p>
+              <dl>
+                <div><dt>実例</dt><dd>人材紹介業の代表の方と、週1回の定例の中で（2026年9月から）</dd></div>
+                <div><dt>目安（税別）</dt><dd class="yen" data-price="secretary">初期10万円〜<small>AIの道具の利用料は別</small></dd></div>
+              </dl>
             </div>
-            <dl>
-              <div><dt>実例</dt><dd>人材紹介業の代表の方と、週1回の定例の中で（2026年9月から）</dd></div>
-              <div><dt>目安（税別）</dt><dd class="yen" data-price="secretary">初期10万円〜<small>AIの道具の利用料は別</small></dd></div>
-            </dl>
+            <div class="media">
+              <div class="stage" role="img" aria-label="AI秘書の一日のイメージ。朝5時30分に今日の3件がメールで届き、昼にLINEの用件がタスクに入り、夜に打ち合わせの録音が議事録になる">
+                <ol class="day" aria-hidden="true" data-demo-seq>
+                  <li data-step><span class="when">5:30</span><div class="card"><b>メール：今日の3件</b><ol class="todo"><li><span class="tx">見積書をA社へ送る</span></li><li><span class="tx">Bさんに日程を返す <small>LINEから</small></span></li><li><span class="tx">今月の請求書を出す</span></li></ol></div></li>
+                  <li data-step><span class="when">12:10</span><div class="card"><b>LINEの用件をタスクに</b><span class="q">来週どこかで打ち合わせできますか？</span><span class="to">→ タスク「Cさんと日程を決める（10/22まで）」</span></div></li>
+                  <li data-step><span class="when">22:00</span><div class="card"><b>打ち合わせの録音を議事録に</b><div class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:11px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:17px"></i><i style="height:9px"></i><i style="height:5px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:10px"></i><i style="height:6px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:7px"></i><i style="height:9px"></i></div>決めたこと2件・宿題3件・次回は10/27</div></li>
+                </ol>
+              </div>
+            </div>
           </article>
           <article id="svc-advisor">
-            <h3>顧問契約</h3>
-            <div class="body">
+            <div class="txt">
+              <h3>顧問契約</h3>
               <p class="say"><span class="nb">AIと仕組みのことを、</span><span class="nb">毎月いつでも相談できます。</span></p>
               <p class="d">週1回60分の定例で、AIに任せるもの、仕組みにするもの、人がやるものを一緒に決め、その場で試します。定例のあいだも、チャットで相談できます（返事は翌営業日まで）。期間は決めず、月ごとに続けます。</p>
+              <dl>
+                <div><dt>実例</dt><dd>人材紹介業の代表の方（全12回のあと、期限なしで継続中）</dd></div>
+                <div><dt>目安（税別）</dt><dd class="yen" data-price="advisor">3万円／月〜<small>週1回60分の定例＋チャット相談</small></dd></div>
+              </dl>
             </div>
-            <dl>
-              <div><dt>実例</dt><dd>人材紹介業の代表の方（全12回のあと、期限なしで継続中）</dd></div>
-              <div><dt>目安（税別）</dt><dd class="yen" data-price="advisor">3万円／月〜<small>週1回60分の定例＋チャット相談</small></dd></div>
-            </dl>
+            <div class="media">
+              <div class="stage" role="img" aria-label="顧問契約のイメージ。チャットで相談すると翌営業日までに返事があり、次の定例で、AIに任せるもの・仕組みにするもの・人がやるものを決める">
+                <div class="thread" aria-hidden="true">
+                  <div class="bar"><i></i><i></i><i></i><span class="t">顧問チャット</span></div>
+                  <div class="tb" data-demo-seq>
+                    <div class="msg" data-step><small>火 9:12</small>請求書を作る作業、AIに任せられますか？</div>
+                    <div class="msg abe" data-step><small>火 13:40・阿部</small>できます。いまの請求書を1枚送ってください。次の定例で、一緒に作ってみましょう。</div>
+                    <div class="memo" data-step>
+                      <p class="h">定例（60分）で決めたこと</p>
+                      <ul>
+                        <li><span>請求書の下書き</span><b>AI</b></li>
+                        <li><span>入金の確認</span><b>仕組み</b></li>
+                        <li><span>お客様への連絡</span><b class="p">人</b></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
         <p class="svc-note">金額は目安です。正式な金額は、30分の相談のあとにお出しします。</p>
-      </div>
-    </section>
-
-    <!-- 開発機能例：業務システムの実例（約30秒の全体デモ＋4機能。押すと大きく） -->
-    <section class="sec" id="system">
-      <div class="wrap">
-        <h2>開発機能例</h2>
-        <p class="catch"><span class="nb">経費を一度入れると、</span><span class="nb">損益も、出納帳も、</span><span class="nb">会計ソフトの</span><span class="nb">取込ファイルも出ます。</span></p>
-        <p class="sl">業務システムの開発の一例です。お客様の社名と画面は出せないので、同じシステムを、架空の会社「サンプル建設」とダミーデータで動かして撮りました。数字も社名も、すべて架空です。</p>
-        <div class="sys">
-          <div>
-            <div class="vf" data-demo data-title="経費システム（架空の会社「サンプル建設」）" data-src-webm="./assets/demo/demo-all.webm" data-src-mp4="./assets/demo/demo-all.mp4">
-              <div class="bar"><i></i><i></i><i></i><span class="t">経費システム（架空の会社「サンプル建設」）</span></div>
-              <div class="scr"><video muted playsinline loop preload="none" width="1600" height="900" poster="./assets/demo/shot-f1-dashboard-list.webp" aria-label="案件ごとの経費と利益、一般経費と現金出納帳、手書きの見積書の読み取り、会計ソフトへの出力を、続けて操作している画面">
-                <source src="./assets/demo/demo-all.webm" type="video/webm" />
-                <source src="./assets/demo/demo-all.mp4" type="video/mp4" />
-              </video></div>
-              <div class="ctls">
-                <button class="ctl" type="button" data-toggle aria-label="動画を再生する"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg><span>再生</span></button>
-                <button class="ctl" type="button" data-zoom aria-label="大きく見る"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h4v1.4H2.4V5H1zM7 1h4v4H9.6V2.4H7zM1 7h1.4v2.6H5V11H1zM9.6 7H11v4H7V9.6h2.6z"/></svg><span>拡大</span></button>
-              </div>
-            </div>
-            <p class="cap"><span>4つの機能を、同じシステムで続けて操作しています。</span><span>音声なし・約30秒</span></p>
-          </div>
-          <div class="feats">
-            <button class="feat" type="button" data-title="案件ごとの経費・利益管理" data-src-mp4="./assets/demo/feature-1.mp4" data-poster="./assets/demo/shot-f1-dashboard-cards.webp"><img src="./assets/demo/shot-f1-dashboard-cards.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>案件ごとの経費・利益管理</b><span>経費を入れると、案件の損益と原価率がその場で変わる</span></span></button>
-            <button class="feat" type="button" data-title="一般経費・現金出納帳" data-src-mp4="./assets/demo/feature-2.mp4" data-poster="./assets/demo/shot-f2-cashbook.webp"><img src="./assets/demo/shot-f2-cashbook.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>一般経費・現金出納帳</b><span>現金払いの分が、残高つきで出納帳に並ぶ</span></span></button>
-            <button class="feat" type="button" data-title="見積もり作成" data-src-mp4="./assets/demo/feature-3.mp4" data-poster="./assets/demo/shot-f3-quote-top.webp"><img src="./assets/demo/shot-f3-quote-top.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>見積もり作成</b><span>手書きの見積書を撮ると、清書のPDFまで出る</span></span></button>
-            <button class="feat" type="button" data-title="会計ソフト出力" data-src-mp4="./assets/demo/feature-4.mp4" data-poster="./assets/demo/shot-f4-slp.webp"><img src="./assets/demo/shot-f4-slp.webp" width="1280" height="720" alt="" loading="lazy" /><span><b>会計ソフト出力</b><span>期間を選ぶと、会計ソフトの取込ファイルが出る</span></span></button>
-            <p class="hint">押すと、操作の様子を大きく見られます。</p>
-            <a class="more" href="./construction/">この仕組みを詳しく読む（建設業向けのページ）</a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -662,7 +742,7 @@
         btn.querySelector('svg').innerHTML = playing ? PAUSE : PLAY;
       }
       var openFrame = null;
-      // f：動画の枠（.vf）か、4機能のボタン（.feat）。どちらも data-title／data-src-* を持つ
+      // f：動画の枠（.vf）。data-title／data-src-* を持つ
       function openLB(f) {
         openFrame = f;
         lbt.textContent = f.getAttribute('data-title') || '';
@@ -707,14 +787,29 @@
           });
         }, { threshold: [0, 0.5] }).observe(f);
       });
-      // 4機能のボタン：全体デモを止めて、その機能の操作動画を大きく見せる。閉じたら全体デモを戻す
-      var demo = document.querySelector('.vf[data-demo]');
-      document.querySelectorAll('.feat[data-src-mp4]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          if (demo && demo._pause) { demo._pause(); b._resume = demo._resume; }
-          openLB(b);
+      // 支援内容のデモ：画面に入ったら、吹き出しやカードを1つずつ出し、少し置いてから最初に戻す。
+      // 画面から外れたら止めて、全部見えている状態に戻す（動きを減らす設定では動かさない）
+      if (!reduce && 'IntersectionObserver' in window) {
+        document.documentElement.classList.add('play');
+        document.querySelectorAll('[data-demo-seq]').forEach(function (box) {
+          var steps = [].slice.call(box.querySelectorAll('[data-step]'));
+          var i = 0, timer = null, on = false;
+          function showAll() { steps.forEach(function (x) { x.classList.add('in'); }); }
+          function reset() { steps.forEach(function (x) { x.classList.remove('in'); }); i = 0; }
+          function tick() {
+            if (!on) return;
+            if (i < steps.length) { steps[i].classList.add('in'); i++; timer = setTimeout(tick, i === steps.length ? 3600 : 1100); }
+            else { reset(); timer = setTimeout(tick, 700); }
+          }
+          showAll();
+          new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting && e.intersectionRatio >= 0.45) { if (!on) { on = true; reset(); timer = setTimeout(tick, 300); } }
+              else if (on) { on = false; clearTimeout(timer); showAll(); }
+            });
+          }, { threshold: [0, 0.45] }).observe(box);
         });
-      });
+      }
     })();
   </script>
 </body>
