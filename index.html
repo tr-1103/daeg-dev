@@ -66,10 +66,17 @@
     .hero{padding:72px 0 24px}
     .hero-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:56px;align-items:center}
     .hero-text,.hero-media{min-width:0}
+    .hero-stage{position:relative;min-width:0}
+    .hero-stage>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);border-radius:14px;background:var(--mat)}
+    .hero-stage>.vf{position:absolute;right:18px;bottom:18px;width:72%;box-shadow:0 28px 58px rgba(22,32,27,.22)}
     .hero-media .cap{display:block;margin-top:14px;padding-inline:2px}
     .hero-media .cap span{display:block}
     .hero-media .cap span+span{margin-top:2px;color:var(--mute)}
     @media (max-width:960px){ .hero{padding:56px 0 8px} .hero-grid{grid-template-columns:1fr;gap:40px} }
+    @media (max-width:760px){
+      .hero-stage>img{border-radius:12px}
+      .hero-stage>.vf{position:relative;right:auto;bottom:auto;width:92%;margin:-64px 0 0 auto}
+    }
     .who{font-size:14.5px;color:var(--ink-sub);margin:0 0 26px}
     h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,3.7vw,52px);line-height:1.32;letter-spacing:.02em;margin:0}
     .sub{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.1vw,25px);color:var(--green);margin:22px 0 0;line-height:1.5}
@@ -262,7 +269,7 @@
   </header>
 
   <main>
-    <!-- 見出し：左に文、右に約30秒のデモ（無音の自動再生。クリックで大きく） -->
+    <!-- 見出し：左に文、右に建設会社の事務所写真と約30秒のデモ（無音の自動再生。クリックで大きく） -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-text">
@@ -276,15 +283,18 @@
           </div>
         </div>
         <div class="hero-media">
-          <div class="vf" data-demo data-title="経費システム（架空の会社「サンプル建設」）" data-src-webm="./assets/demo/demo-all.webm" data-src-mp4="./assets/demo/demo-all.mp4">
-            <div class="bar"><i></i><i></i><i></i><span class="t">経費システム（架空の会社「サンプル建設」）</span></div>
-            <div class="scr"><video muted playsinline loop preload="none" width="1600" height="900" poster="./assets/demo/shot-f1-dashboard-list.webp" aria-label="案件ごとの経費と利益、一般経費と現金出納帳、手書きの見積書の読み取り、会計ソフトへの出力を、続けて操作している画面">
-              <source src="./assets/demo/demo-all.webm" type="video/webm" />
-              <source src="./assets/demo/demo-all.mp4" type="video/mp4" />
-            </video></div>
-            <div class="ctls">
-              <button class="ctl" type="button" data-toggle aria-label="動画を一時停止する"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="3.5" height="10"/><rect x="7.5" y="1" width="3.5" height="10"/></svg><span>一時停止</span></button>
-              <button class="ctl" type="button" data-zoom aria-label="大きく見る"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h4v1.4H2.4V5H1zM7 1h4v4H9.6V2.4H7zM1 7h1.4v2.6H5V11H1zM9.6 7H11v4H7V9.6h2.6z"/></svg><span>拡大</span></button>
+          <div class="hero-stage">
+            <img data-hero-stage src="./assets/images/business/hero-stage.jpg" width="1536" height="1024" fetchpriority="high" decoding="async" alt="明るい建設会社の事務所。木の机に白いヘルメット、白紙の帳票、電卓と深緑のファイルが並び、窓の外に建設現場が見える" />
+            <div class="vf" data-demo data-title="経費システム（架空の会社「サンプル建設」）" data-src-webm="./assets/demo/demo-all.webm" data-src-mp4="./assets/demo/demo-all.mp4">
+              <div class="bar"><i></i><i></i><i></i><span class="t">経費システム（架空の会社「サンプル建設」）</span></div>
+              <div class="scr"><video muted playsinline loop preload="none" width="1600" height="900" poster="./assets/demo/shot-f1-dashboard-list.webp" aria-label="案件ごとの経費と利益、一般経費と現金出納帳、手書きの見積書の読み取り、会計ソフトへの出力を、続けて操作している画面">
+                <source src="./assets/demo/demo-all.webm" type="video/webm" />
+                <source src="./assets/demo/demo-all.mp4" type="video/mp4" />
+              </video></div>
+              <div class="ctls">
+                <button class="ctl" type="button" data-toggle aria-label="動画を一時停止する"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="3.5" height="10"/><rect x="7.5" y="1" width="3.5" height="10"/></svg><span>一時停止</span></button>
+                <button class="ctl" type="button" data-zoom aria-label="大きく見る"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h4v1.4H2.4V5H1zM7 1h4v4H9.6V2.4H7zM1 7h1.4v2.6H5V11H1zM9.6 7H11v4H7V9.6h2.6z"/></svg><span>拡大</span></button>
+              </div>
             </div>
           </div>
           <p class="cap"><span>案件ごとの経費と利益、一般経費と現金出納帳、見積書、会計ソフトへの出力。同じシステムで、続けて動きます。</span><span>架空の会社・ダミーデータで動かした実際の画面（音声なし・約30秒）</span></p>
