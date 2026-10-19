@@ -78,7 +78,12 @@
     .tlink{font-size:15px;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px}
     .tlink:hover{border-color:var(--green);color:var(--green-deep)}
 
-    /* 見出しの右：頼めることの模式画面を、展示台に寄せて並べる */
+    /* 見出しの右：5つの支援がひとつにつながる仕事環境 */
+    .hero-visual{margin:0;background:var(--mat);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 26px 58px rgba(22,32,27,.12)}
+    .hero-visual img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px}
+    @media (max-width:520px){.hero-visual{padding:7px;border-radius:12px}.hero-visual img{border-radius:8px}}
+
+    /* 頼めることの模式画面（支援内容の各デモでも使う） */
     .collage{background:var(--mat);border-radius:16px;padding:clamp(14px,2vw,24px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"line task" "line sys" "bot memo";grid-template-rows:auto 1fr auto;gap:clamp(10px,1.4vw,16px);align-items:start}
     .m{min-width:0;background:var(--screen);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px rgba(22,32,27,.10);overflow:hidden}
     .m-line{grid-area:line} .m-task{grid-area:task} .m-sys{grid-area:sys} .m-bot{grid-area:bot} .m-memo{grid-area:memo}
@@ -328,7 +333,7 @@
   </header>
 
   <main>
-    <!-- 見出し：左に文、右に「頼めること」の模式画面を展示台に寄せた1枚（画面はイメージ） -->
+    <!-- 見出し：左に文、右に5つの支援がひとつにつながる仕事環境 -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-text">
@@ -342,53 +347,10 @@
           </div>
         </div>
         <div class="hero-media">
-          <div class="collage" role="img" aria-label="頼めることの画面のイメージ。公式LINEの予約の自動応答、毎朝届く今日の3件、業務システムの案件ごとの粗利、チャットボットの受け答え、定例で決めたことのメモ">
-            <div class="m m-line" aria-hidden="true">
-              <div class="bar"><i></i><i></i><i></i><span class="t">公式LINE</span></div>
-              <div class="chat">
-                <div class="bub me">来週、予約をしたいです</div>
-                <div class="bub bot"><small>自動</small>ご希望の日を選んでください。<div class="chips" style="margin-top:6px"><span>10/23(木)</span><span>10/24(金)</span><span>10/25(土)</span></div></div>
-                <div class="bub me">10/24(金)</div>
-                <div class="bub bot"><small>自動</small>10/24(金) 14:00で承りました。前日にお知らせします。</div>
-              </div>
-            </div>
-            <div class="m m-task" aria-hidden="true">
-              <div class="bar"><i></i><i></i><i></i><span class="t">今日の3件</span></div>
-              <ol class="todo">
-                <li><span class="tx">見積書をA社へ送る</span></li>
-                <li><span class="tx">Bさんに面談の日程を返す <small>LINEから</small></span></li>
-                <li><span class="tx">今月の請求書を出す</span></li>
-              </ol>
-            </div>
-            <div class="m m-sys" aria-hidden="true">
-              <div class="bar"><i></i><i></i><i></i><span class="t">業務システム</span></div>
-              <table>
-                <tr><th>案件</th><th class="r">粗利</th></tr>
-                <tr><td>A邸 改修</td><td class="r up">+312,000</td></tr>
-                <tr><td>B店 内装</td><td class="r up">+86,400</td></tr>
-                <tr><td>C社 設備</td><td class="r dn">−24,000</td></tr>
-              </table>
-            </div>
-            <div class="m m-bot" aria-hidden="true">
-              <div class="bar"><i></i><i></i><i></i><span class="t">チャットボット</span></div>
-              <div class="chat">
-                <div class="bub me">駐車場はありますか？</div>
-                <div class="bub bot"><small>自動</small>店の裏に3台分あります。</div>
-              </div>
-            </div>
-            <div class="m m-memo" aria-hidden="true">
-              <div class="bar"><i></i><i></i><i></i><span class="t">定例のメモ</span></div>
-              <div class="memo">
-                <p class="h">今週決めたこと</p>
-                <ul>
-                  <li><span>問い合わせの返事</span><b>AI</b></li>
-                  <li><span>請求と入金の確認</span><b>仕組み</b></li>
-                  <li><span>初回の面談</span><b class="p">人</b></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <p class="cap"><span>頼めることの一例です。</span><span>画面はイメージです（名前・数字は架空）</span></p>
+          <figure class="hero-visual">
+            <img data-hero-stage src="./assets/images/business/hero-connected-work.jpg" width="1536" height="1024" alt="公式LINE、チャットボット、業務システム、AI秘書、個別相談がひとつにつながる仕事環境のイメージ" fetchpriority="high" decoding="async" />
+          </figure>
+          <p class="cap"><span>ばらばらの仕事を、ひとつの仕組みへ。</span><span>画像はサービス全体のイメージです</span></p>
         </div>
       </div>
     </section>
