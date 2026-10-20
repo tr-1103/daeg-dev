@@ -69,13 +69,21 @@
     .hero-bg img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
     .hero-grid{position:relative;z-index:1;width:100%;padding-block:82px}
     .hero-text{max-width:520px;min-width:0}
-    @media (max-width:960px){
+    .hero .lead{max-width:25em}
+    /* 見出しの文字が最大（50px）になる幅から、1行に「AIに任せる働き方へ。」が収まるよう、文の列を少し広げる（説明文は25emのまま） */
+    @media (min-width:1390px){ .hero-text{max-width:560px} }
+    /* 1600pxより広い画面：画像を右に寄せて幅を1600pxで止め、左端をぼかす（被写体が見出しの側へ寄ってこないように） */
+    @media (min-width:1601px){
+      .hero-bg{left:auto;right:0;width:1600px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+    }
+    @media (max-width:1099px){
       .hero{align-items:start;min-height:900px}
       .hero::after{background:linear-gradient(180deg,rgba(251,251,248,1) 0%,rgba(251,251,248,1) 46%,rgba(251,251,248,.9) 54%,rgba(251,251,248,.2) 69%,rgba(251,251,248,0) 82%)}
       .hero-bg{inset:auto 0 0;height:52%}
       .hero-bg img{object-position:68% center}
       .hero-grid{padding-top:54px;padding-bottom:440px}
       .hero-text{max-width:650px}
+      .hero .lead{max-width:36em}
     }
     @media (max-width:520px){
       .hero{min-height:850px}
@@ -380,7 +388,7 @@
       <div class="wrap">
         <h2>支援内容</h2>
         <p class="catch"><span class="nb">いまの仕事に合わせて、</span><span class="nb">5つの形で</span><span class="nb">お手伝いします。</span></p>
-        <p class="sl">どれが合うか分からなくても大丈夫です。困っている仕事を1つ教えていただければ、30分の相談で、合う形をお伝えします。右側の画面は、業務システム以外はイメージです（名前・数字は架空）。</p>
+        <p class="sl">どれが合うか分からなくても大丈夫です。困っている仕事を1つ教えていただければ、30分の相談で、合う形をお伝えします。画面は、業務システム以外はイメージです（名前・数字は架空）。</p>
         <div class="svc">
           <article id="svc-line">
             <div class="txt">
